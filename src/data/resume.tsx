@@ -163,5 +163,28 @@ export const DATA = {
         "https://mlafrica.org/wp-content/uploads/2026/02/Enregistrement-de-lecran-2026-02-26-a-13.36.20.mov",
     },
   ],
-  hackathons: [],
+  hackathons: [
+    {
+      title: "QHacks II",
+      dates: "February 3rd - 5th, 2017",
+      location: "Kingston, Ontario",
+      description:
+        "Developed a mobile game which enables city-wide manhunt with random lobbies",
+      image:
+        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/qhacks.png",
+      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg",
+      links: [
+        {
+          title: "Source (Mobile)",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/dillionverma/human-huntr-react-native",
+        },
+        {
+          title: "Source (API)",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/mattBlackDesign/human-huntr-rails",
+        },
+      ],
+    },
+  ],
 } as const;
