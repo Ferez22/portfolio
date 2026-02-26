@@ -33,11 +33,18 @@ export default function ContactSection() {
           >
             with a direct question on twitter
           </Link>{" "}
-          and I&apos;ll respond whenever I can. I will ignore all
-          soliciting.
+          or{" "}
+          <Link
+            href={DATA.contact.social.LinkedIn.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+          >
+            on LinkedIn
+          </Link>{" "}
+          and I&apos;ll respond whenever I can. I will ignore all soliciting.
         </p>
       </div>
     </div>
   );
 }
-
