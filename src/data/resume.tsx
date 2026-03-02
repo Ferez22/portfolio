@@ -146,11 +146,17 @@ export const DATA = {
     {
       title: "AMLD Africa Tech Infrastructure",
       href: "https://fe-amld-website.vercel.app/",
-      dates: "Jul 2025 - Present",
+      dates: "Jan 2026 - Present",
       active: true,
       description:
         "As I joined AMLD Africa in July 2025, I dedicated myself to building a robust infrastrcuture to not only have a good external image and presence but also to facilitate the team's work in generating the agenda for the event, generating certificates of attendees etc..",
-      technologies: ["Next.js", "Typescript", "TailwindCSS", "Shadcn UI"],
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Supabase",
+      ],
       links: [
         {
           type: "Website",
@@ -161,6 +167,25 @@ export const DATA = {
       image: "",
       video:
         "https://mlafrica.org/wp-content/uploads/2026/02/Enregistrement-de-lecran-2026-02-26-a-13.36.20.mov",
+    },
+    {
+      title: "AMLD Africa: Automations",
+      href: "https://fe-amld-website.vercel.app/",
+      dates: "Oct 2025 - Present",
+      active: true,
+      description:
+        "Some of the automations I built for AMLD Africa include generating speaker application documents for reviewers to review, generating certificates of attendees, and sending informational emails to attendees.",
+      technologies: ["Make"],
+      links: [
+        {
+          type: "Website",
+          href: "https://fe-amld-website.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video:
+        "https://mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
     },
   ],
   hackathons: [
