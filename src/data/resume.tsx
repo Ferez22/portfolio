@@ -105,7 +105,7 @@ export const DATA = {
       start: "May 2023",
       end: "Present",
       description:
-        "Build almost from ground up our company wide extended Chatbot solution. Shipping features and good vibes.",
+        "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure using App Insights and Bicep. Build almost from ground up our company wide extended Chatbot solution. Shipping features and good vibes",
     },
     {
       company: "Adesso Gmbh",
@@ -117,7 +117,7 @@ export const DATA = {
       start: "Sep 2022",
       end: "Jan 2023",
       description:
-        "Build almost from ground up our company wide extended Chatbot solution. Shipping features and good vibes.",
+        "Adesso is a leading German IT consulting company. • Led the development of a Parking Monitor for multiple Adesso parking locations across Germany • Ensured end-to-end delivery of a full-stack and IoT solution as Team Lead, following agile methodologies • Frontend angular, backend NodeRed and Arduino code for the Ultrasound sensors • Used an MQTT to trigger changes in the database and on the webUI",
     },
     {
       company: "Datalog Finance",
@@ -129,7 +129,7 @@ export const DATA = {
       start: "Feb 2021",
       end: "Dec 2021",
       description:
-        "Build almost from ground up our company wide extended Chatbot solution. Shipping features and good vibes.",
+        "My role at Datalog was to re-design the company's TMS (Treasury Managemen System). I was using HTML, CSS and Javascript to build the new UI.",
     },
   ],
   education: [
