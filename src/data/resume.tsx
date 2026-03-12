@@ -175,7 +175,7 @@ export const DATA = {
       active: true,
       description:
         "Some of the automations I built for AMLD Africa include generating speaker application documents for reviewers to review, generating certificates of attendees, and sending informational emails to attendees.",
-      technologies: ["Make"],
+      technologies: ["Make", "Notion", "Microsoft Outlook", "Google drive"],
       links: [
         {
           type: "Website",
