@@ -187,6 +187,25 @@ export const DATA = {
       video:
         "https://mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
     },
+    {
+      title: "Hannibal's Army Trip planner",
+      href: "",
+      dates: "March 2026",
+      active: true,
+      description:
+        "Hannibal's Army Trip Planner is an intelligent trip organiser companion that uses advanced algorithms to match users with perfect destinations based on their preferences, budget, and travel style through both a beautiful terminal interface and AI-powered chat system.",
+      technologies: [
+        "Python",
+        "Langchain",
+        "Langgraph",
+        "Ollama",
+        "MCP",
+        "Pandas",
+      ],
+      image: "",
+      video:
+        "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-19-a-12.42.34.mov",
+    },
   ],
   hackathons: [
     {
