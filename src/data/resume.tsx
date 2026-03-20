@@ -202,6 +202,13 @@ export const DATA = {
         "MCP",
         "Pandas",
       ],
+      links: [
+        {
+          type: "Website",
+          href: "https://fe-amld-website.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
       image: "",
       video:
         "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-19-a-12.42.34.mov",
