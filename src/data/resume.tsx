@@ -205,7 +205,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://fe-amld-website.vercel.app/",
+          href: "https://github.com/Ferez22/hannibals-army",
           icon: <Icons.globe className="size-3" />,
         },
       ],
