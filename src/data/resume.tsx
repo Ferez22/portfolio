@@ -193,7 +193,7 @@ export const DATA = {
       dates: "March 2026",
       active: true,
       description:
-        "Hannibal's Army Trip Planner is an intelligent trip organiser companion that uses advanced algorithms to match users with perfect destinations based on their preferences, budget, and travel style through both a beautiful terminal interface and AI-powered chat system.",
+        "Hannibal's Army is at the current state a trip Planner is an intelligent trip organiser companion that uses advanced algorithms to match users with perfect destinations based on their preferences, budget, and travel style through both a beautiful terminal interface and AI-powered chat system.",
       technologies: [
         "Python",
         "Langchain",
