@@ -166,7 +166,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://mlafrica.org/wp-content/uploads/2026/02/Enregistrement-de-lecran-2026-02-26-a-13.36.20.mov",
+        "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-22-a-20.40.12.mov",
     },
     {
       title: "AMLD Africa: Automations",
