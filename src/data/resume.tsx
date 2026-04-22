@@ -144,6 +144,32 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Hannibal's Army Multi-Agent system",
+      href: "",
+      dates: "March 2026",
+      active: true,
+      description:
+        "Hannibal's Army is at the current state an Agent trip Planner is an intelligent trip organiser companion that uses advanced algorithms to match users with perfect destinations based on their preferences, budget, and travel style through both a beautiful terminal interface and AI-powered chat system.",
+      technologies: [
+        "Python",
+        "Langchain",
+        "Langgraph",
+        "Ollama",
+        "MCP",
+        "Pandas",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://github.com/Ferez22/hannibals-army",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video:
+        "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-19-a-12.42.34.mov",
+    },
+    {
       title: "AMLD Africa Tech Infrastructure",
       href: "https://fe-amld-website.vercel.app/",
       dates: "Jan 2026 - Present",
@@ -186,32 +212,6 @@ export const DATA = {
       image: "",
       video:
         "https://mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
-    },
-    {
-      title: "Hannibal's Army Trip planner",
-      href: "",
-      dates: "March 2026",
-      active: true,
-      description:
-        "Hannibal's Army is at the current state a trip Planner is an intelligent trip organiser companion that uses advanced algorithms to match users with perfect destinations based on their preferences, budget, and travel style through both a beautiful terminal interface and AI-powered chat system.",
-      technologies: [
-        "Python",
-        "Langchain",
-        "Langgraph",
-        "Ollama",
-        "MCP",
-        "Pandas",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://github.com/Ferez22/hannibals-army",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-19-a-12.42.34.mov",
     },
   ],
   hackathons: [
