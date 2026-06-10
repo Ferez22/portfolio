@@ -144,6 +144,23 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Guitar Practice Companion",
+      href: "",
+      dates: "Mai 2026",
+      active: true,
+      description:
+        "I started learning to play guitar a couple of months ago and I quickly understood that staritng with learning chords is a good way to start playing fast. But finding chords and visually understanding how to play them is not as easy as one thinks, so I decided to build a tool that detects which chords you are playing (using tensor flow and audio recognition) and visually display which chords you are striking. Furthermore, there is a tab with many different chords and their visualisation so that you can start practicing right away.",
+      technologies: ["Python", "Tensorflow"],
+      links: [
+        {
+          type: "Website",
+          href: "https://learn-guitarre.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "guitar.png",
+    },
+    {
       title: "Hannibal's Army Multi-Agent system",
       href: "",
       dates: "March 2026",
