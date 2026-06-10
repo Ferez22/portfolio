@@ -16,7 +16,7 @@ export const DATA = {
   location: "Düsseldorf, Germany",
   locationLink: "https://www.google.com/maps/place/Düsseldorf",
   description:
-    "I'm a software engineer with a passion for building things and helping people. I love learning new things and sharing my knowledge with others.",
+    "I'm a software engineer with a passion for building things that are helpful. I learn new things constantly to stay up to date with Tech and I love to share my knowledge with others.",
   summary:
     "Creative and driven software engineer with a passion for building things and helping people. I thrive in fast-paced, international environments and have a strong interest in technology consulting and digital transformation. Beside technology, I am very sports and music affine. I play tennis at a amateur pro level and I produce electronic music.",
   avatarUrl: "/me.jpg",
@@ -63,6 +63,12 @@ export const DATA = {
         name: "Youtube",
         url: "https://www.youtube.com/@ferez_",
         icon: Icons.youtube,
+        navbar: true,
+      },
+      Soundcloud: {
+        name: "Soundcloud",
+        url: "https://soundcloud.com/ferez-197925187_",
+        icon: Icons.soundcloud,
         navbar: true,
       },
       email: {
