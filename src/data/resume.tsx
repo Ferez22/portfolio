@@ -186,7 +186,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://fe-amld-website.vercel.app/",
+          href: "https://www.mlafrica.org",
           icon: <Icons.globe className="size-3" />,
         },
       ],
