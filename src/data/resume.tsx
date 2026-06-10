@@ -87,7 +87,7 @@ export const DATA = {
   nonProfitWork: [
     {
       name: "AMLD Africa",
-      href: "https://fe-amld-website.vercel.app/",
+      href: "https://www.mlafrica.org",
       logoUrl: "/amld.png",
       date: "July 2025",
       description:
