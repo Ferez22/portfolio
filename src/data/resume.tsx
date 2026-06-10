@@ -167,11 +167,11 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-19-a-12.42.34.mov",
+        "https://old.mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-19-a-12.42.34.mov",
     },
     {
       title: "AMLD Africa Tech Infrastructure",
-      href: "https://fe-amld-website.vercel.app/",
+      href: "https://www.mlafrica.org",
       dates: "Jan 2026 - Present",
       active: true,
       description:
@@ -192,11 +192,11 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-22-a-20.40.12.mov",
+        "https://old.mlafrica.org/wp-content/uploads/2026/03/Enregistrement-de-lecran-2026-03-22-a-20.40.12.mov",
     },
     {
       title: "AMLD Africa: Automations",
-      href: "https://fe-amld-website.vercel.app/",
+      href: "https://www.mlafrica.org/",
       dates: "Oct 2025 - Present",
       active: true,
       description:
@@ -205,13 +205,13 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://fe-amld-website.vercel.app/",
+          href: "https://www.mlafrica.org/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
       video:
-        "https://mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
+        "https://old.mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
     },
   ],
   hackathons: [
