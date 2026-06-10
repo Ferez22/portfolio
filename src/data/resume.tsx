@@ -16,9 +16,9 @@ export const DATA = {
   location: "Düsseldorf, Germany",
   locationLink: "https://www.google.com/maps/place/Düsseldorf",
   description:
-    "I'm a software engineer with a passion for building things that are helpful. I learn new things constantly to stay up to date with Tech and I love to share my knowledge with others.",
+    "I'm a software engineer with a passion for building things that are genuinely helpful. I'm constantly learning to stay on top of where tech is heading, and I love sharing what I know along the way.",
   summary:
-    "Creative and driven software engineer with a passion for building things and helping people. I thrive in fast-paced, international environments and have a strong interest in technology consulting and digital transformation. Beside technology, I am very sports and music affine. I play tennis at a amateur pro level and I produce electronic music.",
+    "Creative and driven software engineer with a passion for building things and helping people. I thrive in fast-paced, international environments and have a strong interest in technology consulting and digital transformation. Beyond tech, I'm just as into sports and music: I play tennis at a competitive amateur level and produce electronic music.",
   avatarUrl: "/me.jpg",
   skills: [
     { name: "Azure", icon: Azure },
@@ -35,8 +35,8 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "fares.aouani@proton.me",
+    tel: "",
     social: {
       GitHub: {
         name: "GitHub",
@@ -67,13 +67,13 @@ export const DATA = {
       },
       Soundcloud: {
         name: "Soundcloud",
-        url: "https://soundcloud.com/ferez-197925187_",
+        url: "https://soundcloud.com/ferez-197925187",
         icon: Icons.soundcloud,
         navbar: true,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:fares.aouani@proton.me",
         icon: Icons.email,
 
         navbar: false,
@@ -82,7 +82,7 @@ export const DATA = {
   },
   certifications: [
     {
-      name: "Microsoft Certified: Azure Developper Associate",
+      name: "Microsoft Certified: Azure Developer Associate",
       href: "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/?practice-assessment-type=certification",
       logoUrl: "/az204.png",
       date: "March 2025",
@@ -111,14 +111,14 @@ export const DATA = {
       start: "May 2023",
       end: "Present",
       description:
-        "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure using App Insights and Bicep. Build almost from ground up our company wide extended Chatbot solution. Shipping features and good vibes",
+        "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Built our company-wide AI chatbot almost from the ground up, now serving 3,000+ employees across 13 locations in 3+ countries, backed by 50+ knowledge bases. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure with App Insights and Bicep. Shipping features and good vibes.",
     },
     {
       company: "Adesso Gmbh",
       href: "https://adesso.com/",
       badges: [],
       location: "Düsseldorf, Germany",
-      title: "Internship: Team Lead & Fullstack Developer ",
+      title: "Internship: Team Lead & Fullstack Developer",
       logoUrl: "/adesso.png",
       start: "Sep 2022",
       end: "Jan 2023",
@@ -135,7 +135,7 @@ export const DATA = {
       start: "Feb 2021",
       end: "Dec 2021",
       description:
-        "My role at Datalog was to re-design the company's TMS (Treasury Managemen System). I was using HTML, CSS and Javascript to build the new UI.",
+        "Redesigned the company's TMS (Treasury Management System) UI from the ground up, building the new interface with HTML, CSS and JavaScript.",
     },
   ],
   education: [
@@ -152,10 +152,10 @@ export const DATA = {
     {
       title: "Guitar Practice Companion",
       href: "",
-      dates: "Mai 2026",
+      dates: "May 2026",
       active: true,
       description:
-        "I started learning to play guitar a couple of months ago and I quickly understood that staritng with learning chords is a good way to start playing fast. But finding chords and visually understanding how to play them is not as easy as one thinks, so I decided to build a tool that detects which chords you are playing (using tensor flow and audio recognition) and visually display which chords you are striking. Furthermore, there is a tab with many different chords and their visualisation so that you can start practicing right away.",
+        "I started learning guitar a few months ago and quickly realized that learning chords first is the fastest path to playing real songs. But finding chords and understanding how to fret them isn't easy — so I built a tool that detects the chords you play in real time (TensorFlow + audio recognition) and visually shows you what you're striking. It also includes a library of chords with visualizations so you can start practicing right away.",
       technologies: ["Python", "Tensorflow"],
       links: [
         {
@@ -173,7 +173,7 @@ export const DATA = {
       dates: "March 2026",
       active: true,
       description:
-        "Hannibal's Army is at the current state an Agent trip Planner is an intelligent trip organiser companion that uses advanced algorithms to match users with perfect destinations based on their preferences, budget, and travel style through both a beautiful terminal interface and AI-powered chat system.",
+        "A multi-agent trip planner that matches users with their perfect destination based on preferences, budget, and travel style. Built on LangGraph and local LLMs via Ollama, it pairs a polished terminal interface with an AI-powered chat system to organize trips end to end.",
       technologies: [
         "Python",
         "Langchain",
@@ -199,7 +199,7 @@ export const DATA = {
       dates: "Jan 2026 - Present",
       active: true,
       description:
-        "As I joined AMLD Africa in July 2025, I dedicated myself to building a robust infrastrcuture to not only have a good external image and presence but also to facilitate the team's work in generating the agenda for the event, generating certificates of attendees etc..",
+        "Since joining AMLD Africa in July 2025, I built robust infrastructure that powers both the organization's public presence and its internal operations — supporting an event that reached 3,000+ attendees onsite, online, and through ambassador broadcasts. The platform streamlines agenda generation, certificate issuance, and the team's day-to-day workflows.",
       technologies: [
         "Next.js",
         "Typescript",
@@ -223,7 +223,7 @@ export const DATA = {
       dates: "Oct 2025 - Present",
       active: true,
       description:
-        "Some of the automations I built for AMLD Africa include generating speaker application documents for reviewers to review, generating certificates of attendees, and sending informational emails to attendees.",
+        "Automations I built for AMLD Africa: anonymized speaker applications for fair, bias-free reviewer scoring; an automated certificate pipeline that generated 1,400 attendee certificates; and informational email campaigns to attendees — saving the team countless manual hours.",
       technologies: ["Make", "Notion", "Microsoft Outlook", "Google drive"],
       links: [
         {
