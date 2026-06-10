@@ -159,6 +159,7 @@ export const DATA = {
         },
       ],
       image: "guitar.png",
+      video: "",
     },
     {
       title: "Hannibal's Army Multi-Agent system",
@@ -208,6 +209,7 @@ export const DATA = {
         },
       ],
       image: "amldwebsite.png",
+      video: "",
     },
     {
       title: "AMLD Africa: Automations",
@@ -224,7 +226,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-
+      image: "",
       video:
         "https://old.mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
     },
