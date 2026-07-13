@@ -31,16 +31,16 @@ export default function ContactSection() {
             rel="noopener noreferrer"
             className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
           >
-            with a direct question on twitter
+            with a direct question on LinkedIn
           </Link>{" "}
-          or{" "}
+          or visit the{" "}
           <Link
-            href={DATA.contact.social.LinkedIn.url}
+            href="/contact"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
           >
-            on LinkedIn
+            contact page
           </Link>{" "}
           and I&apos;ll respond whenever I can. I will ignore all soliciting.
         </p>

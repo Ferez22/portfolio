@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { Contact, HomeIcon, NotebookIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
 import { Typescript } from "@/components/ui/svgs/typescript";
@@ -33,23 +33,24 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/contact", icon: Contact, label: "Contact" },
   ],
   contact: {
     email: "fares.aouani@proton.me",
     tel: "",
+    calendlyUrl: "https://calendly.com/fares-aouani-proton/30min",
     social: {
-      GitHub: {
-        name: "GitHub",
-        url: "https://github.com/Ferez22",
-        icon: Icons.github,
-        navbar: true,
-      },
-
       LinkedIn: {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/fares-aouani-cherif",
         icon: Icons.linkedin,
 
+        navbar: true,
+      },
+      GitHub: {
+        name: "GitHub",
+        url: "https://github.com/Ferez22",
+        icon: Icons.github,
         navbar: true,
       },
       X: {
@@ -111,7 +112,7 @@ export const DATA = {
       start: "May 2023",
       end: "Present",
       description:
-        "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Built our company-wide AI chatbot almost from the ground up, now serving 3,000+ employees across 13 locations in 3+ countries, backed by 50+ knowledge bases. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure with App Insights and Bicep. Shipping features and good vibes.",
+        "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Two main projects I have worked on: a document generator and a company-wide AI chatbot. Build from the ground up, now serving 2,000+ employees across 13 locations in 3+ countries, backed by 50+ knowledge bases. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure. Shipping features and good vibes.",
     },
     {
       company: "Adesso Gmbh",
@@ -149,6 +150,24 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "SaaS: Invoice Generator",
+      href: "",
+      dates: "July 2026",
+      active: true,
+      description:
+        "Are you a freelancer or a small business who needs to generate invoices fast? This is your tool.",
+      technologies: ["Typescript"],
+      links: [
+        {
+          type: "Website",
+          href: "https://wwwquick-insight.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "invova.png",
+      video: "",
+    },
     {
       title: "Guitar Practice Companion",
       href: "",
