@@ -103,6 +103,18 @@ export const DATA = {
   ],
   work: [
     {
+      company: "STE Qartmina",
+      href: "https://qartmina.com/",
+      badges: ["Tech"],
+      location: "Online",
+      title: "Managing Partner",
+      logoUrl: "/forvismazars.png",
+      start: "October 2026",
+      end: "Present",
+      description:
+        "STE Qartmina is a tech startup that provides innovative solutions for the tech industry. As Managing Partner, I am responsible for the overall strategy and direction of the company. We mainly offer Consulting in Technology and AI, helping businesses gain back execution time, by finding use cases for automation and AI in their employees daily workflow.",
+    },
+    {
       company: "Forvis Mazars Gmbh",
       href: "https://forvismazars.com/",
       badges: [],
