@@ -161,7 +161,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://wwwquick-insight.com",
+          href: "https://invova.app",
           icon: <Icons.globe className="size-3" />,
         },
       ],
