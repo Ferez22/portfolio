@@ -108,7 +108,7 @@ export const DATA = {
       badges: ["Tech"],
       location: "Online",
       title: "Managing Partner",
-      logoUrl: "/forvismazars.png",
+      logoUrl: "",
       start: "October 2026",
       end: "Present",
       description:
