@@ -108,7 +108,7 @@ export const DATA = {
       badges: ["Tech"],
       location: "Online",
       title: "Managing Partner",
-      logoUrl: "",
+      logoUrl: "/Qartmina Logo main.png",
       start: "October 2026",
       end: "Present",
       description:
