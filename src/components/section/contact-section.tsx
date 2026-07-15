@@ -1,49 +1,171 @@
-import Link from "next/link";
+import BlurFade from "@/components/magicui/blur-fade";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import {
+  BookCallButton,
+  CopyEmailButton,
+} from "@/components/contact/contact-actions";
 import { DATA } from "@/data/resume";
+import Link from "next/link";
+import { ArrowUpRight, Clock, MapPin, Mail } from "lucide-react";
+
+const BLUR_FADE_DELAY = 0.04;
 
 export default function ContactSection() {
+  const socials = Object.entries(DATA.contact.social).filter(
+    ([, s]) => s.navbar
+  );
+
   return (
-    <div className="border rounded-xl p-10 relative">
-      <div className="absolute -top-4 border bg-primary z-10 rounded-xl px-4 py-1 left-1/2 -translate-x-1/2">
-        <span className="text-background text-sm font-medium">Contact</span>
+    <div className="flex flex-col gap-12 sm:gap-16">
+      {/* Hero */}
+      <div>
+        <div className="flex flex-col gap-4">
+          <BlurFadeText
+            delay={BLUR_FADE_DELAY}
+            className="font-hand text-xl sm:text-2xl text-amber-800/80 dark:text-amber-300/80 font-semibold"
+            text="Let's talk"
+          />
+          <BlurFadeText
+            delay={BLUR_FADE_DELAY * 1.5}
+            yOffset={8}
+            className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-balance bg-linear-to-br from-foreground via-foreground to-amber-950/80 dark:to-amber-200/90 bg-clip-text text-transparent"
+            text="Let's build something good"
+          />
+          <BlurFade delay={BLUR_FADE_DELAY * 2.5}>
+            <p className="font-sans text-lg leading-relaxed text-muted-foreground max-w-xl text-pretty">
+              Have a project, a role, or an idea you want to bounce around? I&apos;m
+              always up for a good conversation — whether it&apos;s building AI
+              products, shipping web apps, or just talking shop.
+            </p>
+          </BlurFade>
+        </div>
       </div>
-      <div className="absolute inset-0 top-0 left-0 right-0 h-1/2 rounded-xl overflow-hidden">
-        <FlickeringGrid
-          className="h-full w-full"
-          squareSize={2}
-          gridGap={2}
-          style={{
-            maskImage: "linear-gradient(to bottom, black, transparent)",
-            WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
-          }}
-        />
+
+      {/* Primary CTA — book a call */}
+      <div>
+        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-card/60 p-8 sm:p-10">
+            <div className="pointer-events-none absolute inset-0 top-0 h-2/3 opacity-[0.5] dark:opacity-[0.35]">
+              <FlickeringGrid
+                className="h-full w-full"
+                color="oklch(0.45 0.07 55 / 0.18)"
+                squareSize={2}
+                gridGap={2}
+                style={{
+                  maskImage: "linear-gradient(to bottom, black, transparent)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, black, transparent)",
+                }}
+              />
+            </div>
+            <div className="relative flex flex-col gap-5">
+              <div className="flex flex-col gap-2">
+                <span className="font-tech text-xs font-bold uppercase tracking-widest text-amber-800/70 dark:text-amber-300/70">
+                  The fastest way
+                </span>
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight">
+                  Grab a coffee chat
+                </h2>
+                <p className="font-sans text-muted-foreground max-w-md text-pretty">
+                  A free 30-minute call — no pitch, no pressure. Just pick a slot
+                  that works for you and we&apos;ll take it from there.
+                </p>
+              </div>
+              <div>
+                <BookCallButton url={DATA.contact.calendlyUrl} />
+              </div>
+            </div>
+          </div>
+        </BlurFade>
       </div>
-      <div className="relative flex flex-col items-center gap-4 text-center">
-        <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">
-          Get in Touch
-        </h2>
-        <p className="mx-auto max-w-lg text-muted-foreground text-balance">
-          Want to chat? Just shoot me a dm{" "}
-          <Link
-            href={DATA.contact.social.X.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            with a direct question on LinkedIn
-          </Link>{" "}
-          or visit the{" "}
-          <Link
-            href="/contact"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            contact page
-          </Link>{" "}
-          and I&apos;ll respond whenever I can. I will ignore all soliciting.
-        </p>
+
+      {/* Secondary — email */}
+      <div>
+        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card/40 p-6 sm:p-8">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-background ring-2 ring-border">
+                  <Mail className="size-4 text-muted-foreground" aria-hidden />
+                </div>
+                <div className="flex flex-col gap-0.5 min-w-0">
+                  <span className="font-heading text-base font-bold">
+                    Prefer to write?
+                  </span>
+                  <a
+                    href={`mailto:${DATA.contact.email}`}
+                    className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                  >
+                    {DATA.contact.email}
+                  </a>
+                </div>
+              </div>
+              <CopyEmailButton email={DATA.contact.email} />
+            </div>
+            <a
+              href={`mailto:${DATA.contact.email}`}
+              className="group inline-flex items-center gap-1 font-tech text-xs font-bold uppercase tracking-wider text-amber-800/80 dark:text-amber-300/80 hover:text-foreground transition-colors w-fit"
+            >
+              Send an email
+              <ArrowUpRight
+                className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden
+              />
+            </a>
+          </div>
+        </BlurFade>
+      </div>
+
+      {/* Socials */}
+      <div>
+        <div className="flex flex-col gap-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+            <h2 className="font-heading text-xl font-bold tracking-wide">
+              Find me elsewhere
+            </h2>
+          </BlurFade>
+          <div className="flex flex-wrap gap-2">
+            {socials.map(([name, social], id) => {
+              const Icon = social.icon;
+              return (
+                <BlurFade key={name} delay={BLUR_FADE_DELAY * 6 + id * 0.05}>
+                  <Link
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2 rounded-lg border border-border bg-card/80 ring-1 ring-amber-950/5 dark:ring-amber-200/10 px-3 py-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:ring-amber-800/15 dark:hover:ring-amber-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <Icon className="size-4 object-contain opacity-90" />
+                    <span className="font-tech text-xs font-bold uppercase tracking-wider text-foreground">
+                      {name}
+                    </span>
+                    <ArrowUpRight
+                      className="size-3 text-muted-foreground opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
+                      aria-hidden
+                    />
+                  </Link>
+                </BlurFade>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Trust line */}
+      <div>
+        <BlurFade delay={BLUR_FADE_DELAY * 8}>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground border-t border-border/60 pt-6">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="size-3.5" aria-hidden />
+              {DATA.location} · CET
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="size-3.5" aria-hidden />
+              Usually replies within a day
+            </span>
+          </div>
+        </BlurFade>
       </div>
     </div>
   );
