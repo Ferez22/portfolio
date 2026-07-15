@@ -10,10 +10,19 @@ import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
+import { isLocale, defaultLocale, t } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default function Page() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang: raw } = await params;
+  const lang = isLocale(raw) ? raw : defaultLocale;
+  const dict = getDictionary(lang);
   return (
     <main className="min-h-dvh flex flex-col gap-16 sm:gap-20 relative">
       <section id="hero">
@@ -24,12 +33,12 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-medium tracking-tight text-balance bg-linear-to-br from-foreground via-foreground to-amber-950/80 dark:to-amber-200/90 bg-clip-text text-transparent"
                 yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
+                text={`${dict.hero.greeting} ${DATA.name.split(" ")[0]}`}
               />
               <BlurFadeText
                 className="font-hand text-xl sm:text-2xl md:text-[1.65rem] leading-snug text-muted-foreground max-w-[600px] font-medium"
                 delay={BLUR_FADE_DELAY * 1.2}
-                text={DATA.description}
+                text={t(DATA.description, lang)}
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2 shrink-0">
@@ -45,12 +54,12 @@ export default function Page() {
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide text-foreground">
-              About
+              {dict.sections.about}
             </h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-              <Markdown>{DATA.summary}</Markdown>
+              <Markdown>{t(DATA.summary, lang)}</Markdown>
             </div>
           </BlurFade>
         </div>
@@ -60,7 +69,7 @@ export default function Page() {
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide">
-              Certifications
+              {dict.sections.certifications}
             </h2>
           </BlurFade>
           <div className="flex flex-col gap-8">
@@ -111,7 +120,7 @@ export default function Page() {
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide">
-              Non-Profit Work
+              {dict.sections.nonProfit}
             </h2>
           </BlurFade>
           <div className="flex flex-col gap-8">
@@ -145,7 +154,7 @@ export default function Page() {
                         />
                       </div>
                       <div className="font-sans text-sm text-muted-foreground">
-                        {nonProfitWork.description}
+                        {t(nonProfitWork.description, lang)}
                       </div>
                     </div>
                   </div>
@@ -162,11 +171,11 @@ export default function Page() {
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide">
-              Work Experience
+              {dict.sections.work}
             </h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <WorkSection />
+            <WorkSection lang={lang} dict={dict} />
           </BlurFade>
         </div>
       </section>
@@ -174,7 +183,7 @@ export default function Page() {
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide">
-              Education
+              {dict.sections.education}
             </h2>
           </BlurFade>
           <div className="flex flex-col gap-8">
@@ -227,7 +236,7 @@ export default function Page() {
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide">
-              Skills
+              {dict.sections.skills}
             </h2>
           </BlurFade>
           <div className="flex flex-wrap gap-2">
@@ -251,7 +260,7 @@ export default function Page() {
       </section>
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
+          <ProjectsSection lang={lang} dict={dict} />
         </BlurFade>
       </section>
       {/* <section id="hackathons">
@@ -261,7 +270,7 @@ export default function Page() {
       </section> */}
       <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
-          <ContactSection />
+          <ContactSection lang={lang} dict={dict} />
         </BlurFade>
       </section>
     </main>

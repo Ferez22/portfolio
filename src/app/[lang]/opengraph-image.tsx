@@ -1,6 +1,7 @@
  
 import { ImageResponse } from "next/og";
 import { DATA } from "@/data/resume";
+import { isLocale, defaultLocale, t } from "@/i18n/config";
 
 export const runtime = "edge";
 
@@ -15,10 +16,10 @@ const getFontData = async () => {
     try {
         const [cabinetGrotesk, clashDisplay] = await Promise.all([
             fetch(
-                new URL("../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
+                new URL("../../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
             ).then((res) => res.arrayBuffer()),
             fetch(
-                new URL("../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
+                new URL("../../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
             ).then((res) => res.arrayBuffer()),
         ]);
         return { cabinetGrotesk, clashDisplay };
@@ -105,8 +106,15 @@ const styles = {
     },
 } as const;
 
-export default async function Image() {
+export default async function Image({
+    params,
+}: {
+    params: Promise<{ lang: string }>;
+}) {
     try {
+        const { lang: raw } = await params;
+        const lang = isLocale(raw) ? raw : defaultLocale;
+        const description = t(DATA.description, lang);
         const fontData = await getFontData();
         const imageUrl = DATA.avatarUrl
             ? new URL(DATA.avatarUrl, DATA.url).toString()
@@ -124,8 +132,8 @@ export default async function Image() {
                             )}
                             <div style={styles.mainContainer}>
                                 <div style={styles.title}>{DATA.name}</div>
-                                {DATA.description && (
-                                    <div style={styles.description}>{DATA.description}</div>
+                                {description && (
+                                    <div style={styles.description}>{description}</div>
                                 )}
                             </div>
                         </div>

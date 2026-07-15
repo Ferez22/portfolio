@@ -7,6 +7,8 @@ import { MDXContent } from "@content-collections/mdx/react";
 import { mdxComponents } from "@/mdx-components";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { locales, isLocale, defaultLocale, localePath } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 
 function getSortedPosts() {
   return [...allPosts].sort((a, b) => {
@@ -18,15 +20,19 @@ function getSortedPosts() {
 }
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post._meta.path.replace(/\.mdx$/, ""),
-  }));
+  return locales.flatMap((lang) =>
+    allPosts.map((post) => ({
+      lang,
+      slug: post._meta.path.replace(/\.mdx$/, ""),
+    }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{
+    lang: string;
     slug: string;
   }>;
 }): Promise<Metadata | undefined> {
@@ -76,10 +82,13 @@ export default async function Blog({
   params,
 }: {
   params: Promise<{
+    lang: string;
     slug: string;
   }>;
 }) {
-  const { slug } = await params;
+  const { lang: raw, slug } = await params;
+  const lang = isLocale(raw) ? raw : defaultLocale;
+  const dict = getDictionary(lang);
   const sortedPosts = getSortedPosts();
   const currentIndex = sortedPosts.findIndex(
     (p) => p._meta.path.replace(/\.mdx$/, "") === slug
@@ -123,9 +132,9 @@ export default async function Blog({
         }}
       />
       <div className="flex justify-start gap-4 items-center">
-        <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label="Back to Blog">
+        <Link href={localePath(lang, "/blog")} className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label={dict.blog.backToBlog}>
           <ChevronLeft className="size-3 group-hover:-translate-x-px transition-transform" />
-          Back to Blog
+          {dict.blog.backToBlog}
         </Link>
       </div>
       <div className="flex flex-col gap-4">
@@ -155,12 +164,12 @@ export default async function Blog({
         <div className="flex flex-col sm:flex-row justify-between gap-4">
           {previousPost ? (
             <Link
-              href={`/blog/${getSlug(previousPost)}`}
+              href={localePath(lang, `/blog/${getSlug(previousPost)}`)}
               className="group flex-1 flex flex-col gap-1 p-4 rounded-lg border border-border hover:bg-accent/50 transition-colors"
             >
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
                 <ChevronLeft className="size-3" />
-                Previous
+                {dict.blog.previous}
               </span>
               <span className="text-sm font-medium group-hover:text-foreground transition-colors whitespace-normal wrap-break-word">
                 {previousPost.title}
@@ -172,11 +181,11 @@ export default async function Blog({
 
           {nextPost ? (
             <Link
-              href={`/blog/${getSlug(nextPost)}`}
+              href={localePath(lang, `/blog/${getSlug(nextPost)}`)}
               className="group flex-1 flex flex-col gap-1 p-4 rounded-lg border border-border hover:bg-accent/50 transition-colors text-right"
             >
               <span className="flex items-center justify-end gap-1 text-xs text-muted-foreground">
-                Next
+                {dict.blog.next}
                 <ChevronRight className="size-3" />
               </span>
               <span className="text-sm font-medium group-hover:text-foreground transition-colors whitespace-normal wrap-break-word">

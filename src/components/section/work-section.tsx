@@ -10,6 +10,8 @@ import {
 import { DATA } from "@/data/resume";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { t, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 function LogoImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
@@ -30,7 +32,13 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-export default function WorkSection() {
+export default function WorkSection({
+  lang,
+  dict,
+}: {
+  lang: Locale;
+  dict: Dictionary;
+}) {
   return (
     <Accordion type="single" collapsible className="w-full grid gap-6">
       {DATA.work.map((work) => (
@@ -65,19 +73,22 @@ export default function WorkSection() {
                     </span>
                   </div>
                   <div className="font-sans text-sm text-muted-foreground">
-                    {work.title}
+                    {t(work.title, lang)}
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
                 <span>
-                  {work.start} - {work.end ?? "Present"}
+                  {work.start} -{" "}
+                  {!work.end || work.end === "Present"
+                    ? dict.work.present
+                    : work.end}
                 </span>
               </div>
             </div>
           </AccordionTrigger>
           <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
-            {work.description}
+            {t(work.description, lang)}
           </AccordionContent>
         </AccordionItem>
       ))}
