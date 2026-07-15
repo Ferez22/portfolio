@@ -15,10 +15,16 @@ export const DATA = {
   url: "https://faresaouani.com",
   location: "Düsseldorf, Germany",
   locationLink: "https://www.google.com/maps/place/Düsseldorf",
-  description:
-    "I'm a software engineer with a passion for building things that are genuinely helpful. I'm constantly learning to stay on top of where tech is heading, and I love sharing what I know along the way.",
-  summary:
-    "Creative and driven software engineer with a passion for building things and helping people. I thrive in fast-paced, international environments and have a strong interest in technology consulting and digital transformation. Beyond tech, I'm just as into sports and music: I play tennis at a competitive amateur level and produce electronic music.",
+  description: {
+    en: "I'm a software engineer with a passion for building things that are genuinely helpful. I'm constantly learning to stay on top of where tech is heading, and I love sharing what I know along the way.",
+    fr: "Je suis ingénieur logiciel passionné par la création d'outils vraiment utiles. J'apprends en permanence pour rester à la pointe des évolutions technologiques, et j'aime partager ce que je sais en chemin.",
+    de: "Ich bin Softwareentwickler mit einer Leidenschaft dafür, Dinge zu bauen, die wirklich hilfreich sind. Ich lerne ständig dazu, um bei den Entwicklungen der Technik am Ball zu bleiben, und teile mein Wissen gerne mit anderen.",
+  },
+  summary: {
+    en: "Creative and driven software engineer with a passion for building things and helping people. I thrive in fast-paced, international environments and have a strong interest in technology consulting and digital transformation. Beyond tech, I'm just as into sports and music: I play tennis at a competitive amateur level and produce electronic music.",
+    fr: "Ingénieur logiciel créatif et motivé, passionné par la création et par l'envie d'aider les autres. Je m'épanouis dans des environnements internationaux et dynamiques, et je porte un vif intérêt au conseil en technologie et à la transformation numérique. Au-delà de la tech, je suis tout aussi passionné de sport et de musique : je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
+    de: "Kreativer und engagierter Softwareentwickler mit einer Leidenschaft dafür, Dinge zu bauen und Menschen zu helfen. Ich blühe in schnelllebigen, internationalen Umfeldern auf und interessiere mich stark für Technologieberatung und digitale Transformation. Neben der Technik bin ich ebenso begeistert von Sport und Musik: Ich spiele Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
+  },
   avatarUrl: "/me.jpg",
   skills: [
     { name: "Azure", icon: Azure },
@@ -97,8 +103,11 @@ export const DATA = {
       href: "https://www.mlafrica.org",
       logoUrl: "/amld.png",
       date: "July 2025",
-      description:
-        "AMLD Africa is a non-profit organization that aims to democratize the use of technology and AI in Africa.",
+      description: {
+        en: "AMLD Africa is a non-profit organization that aims to democratize the use of technology and AI in Africa.",
+        fr: "AMLD Africa est une organisation à but non lucratif qui vise à démocratiser l'usage de la technologie et de l'IA en Afrique.",
+        de: "AMLD Africa ist eine gemeinnützige Organisation, die den Einsatz von Technologie und KI in Afrika demokratisieren möchte.",
+      },
     },
   ],
   work: [
@@ -107,48 +116,76 @@ export const DATA = {
       href: "https://qartmina.com/",
       badges: ["Tech"],
       location: "Online",
-      title: "Managing Partner",
+      title: {
+        en: "Managing Partner",
+        fr: "Associé gérant",
+        de: "Geschäftsführender Gesellschafter",
+      },
       logoUrl: "/Qartmina Logo main.png",
       start: "October 2026",
       end: "Present",
-      description:
-        "STE Qartmina is a tech startup that provides innovative solutions for the tech industry. As Managing Partner, I am responsible for the overall strategy and direction of the company. We mainly offer Consulting in Technology and AI, helping businesses gain back execution time, by finding use cases for automation and AI in their employees daily workflow.",
+      description: {
+        en: "STE Qartmina is a tech startup that provides innovative solutions for the tech industry. As Managing Partner, I am responsible for the overall strategy and direction of the company. We mainly offer Consulting in Technology and AI, helping businesses gain back execution time, by finding use cases for automation and AI in their employees daily workflow.",
+        fr: "STE Qartmina est une startup technologique qui propose des solutions innovantes pour le secteur de la tech. En tant qu'associé gérant, je suis responsable de la stratégie et de la direction globale de l'entreprise. Nous proposons principalement du conseil en technologie et en IA, aidant les entreprises à regagner du temps d'exécution en identifiant des cas d'usage d'automatisation et d'IA dans le quotidien de leurs employés.",
+        de: "STE Qartmina ist ein Tech-Startup, das innovative Lösungen für die Technologiebranche bietet. Als geschäftsführender Gesellschafter verantworte ich die Gesamtstrategie und Ausrichtung des Unternehmens. Wir bieten vor allem Beratung in Technologie und KI an und helfen Unternehmen, Ausführungszeit zurückzugewinnen, indem wir Anwendungsfälle für Automatisierung und KI im Arbeitsalltag ihrer Mitarbeitenden finden.",
+      },
     },
     {
       company: "Forvis Mazars Gmbh",
       href: "https://forvismazars.com/",
       badges: [],
       location: "Düsseldorf, Germany",
-      title: "Fullstack Engineer",
+      title: {
+        en: "Fullstack Engineer",
+        fr: "Ingénieur Fullstack",
+        de: "Fullstack-Entwickler",
+      },
       logoUrl: "/forvismazars.png",
       start: "May 2023",
       end: "Present",
-      description:
-        "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Two main projects I have worked on: a document generator and a company-wide AI chatbot. Build from the ground up, now serving 2,000+ employees across 13 locations in 3+ countries, backed by 50+ knowledge bases. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure. Shipping features and good vibes.",
+      description: {
+        en: "Part of the Technology and Data team at this global audit and advisory firm, driving data-driven transformation. Two main projects I have worked on: a document generator and a company-wide AI chatbot. Build from the ground up, now serving 2,000+ employees across 13 locations in 3+ countries, backed by 50+ knowledge bases. Deployed Databricks infrastructure with Terraform, built Azure CI/CD pipelines, and set up monitoring and app infrastructure. Shipping features and good vibes.",
+        fr: "Membre de l'équipe Technologie et Data de ce cabinet mondial d'audit et de conseil, où je porte la transformation pilotée par la donnée. Deux projets principaux : un générateur de documents et un chatbot IA déployé à l'échelle de l'entreprise. Conçu de A à Z, il sert aujourd'hui plus de 2 000 employés répartis sur 13 sites dans plus de 3 pays, avec plus de 50 bases de connaissances. J'ai déployé l'infrastructure Databricks avec Terraform, construit des pipelines CI/CD Azure et mis en place le monitoring et l'infrastructure applicative. Des fonctionnalités livrées et une bonne ambiance.",
+        de: "Teil des Technology-and-Data-Teams dieser globalen Wirtschaftsprüfungs- und Beratungsgesellschaft, wo ich die datengetriebene Transformation vorantreibe. Zwei Hauptprojekte: ein Dokumentengenerator und ein unternehmensweiter KI-Chatbot. Von Grund auf aufgebaut, versorgt er heute über 2.000 Mitarbeitende an 13 Standorten in mehr als 3 Ländern, gestützt auf über 50 Wissensdatenbanken. Ich habe die Databricks-Infrastruktur mit Terraform aufgesetzt, Azure-CI/CD-Pipelines gebaut sowie Monitoring und App-Infrastruktur eingerichtet. Features liefern und gute Stimmung.",
+      },
     },
     {
       company: "Adesso Gmbh",
       href: "https://adesso.com/",
       badges: [],
       location: "Düsseldorf, Germany",
-      title: "Internship: Team Lead & Fullstack Developer",
+      title: {
+        en: "Internship: Team Lead & Fullstack Developer",
+        fr: "Stage : Chef d'équipe & développeur fullstack",
+        de: "Praktikum: Teamleiter & Fullstack-Entwickler",
+      },
       logoUrl: "/adesso.png",
       start: "Sep 2022",
       end: "Jan 2023",
-      description:
-        "Adesso is a leading German IT consulting company. • Led the development of a Parking Monitor for multiple Adesso parking locations across Germany • Ensured end-to-end delivery of a full-stack and IoT solution as Team Lead, following agile methodologies • Frontend angular, backend NodeRed and Arduino code for the Ultrasound sensors • Used an MQTT to trigger changes in the database and on the webUI",
+      description: {
+        en: "Adesso is a leading German IT consulting company. • Led the development of a Parking Monitor for multiple Adesso parking locations across Germany • Ensured end-to-end delivery of a full-stack and IoT solution as Team Lead, following agile methodologies • Frontend angular, backend NodeRed and Arduino code for the Ultrasound sensors • Used an MQTT to trigger changes in the database and on the webUI",
+        fr: "Adesso est une grande société allemande de conseil en informatique. • J'ai dirigé le développement d'un moniteur de stationnement pour plusieurs parkings Adesso à travers l'Allemagne • Assuré la livraison de bout en bout d'une solution full-stack et IoT en tant que chef d'équipe, selon des méthodes agiles • Frontend Angular, backend Node-RED et code Arduino pour les capteurs à ultrasons • Utilisé MQTT pour déclencher les changements dans la base de données et sur l'interface web",
+        de: "Adesso ist ein führendes deutsches IT-Beratungsunternehmen. • Leitung der Entwicklung eines Parkplatz-Monitors für mehrere Adesso-Standorte in ganz Deutschland • Als Teamleiter die End-to-End-Lieferung einer Full-Stack- und IoT-Lösung nach agilen Methoden verantwortet • Frontend mit Angular, Backend mit Node-RED und Arduino-Code für die Ultraschallsensoren • MQTT genutzt, um Änderungen in der Datenbank und in der Web-UI auszulösen",
+      },
     },
     {
       company: "Datalog Finance",
       href: "https://datalog-finance.com/",
       badges: [],
       location: "Paris, France",
-      title: "Working Student: Web designer",
+      title: {
+        en: "Working Student: Web designer",
+        fr: "Étudiant salarié : Web designer",
+        de: "Werkstudent: Webdesigner",
+      },
       logoUrl: "/datalog.png",
       start: "Feb 2021",
       end: "Dec 2021",
-      description:
-        "Redesigned the company's TMS (Treasury Management System) UI from the ground up, building the new interface with HTML, CSS and JavaScript.",
+      description: {
+        en: "Redesigned the company's TMS (Treasury Management System) UI from the ground up, building the new interface with HTML, CSS and JavaScript.",
+        fr: "Refonte complète de l'interface du TMS (système de gestion de trésorerie) de l'entreprise, en construisant la nouvelle interface avec HTML, CSS et JavaScript.",
+        de: "Die Benutzeroberfläche des firmeneigenen TMS (Treasury-Management-System) von Grund auf neu gestaltet und die neue Oberfläche mit HTML, CSS und JavaScript umgesetzt.",
+      },
     },
   ],
   education: [
@@ -167,8 +204,11 @@ export const DATA = {
       href: "",
       dates: "July 2026",
       active: true,
-      description:
-        "Are you a freelancer or a small business who needs to generate invoices fast? This is your tool.",
+      description: {
+        en: "Are you a freelancer or a small business who needs to generate invoices fast? This is your tool.",
+        fr: "Vous êtes freelance ou une petite entreprise et devez générer des factures rapidement ? Voici votre outil.",
+        de: "Freelancer oder kleines Unternehmen und musst schnell Rechnungen erstellen? Das ist dein Werkzeug.",
+      },
       technologies: ["Typescript"],
       links: [
         {
@@ -185,8 +225,11 @@ export const DATA = {
       href: "",
       dates: "May 2026",
       active: true,
-      description:
-        "I started learning guitar a few months ago and quickly realized that learning chords first is the fastest path to playing real songs. But finding chords and understanding how to fret them isn't easy — so I built a tool that detects the chords you play in real time (TensorFlow + audio recognition) and visually shows you what you're striking. It also includes a library of chords with visualizations so you can start practicing right away.",
+      description: {
+        en: "I started learning guitar a few months ago and quickly realized that learning chords first is the fastest path to playing real songs. But finding chords and understanding how to fret them isn't easy — so I built a tool that detects the chords you play in real time (TensorFlow + audio recognition) and visually shows you what you're striking. It also includes a library of chords with visualizations so you can start practicing right away.",
+        fr: "J'ai commencé la guitare il y a quelques mois et j'ai vite compris qu'apprendre d'abord les accords est le chemin le plus rapide pour jouer de vraies chansons. Mais trouver les accords et comprendre comment les placer n'est pas simple — j'ai donc créé un outil qui détecte les accords que vous jouez en temps réel (TensorFlow + reconnaissance audio) et vous montre visuellement ce que vous jouez. Il inclut aussi une bibliothèque d'accords avec des visualisations pour commencer à pratiquer tout de suite.",
+        de: "Vor ein paar Monaten habe ich angefangen, Gitarre zu lernen, und schnell gemerkt, dass es am schnellsten zu echten Songs führt, zuerst Akkorde zu lernen. Doch Akkorde zu finden und zu verstehen, wie man sie greift, ist nicht leicht — also habe ich ein Werkzeug gebaut, das die gespielten Akkorde in Echtzeit erkennt (TensorFlow + Audioerkennung) und visuell anzeigt, was du greifst. Es enthält außerdem eine Akkord-Bibliothek mit Visualisierungen, damit du sofort üben kannst.",
+      },
       technologies: ["Python", "Tensorflow"],
       links: [
         {
@@ -203,8 +246,11 @@ export const DATA = {
       href: "",
       dates: "March 2026",
       active: true,
-      description:
-        "A multi-agent trip planner that matches users with their perfect destination based on preferences, budget, and travel style. Built on LangGraph and local LLMs via Ollama, it pairs a polished terminal interface with an AI-powered chat system to organize trips end to end.",
+      description: {
+        en: "A multi-agent trip planner that matches users with their perfect destination based on preferences, budget, and travel style. Built on LangGraph and local LLMs via Ollama, it pairs a polished terminal interface with an AI-powered chat system to organize trips end to end.",
+        fr: "Un planificateur de voyage multi-agents qui associe les utilisateurs à leur destination idéale selon leurs préférences, leur budget et leur style de voyage. Basé sur LangGraph et des LLM locaux via Ollama, il combine une interface terminal soignée et un système de chat propulsé par l'IA pour organiser les voyages de bout en bout.",
+        de: "Ein Multi-Agenten-Reiseplaner, der Nutzer anhand von Vorlieben, Budget und Reisestil mit ihrem perfekten Ziel zusammenbringt. Aufgebaut auf LangGraph und lokalen LLMs über Ollama, verbindet er eine ausgefeilte Terminal-Oberfläche mit einem KI-gestützten Chat-System, um Reisen von Anfang bis Ende zu organisieren.",
+      },
       technologies: [
         "Python",
         "Langchain",
@@ -229,8 +275,11 @@ export const DATA = {
       href: "https://www.mlafrica.org",
       dates: "Jan 2026 - Present",
       active: true,
-      description:
-        "Since joining AMLD Africa in July 2025, I built robust infrastructure that powers both the organization's public presence and its internal operations — supporting an event that reached 3,000+ attendees onsite, online, and through ambassador broadcasts. The platform streamlines agenda generation, certificate issuance, and the team's day-to-day workflows.",
+      description: {
+        en: "Since joining AMLD Africa in July 2025, I built robust infrastructure that powers both the organization's public presence and its internal operations — supporting an event that reached 3,000+ attendees onsite, online, and through ambassador broadcasts. The platform streamlines agenda generation, certificate issuance, and the team's day-to-day workflows.",
+        fr: "Depuis mon arrivée chez AMLD Africa en juillet 2025, j'ai construit une infrastructure robuste qui alimente à la fois la présence publique de l'organisation et ses opérations internes — au service d'un événement ayant réuni plus de 3 000 participants sur place, en ligne et via les diffusions des ambassadeurs. La plateforme simplifie la génération d'agendas, l'émission de certificats et le travail quotidien de l'équipe.",
+        de: "Seit meinem Einstieg bei AMLD Africa im Juli 2025 habe ich eine robuste Infrastruktur aufgebaut, die sowohl den öffentlichen Auftritt der Organisation als auch ihren internen Betrieb trägt — für eine Veranstaltung mit über 3.000 Teilnehmenden vor Ort, online und über Botschafter-Übertragungen. Die Plattform vereinfacht die Agenda-Erstellung, die Ausstellung von Zertifikaten und die täglichen Abläufe des Teams.",
+      },
       technologies: [
         "Next.js",
         "Typescript",
@@ -253,8 +302,11 @@ export const DATA = {
       href: "https://www.mlafrica.org/",
       dates: "Oct 2025 - Present",
       active: true,
-      description:
-        "Automations I built for AMLD Africa: anonymized speaker applications for fair, bias-free reviewer scoring; an automated certificate pipeline that generated 1,400 attendee certificates; and informational email campaigns to attendees — saving the team countless manual hours.",
+      description: {
+        en: "Automations I built for AMLD Africa: anonymized speaker applications for fair, bias-free reviewer scoring; an automated certificate pipeline that generated 1,400 attendee certificates; and informational email campaigns to attendees — saving the team countless manual hours.",
+        fr: "Des automatisations que j'ai créées pour AMLD Africa : anonymisation des candidatures des intervenants pour une évaluation juste et sans biais ; un pipeline automatisé de certificats ayant généré 1 400 certificats de participation ; et des campagnes d'e-mails d'information aux participants — faisant gagner à l'équipe d'innombrables heures de travail manuel.",
+        de: "Automatisierungen, die ich für AMLD Africa gebaut habe: anonymisierte Speaker-Bewerbungen für eine faire, verzerrungsfreie Bewertung; eine automatisierte Zertifikats-Pipeline, die 1.400 Teilnahmezertifikate erzeugt hat; und informative E-Mail-Kampagnen an die Teilnehmenden — was dem Team unzählige manuelle Arbeitsstunden erspart hat.",
+      },
       technologies: ["Make", "Notion", "Microsoft Outlook", "Google drive"],
       links: [
         {

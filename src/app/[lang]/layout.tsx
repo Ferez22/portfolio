@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
+import { locales, isLocale, defaultLocale, t, type Locale } from "@/i18n/config";
 import type { Metadata } from "next";
 import {
   Caveat,
@@ -12,8 +13,12 @@ import {
   Quattrocento,
   Turret_Road,
 } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
 
 /** Body & prose — literary serif */
 const crimsonText = Crimson_Text({
@@ -58,22 +63,36 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
-  description: DATA.description,
-  openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
+const OG_LOCALE: Record<Locale, string> = {
+  en: "en_US",
+  fr: "fr_FR",
+  de: "de_DE",
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang: raw } = await params;
+  const lang = isLocale(raw) ? raw : defaultLocale;
+  const description = t(DATA.description, lang);
+  return {
+    metadataBase: new URL(DATA.url),
+    title: {
+      default: DATA.name,
+      template: `%s | ${DATA.name}`,
+    },
+    description,
+    openGraph: {
+      title: `${DATA.name}`,
+      description,
+      url: `${DATA.url}/${lang}`,
+      siteName: `${DATA.name}`,
+      locale: OG_LOCALE[lang],
+      type: "website",
+    },
+    robots: {
     index: true,
     follow: true,
     googleBot: {
@@ -88,19 +107,24 @@ export const metadata: Metadata = {
     title: `${DATA.name}`,
     card: "summary_large_image",
   },
-  verification: {
-    google: "",
-    yandex: "",
-  },
-};
+    verification: {
+      google: "",
+      yandex: "",
+    },
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang: raw } = await params;
+  const lang = isLocale(raw) ? raw : defaultLocale;
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased relative selection:bg-rose-200/60 selection:text-foreground dark:selection:bg-rose-900/40 dark:selection:text-rose-50",

@@ -25,20 +25,27 @@ Personal portfolio + blog for Fares Aouani Cherif. Fork of `dillionverma/portfol
 
 ```
 src/
+  proxy.ts                      Locale routing (Next 16 "proxy", ex-middleware):
+                                redirects non-prefixed paths to /{lang} by Accept-Language.
+  i18n/
+    config.ts                   locales (en/fr/de), Locale, defaultLocale, isLocale,
+                                Localized type, t(value,lang), localePath(lang,path).
+    dictionaries.ts             UI-string dictionaries per locale + getDictionary(lang).
   app/
-    page.tsx                    Home. Sections in order: hero, about, certifications,
-                                non-profit, work, education, skills, projects, contact.
-                                (hackathons section is commented out)
-    layout.tsx                  Fonts (6 Google fonts → CSS vars), ThemeProvider,
-                                bg (FlickeringGrid + radial gradient), max-w-2xl shell
-    not-found.tsx
-    opengraph-image.tsx         Home OG image (edge runtime, ImageResponse)
-    blog/
-      page.tsx                  Post list, paginated 5/page
-      opengraph-image.tsx
-      [slug]/
-        page.tsx                Post render (MDX), JSON-LD, prev/next nav
+    [lang]/                     ★ all pages live under the locale segment.
+      layout.tsx                Root layout (html lang={lang}), fonts, providers, navbar,
+                                bg. generateStaticParams over locales; localized metadata.
+      page.tsx                  Home. Sections: hero, about, certifications, non-profit,
+                                work, education, skills, projects, contact.
+                                (hackathons commented out). Passes lang+dict to sections.
+      not-found.tsx
+      opengraph-image.tsx       Home OG image (edge, ImageResponse), localized description.
+      blog/
+        page.tsx                Post list, paginated 5/page (chrome localized, posts EN).
         opengraph-image.tsx
+        [slug]/
+          page.tsx              Post render (MDX), JSON-LD, prev/next nav.
+          opengraph-image.tsx
   components/
     section/                    WorkSection, ProjectsSection, ContactSection,
                                 HackathonsSection (currently unused)
@@ -64,6 +71,7 @@ content/*.mdx                   Blog posts (frontmatter schema in content-collec
 - Section reveal animations use `BlurFade` with a shared `BLUR_FADE_DELAY` stagger constant.
 - Skill icons: import the SVG wrapper from `ui/svgs/` and add `{ name, icon }` to `DATA.skills`.
 - Social links: add to `DATA.contact.social`; set `navbar: true` to show in the bottom dock; icon comes from `Icons` in `icons.tsx`.
+- **i18n**: prose fields in `DATA` (description, summary, `work[].title/description`, `nonProfitWork[].description`, `projects[].description`) are `{ en, fr, de }` objects — resolve them at render with `t(field, lang)` from `@/i18n/config`. Non-prose (names, dates, urls, tech, logos) stay plain strings. Fixed UI strings (headings, buttons, nav) live in `i18n/dictionaries.ts`; read via `getDictionary(lang)`. Server components get `lang` from `params.lang`; the client `navbar` derives it from `usePathname()`. Build internal links with `localePath(lang, path)`. Blog *posts* stay English; only their chrome is translated. To add a locale: extend `locales` in `config.ts`, add a dictionary + the field key to every localized `DATA` prose object.
 
 ## Commands
 

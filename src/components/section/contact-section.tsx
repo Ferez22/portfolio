@@ -8,10 +8,19 @@ import {
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { ArrowUpRight, Clock, MapPin, Mail } from "lucide-react";
+import { type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default function ContactSection() {
+export default function ContactSection({
+  lang,
+  dict,
+}: {
+  lang: Locale;
+  dict: Dictionary;
+}) {
+  void lang;
   const socials = Object.entries(DATA.contact.social).filter(
     ([, s]) => s.navbar
   );
@@ -24,19 +33,17 @@ export default function ContactSection() {
           <BlurFadeText
             delay={BLUR_FADE_DELAY}
             className="font-hand text-xl sm:text-2xl text-amber-800/80 dark:text-amber-300/80 font-semibold"
-            text="Let's talk"
+            text={dict.contact.handLabel}
           />
           <BlurFadeText
             delay={BLUR_FADE_DELAY * 1.5}
             yOffset={8}
             className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-balance bg-linear-to-br from-foreground via-foreground to-amber-950/80 dark:to-amber-200/90 bg-clip-text text-transparent"
-            text="Let's build something good"
+            text={dict.contact.heading}
           />
           <BlurFade delay={BLUR_FADE_DELAY * 2.5}>
             <p className="font-sans text-lg leading-relaxed text-muted-foreground max-w-xl text-pretty">
-              Have a project, a role, or an idea you want to bounce around? I&apos;m
-              always up for a good conversation — whether it&apos;s building AI
-              products, shipping web apps, or just talking shop.
+              {dict.contact.intro}
             </p>
           </BlurFade>
         </div>
@@ -62,18 +69,20 @@ export default function ContactSection() {
             <div className="relative flex flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <span className="font-tech text-xs font-bold uppercase tracking-widest text-amber-800/70 dark:text-amber-300/70">
-                  The fastest way
+                  {dict.contact.ctaEyebrow}
                 </span>
                 <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight">
-                  Grab a coffee chat
+                  {dict.contact.ctaHeading}
                 </h2>
                 <p className="font-sans text-muted-foreground max-w-md text-pretty">
-                  A free 30-minute call — no pitch, no pressure. Just pick a slot
-                  that works for you and we&apos;ll take it from there.
+                  {dict.contact.ctaText}
                 </p>
               </div>
               <div>
-                <BookCallButton url={DATA.contact.calendlyUrl} />
+                <BookCallButton
+                  url={DATA.contact.calendlyUrl}
+                  label={dict.contact.bookCall}
+                />
               </div>
             </div>
           </div>
@@ -91,7 +100,7 @@ export default function ContactSection() {
                 </div>
                 <div className="flex flex-col gap-0.5 min-w-0">
                   <span className="font-heading text-base font-bold">
-                    Prefer to write?
+                    {dict.contact.emailEyebrow}
                   </span>
                   <a
                     href={`mailto:${DATA.contact.email}`}
@@ -101,13 +110,17 @@ export default function ContactSection() {
                   </a>
                 </div>
               </div>
-              <CopyEmailButton email={DATA.contact.email} />
+              <CopyEmailButton
+                email={DATA.contact.email}
+                copyLabel={dict.contact.copy}
+                copiedLabel={dict.contact.copied}
+              />
             </div>
             <a
               href={`mailto:${DATA.contact.email}`}
               className="group inline-flex items-center gap-1 font-tech text-xs font-bold uppercase tracking-wider text-amber-800/80 dark:text-amber-300/80 hover:text-foreground transition-colors w-fit"
             >
-              Send an email
+              {dict.contact.sendEmail}
               <ArrowUpRight
                 className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden
@@ -122,7 +135,7 @@ export default function ContactSection() {
         <div className="flex flex-col gap-4">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="font-heading text-xl font-bold tracking-wide">
-              Find me elsewhere
+              {dict.contact.socialsHeading}
             </h2>
           </BlurFade>
           <div className="flex flex-wrap gap-2">
@@ -162,7 +175,7 @@ export default function ContactSection() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Clock className="size-3.5" aria-hidden />
-              Usually replies within a day
+              {dict.contact.replyTime}
             </span>
           </div>
         </BlurFade>

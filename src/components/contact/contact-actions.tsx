@@ -17,9 +17,11 @@ declare global {
 export function BookCallButton({
   url,
   className,
+  label = "Book a call",
 }: {
   url: string;
   className?: string;
+  label?: string;
 }) {
   const [ready, setReady] = useState(false);
 
@@ -52,7 +54,7 @@ export function BookCallButton({
         )}
       >
         <Calendar className="size-4" aria-hidden />
-        Book a call
+        {label}
       </button>
     </>
   );
@@ -62,9 +64,13 @@ export function BookCallButton({
 export function CopyEmailButton({
   email,
   className,
+  copyLabel = "Copy",
+  copiedLabel = "Copied",
 }: {
   email: string;
   className?: string;
+  copyLabel?: string;
+  copiedLabel?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -93,7 +99,7 @@ export function CopyEmailButton({
       ) : (
         <Copy className="size-3.5" aria-hidden />
       )}
-      {copied ? "Copied" : "Copy"}
+      {copied ? copiedLabel : copyLabel}
     </button>
   );
 }
