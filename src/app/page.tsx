@@ -8,6 +8,7 @@ import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
+import ProjectsParallax from "@/components/section/projects-parallax";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 
@@ -16,6 +17,9 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   return (
     <main className="min-h-dvh flex flex-col gap-16 sm:gap-20 relative">
+      {/* Fixed streaming project rails (xl+). Rendered outside any BlurFade so
+          they are never hidden by an out-of-view opacity wrapper. */}
+      <ProjectsParallax />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 gap-y-8 flex flex-col md:flex-row justify-between md:items-start">
