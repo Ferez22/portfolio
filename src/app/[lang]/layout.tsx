@@ -3,7 +3,13 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
-import { locales, isLocale, defaultLocale, t, type Locale } from "@/i18n/config";
+import {
+  locales,
+  isLocale,
+  defaultLocale,
+  t,
+  type Locale,
+} from "@/i18n/config";
 import type { Metadata } from "next";
 import {
   Caveat,
@@ -15,6 +21,7 @@ import {
 } from "next/font/google";
 import "../globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { Analytics } from "@vercel/analytics/next";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -93,20 +100,20 @@ export async function generateMetadata({
       type: "website",
     },
     robots: {
-    index: true,
-    follow: true,
-    googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
+    twitter: {
+      title: `${DATA.name}`,
+      card: "summary_large_image",
+    },
     verification: {
       google: "",
       yandex: "",
@@ -137,6 +144,7 @@ export default async function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
+          <Analytics />
           <TooltipProvider delayDuration={0}>
             <div className="absolute inset-0 top-0 left-0 right-0 h-[120px] overflow-hidden z-0 opacity-[0.35] dark:opacity-[0.22]">
               <FlickeringGrid
