@@ -4,6 +4,20 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@keyframes hook-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--chart-1) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 4px color-mix(in oklch, var(--chart-1) 0%, transparent);
+  }
+}
+
+.animate-hook-pulse {
+  animation: hook-pulse 2.4s ease-in-out infinite;
+}
+
 @theme inline {
   /* Artistic type stack (variables from next/font in layout) */
   --font-sans: var(--font-crimson), ui-serif, Georgia, "Times New Roman", serif;

@@ -37,11 +37,13 @@ function IconLink({
   label,
   icon: Icon,
   onClick,
+  highlight,
 }: {
   href: string;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
   onClick?: () => void;
+  highlight?: boolean;
 }) {
   const isExternal = href.startsWith("http");
   return (
@@ -53,7 +55,13 @@ function IconLink({
           rel={isExternal ? "noopener noreferrer" : undefined}
           onClick={onClick}
         >
-          <DockIcon className={DOCK_ICON_CLASS}>
+          <DockIcon
+            className={cn(
+              DOCK_ICON_CLASS,
+              highlight &&
+                "relative text-chart-1 ring-2 ring-chart-1/70 animate-hook-pulse"
+            )}
+          >
             <Icon className="size-full rounded-sm overflow-hidden object-contain" />
           </DockIcon>
         </a>
@@ -194,6 +202,7 @@ export default function Navbar() {
                 href={localePath(lang, item.href)}
                 label={labelKey ? dict.nav[labelKey] : item.label}
                 icon={item.icon}
+                highlight={item.href === "/#contact"}
               />
             );
           })}
