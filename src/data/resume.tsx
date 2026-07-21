@@ -200,6 +200,27 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Weekendstack",
+      href: "https://www.producthunt.com/products/weekendstack",
+      dates: "July 2026",
+      active: true,
+      description: {
+        en: "Ship a real SaaS in a weekend, with your AI agent. A production-ready stack that gets you from idea to launched product without wiring auth, payments and infra from scratch. Live on Product Hunt.",
+        fr: "Lancez un vrai SaaS en un week-end, avec votre agent IA. Une stack prête pour la production qui vous mène de l'idée au produit lancé sans câbler l'authentification, les paiements et l'infra à partir de zéro. En ligne sur Product Hunt.",
+        de: "Bring ein echtes SaaS an einem Wochenende live — mit deinem KI-Agenten. Ein produktionsreifer Stack, der dich von der Idee zum fertigen Produkt bringt, ohne Auth, Payments und Infra von Grund auf zu verkabeln. Jetzt auf Product Hunt.",
+      },
+      technologies: ["Typescript", "Next.js"],
+      links: [
+        {
+          type: "Product Hunt",
+          href: "https://www.producthunt.com/products/weekendstack",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/weekendstack.jpg",
+      video: "",
+    },
+    {
       title: "SaaS: Invoice Generator",
       href: "",
       dates: "July 2026",
