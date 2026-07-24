@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import AvailabilityBadge from "@/components/availability-badge";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -25,7 +26,37 @@ export default async function Page({
   const dict = getDictionary(lang);
   return (
     <main className="min-h-dvh flex flex-col gap-16 sm:gap-20 relative">
-      <section id="hero">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: DATA.name,
+            url: `${DATA.url}/${lang}`,
+            image: `${DATA.url}${DATA.avatarUrl}`,
+            jobTitle: t(DATA.headline, lang),
+            description: t(DATA.description, lang),
+            email: `mailto:${DATA.contact.email}`,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: DATA.location,
+            },
+            knowsAbout: [
+              "Artificial Intelligence",
+              "Large Language Models",
+              "AI Agents",
+              "Software Engineering",
+              "Web Development",
+              "Cloud Infrastructure",
+            ],
+            sameAs: Object.values(DATA.contact.social)
+              .map((s) => s.url)
+              .filter((url) => url.startsWith("http")),
+          }),
+        }}
+      />
+      <section id="hero" className="relative z-20">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 gap-y-8 flex flex-col md:flex-row justify-between md:items-start">
             <div className="gap-3 flex flex-col order-2 md:order-1 md:pr-4 border-l-0 md:border-l-2 border-amber-700/25 dark:border-amber-400/20 md:pl-6">
@@ -35,6 +66,23 @@ export default async function Page({
                 yOffset={8}
                 text={`${dict.hero.greeting} ${DATA.name.split(" ")[0]}`}
               />
+              <BlurFadeText
+                className="font-tech text-sm sm:text-base uppercase tracking-[0.18em] text-amber-800/90 dark:text-amber-300/90"
+                delay={BLUR_FADE_DELAY * 1.1}
+                yOffset={6}
+                text={t(DATA.headline, lang)}
+              />
+              <BlurFade
+                delay={BLUR_FADE_DELAY * 1.15}
+                className="relative z-30"
+              >
+                <AvailabilityBadge
+                  label={dict.hero.availability}
+                  hint={dict.hero.availabilityHint}
+                  ctaLabel={dict.contact.bookCall}
+                  ctaHref={DATA.contact.calendlyUrl}
+                />
+              </BlurFade>
               <BlurFadeText
                 className="font-hand text-xl sm:text-2xl md:text-[1.65rem] leading-snug text-muted-foreground max-w-[600px] font-medium"
                 delay={BLUR_FADE_DELAY * 1.2}

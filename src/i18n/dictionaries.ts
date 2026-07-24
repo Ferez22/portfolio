@@ -3,7 +3,7 @@ import type { Locale } from "./config";
 export type Dictionary = {
   nav: { home: string; blog: string; contact: string };
   tooltip: { socials: string; less: string; theme: string; language: string };
-  hero: { greeting: string };
+  hero: { greeting: string; availability: string; availabilityHint: string };
   sections: {
     about: string;
     certifications: string;
@@ -47,7 +47,7 @@ const dictionaries: Record<Locale, Dictionary> = {
   en: {
     nav: { home: "Home", blog: "Blog", contact: "Contact" },
     tooltip: { socials: "Socials", less: "Less", theme: "Theme", language: "Language" },
-    hero: { greeting: "Hi, I'm" },
+    hero: { greeting: "Hi, I'm", availability: "Available for freelance projects", availabilityHint: "Taking on new AI and web engineering work. Free 30-minute call, no pitch." },
     sections: {
       about: "About",
       certifications: "Certifications",
@@ -58,16 +58,16 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     work: { present: "Present" },
     projects: {
-      badge: "My Projects",
-      heading: "Check out my latest work",
+      badge: "Selected Work",
+      heading: "Digital products I've built",
       subtitle:
-        "I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.",
+        "AI products, SaaS platforms and web apps — shipped end to end. A few of the builds I'm happiest with.",
     },
     contact: {
       handLabel: "Let's talk",
-      heading: "Let's build something good",
+      heading: "Let's build your product",
       intro:
-        "Have a project, a role, or an idea you want to bounce around? I'm always up for a good conversation — whether it's building AI products, shipping web apps, or just talking shop.",
+        "I'm currently taking on freelance work — AI features, full product builds, or a hand on an existing codebase. Tell me what you're building and I'll tell you straight whether I'm the right person for it.",
       ctaEyebrow: "The fastest way",
       ctaHeading: "Grab a coffee chat",
       ctaText:
@@ -83,20 +83,20 @@ const dictionaries: Record<Locale, Dictionary> = {
     blog: {
       title: "Blog",
       postsSuffix: "posts",
-      subtitle: "My thoughts on software development, life, and more.",
+      subtitle: "Notes on AI engineering, building products, and the freelance life.",
       previous: "Previous",
       next: "Next",
       page: "Page",
       of: "of",
       empty: "No blog posts yet. Check back soon!",
       backToBlog: "Back to Blog",
-      metaDescription: "Thoughts on software development, life, and more.",
+      metaDescription: "Notes on AI engineering, building products, and the freelance life.",
     },
   },
   fr: {
     nav: { home: "Accueil", blog: "Blog", contact: "Contact" },
     tooltip: { socials: "Réseaux", less: "Moins", theme: "Thème", language: "Langue" },
-    hero: { greeting: "Salut, moi c'est" },
+    hero: { greeting: "Salut, moi c'est", availability: "Disponible pour des missions freelance", availabilityHint: "Je prends de nouvelles missions IA et web. Appel gratuit de 30 minutes, sans argumentaire." },
     sections: {
       about: "À propos",
       certifications: "Certifications",
@@ -107,16 +107,16 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     work: { present: "Aujourd'hui" },
     projects: {
-      badge: "Mes projets",
-      heading: "Découvrez mes derniers travaux",
+      badge: "Travaux sélectionnés",
+      heading: "Les produits numériques que j'ai construits",
       subtitle:
-        "J'ai travaillé sur des projets variés, de simples sites web à des applications web complexes. En voici quelques-uns de mes préférés.",
+        "Produits IA, plateformes SaaS et applications web — livrés de bout en bout. Quelques réalisations dont je suis le plus fier.",
     },
     contact: {
       handLabel: "Discutons",
-      heading: "Construisons quelque chose de bien",
+      heading: "Construisons votre produit",
       intro:
-        "Vous avez un projet, un poste ou une idée à partager ? Je suis toujours partant pour une bonne discussion — qu'il s'agisse de créer des produits IA, de livrer des applications web ou simplement de parler métier.",
+        "Je prends actuellement des missions en freelance — fonctionnalités IA, construction complète de produit, ou renfort sur une base de code existante. Dites-moi ce que vous construisez et je vous dirai franchement si je suis la bonne personne.",
       ctaEyebrow: "Le moyen le plus rapide",
       ctaHeading: "Prenons un café virtuel",
       ctaText:
@@ -132,20 +132,20 @@ const dictionaries: Record<Locale, Dictionary> = {
     blog: {
       title: "Blog",
       postsSuffix: "articles",
-      subtitle: "Mes réflexions sur le développement logiciel, la vie, et plus encore.",
+      subtitle: "Notes sur l'ingénierie IA, la création de produits et la vie de freelance.",
       previous: "Précédent",
       next: "Suivant",
       page: "Page",
       of: "sur",
       empty: "Pas encore d'articles. Revenez bientôt !",
       backToBlog: "Retour au blog",
-      metaDescription: "Réflexions sur le développement logiciel, la vie, et plus encore.",
+      metaDescription: "Notes sur l'ingénierie IA, la création de produits et la vie de freelance.",
     },
   },
   de: {
     nav: { home: "Start", blog: "Blog", contact: "Kontakt" },
     tooltip: { socials: "Sozial", less: "Weniger", theme: "Design", language: "Sprache" },
-    hero: { greeting: "Hi, ich bin" },
+    hero: { greeting: "Hi, ich bin", availability: "Verfügbar für Freelance-Projekte", availabilityHint: "Ich nehme neue KI- und Web-Projekte an. Kostenloses 30-Minuten-Gespräch, kein Pitch." },
     sections: {
       about: "Über mich",
       certifications: "Zertifizierungen",
@@ -156,16 +156,16 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     work: { present: "Heute" },
     projects: {
-      badge: "Meine Projekte",
-      heading: "Sieh dir meine neuesten Arbeiten an",
+      badge: "Ausgewählte Arbeiten",
+      heading: "Digitale Produkte, die ich gebaut habe",
       subtitle:
-        "Ich habe an ganz unterschiedlichen Projekten gearbeitet, von einfachen Websites bis zu komplexen Webanwendungen. Hier einige meiner Favoriten.",
+        "KI-Produkte, SaaS-Plattformen und Web-Apps — end to end ausgeliefert. Einige Builds, auf die ich besonders stolz bin.",
     },
     contact: {
       handLabel: "Lass uns reden",
-      heading: "Lass uns etwas Gutes bauen",
+      heading: "Lass uns dein Produkt bauen",
       intro:
-        "Hast du ein Projekt, eine Stelle oder eine Idee, über die du sprechen möchtest? Ich bin immer für ein gutes Gespräch zu haben — ob es ums Bauen von KI-Produkten, das Ausliefern von Web-Apps oder einfach Fachsimpeln geht.",
+        "Ich nehme derzeit Freelance-Projekte an — KI-Features, komplette Produktentwicklung oder Unterstützung an einer bestehenden Codebasis. Sag mir, was du baust, und ich sage dir ehrlich, ob ich der Richtige dafür bin.",
       ctaEyebrow: "Der schnellste Weg",
       ctaHeading: "Auf einen virtuellen Kaffee",
       ctaText:
@@ -181,14 +181,14 @@ const dictionaries: Record<Locale, Dictionary> = {
     blog: {
       title: "Blog",
       postsSuffix: "Beiträge",
-      subtitle: "Meine Gedanken zu Softwareentwicklung, dem Leben und mehr.",
+      subtitle: "Notizen zu KI-Engineering, Produktentwicklung und dem Freelance-Leben.",
       previous: "Zurück",
       next: "Weiter",
       page: "Seite",
       of: "von",
       empty: "Noch keine Beiträge. Schau bald wieder vorbei!",
       backToBlog: "Zurück zum Blog",
-      metaDescription: "Gedanken zu Softwareentwicklung, dem Leben und mehr.",
+      metaDescription: "Notizen zu KI-Engineering, Produktentwicklung und dem Freelance-Leben.",
     },
   },
 };

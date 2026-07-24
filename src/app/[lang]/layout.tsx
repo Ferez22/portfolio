@@ -84,15 +84,33 @@ export async function generateMetadata({
   const { lang: raw } = await params;
   const lang = isLocale(raw) ? raw : defaultLocale;
   const description = t(DATA.description, lang);
+  const headline = t(DATA.headline, lang);
+  const title = `${DATA.name} — ${headline}`;
   return {
     metadataBase: new URL(DATA.url),
     title: {
-      default: DATA.name,
+      default: title,
       template: `%s | ${DATA.name}`,
     },
     description,
+    keywords: [
+      "freelance AI engineer",
+      "freelance software engineer",
+      "AI product development",
+      "LLM applications",
+      "AI agents",
+      "Next.js developer",
+      "Düsseldorf",
+      DATA.name,
+    ],
+    alternates: {
+      canonical: `${DATA.url}/${lang}`,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${DATA.url}/${l}`]),
+      ),
+    },
     openGraph: {
-      title: `${DATA.name}`,
+      title,
       description,
       url: `${DATA.url}/${lang}`,
       siteName: `${DATA.name}`,
@@ -111,7 +129,7 @@ export async function generateMetadata({
       },
     },
     twitter: {
-      title: `${DATA.name}`,
+      title,
       card: "summary_large_image",
     },
     verification: {

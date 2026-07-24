@@ -15,15 +15,20 @@ export const DATA = {
   url: "https://faresaouani.com",
   location: "Düsseldorf, Germany",
   locationLink: "https://www.google.com/maps/place/Düsseldorf",
+  headline: {
+    en: "Freelance AI & Software Engineer",
+    fr: "Ingénieur IA & logiciel freelance",
+    de: "Freiberuflicher KI- & Software-Engineer",
+  },
   description: {
-    en: "I'm a software engineer with a passion for building things that are genuinely helpful. I'm constantly learning to stay on top of where tech is heading, and I love sharing what I know along the way.",
-    fr: "Je suis ingénieur logiciel passionné par la création d'outils vraiment utiles. J'apprends en permanence pour rester à la pointe des évolutions technologiques, et j'aime partager ce que je sais en chemin.",
-    de: "Ich bin Softwareentwickler mit einer Leidenschaft dafür, Dinge zu bauen, die wirklich hilfreich sind. Ich lerne ständig dazu, um bei den Entwicklungen der Technik am Ball zu bleiben, und teile mein Wissen gerne mit anderen.",
+    en: "Freelance AI and software engineer. I build digital products powered by AI,  from the model and the agents behind them to the web app people actually use. Available for new projects.",
+    fr: "Ingénieur IA et logiciel en freelance. Je conçois des produits numériques propulsés par l'IA, du modèle et des agents qui les animent jusqu'à l'application web réellement utilisée. Disponible pour de nouveaux projets.",
+    de: "Freiberuflicher KI- und Software-Engineer. Ich baue digitale Produkte mit KI im Kern, vom Modell und den Agenten dahinter bis zur Web-App, die Menschen wirklich nutzen. Verfügbar für neue Projekte.",
   },
   summary: {
-    en: "Creative and driven software engineer with a passion for building things and helping people. I thrive in fast-paced, international environments and have a strong interest in technology consulting and digital transformation. Beyond tech, I'm just as into sports and music: I play tennis at a competitive amateur level and produce electronic music.",
-    fr: "Ingénieur logiciel créatif et motivé, passionné par la création et par l'envie d'aider les autres. Je m'épanouis dans des environnements internationaux et dynamiques, et je porte un vif intérêt au conseil en technologie et à la transformation numérique. Au-delà de la tech, je suis tout aussi passionné de sport et de musique : je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
-    de: "Kreativer und engagierter Softwareentwickler mit einer Leidenschaft dafür, Dinge zu bauen und Menschen zu helfen. Ich blühe in schnelllebigen, internationalen Umfeldern auf und interessiere mich stark für Technologieberatung und digitale Transformation. Neben der Technik bin ich ebenso begeistert von Sport und Musik: Ich spiele Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
+    en: "I work with startups and companies as a freelance engineer, building AI-powered products end to end: LLM features, agents and retrieval systems, plus the web app, APIs and cloud infrastructure around them. Before going independent I spent years shipping production software — most recently a company-wide AI assistant serving 2,000+ people across 13 offices. I like small teams, short feedback loops, and shipping things that actually get used. Beyond tech, I play tennis at a competitive amateur level and produce electronic music.",
+    fr: "Je travaille avec des startups et des entreprises en tant qu'ingénieur freelance, en construisant des produits propulsés par l'IA de bout en bout : fonctionnalités LLM, agents et systèmes de recherche, ainsi que l'application web, les API et l'infrastructure cloud qui les entourent. Avant de me mettre à mon compte, j'ai passé des années à livrer du logiciel en production — dernièrement un assistant IA déployé à l'échelle d'une entreprise, utilisé par plus de 2 000 personnes sur 13 sites. J'aime les petites équipes, les boucles de retour courtes et les produits réellement utilisés. Au-delà de la tech, je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
+    de: "Ich arbeite als freiberuflicher Engineer mit Startups und Unternehmen und baue KI-gestützte Produkte von Anfang bis Ende: LLM-Features, Agenten und Retrieval-Systeme sowie die Web-App, APIs und Cloud-Infrastruktur drumherum. Vor der Selbstständigkeit habe ich jahrelang Produktionssoftware ausgeliefert — zuletzt einen unternehmensweiten KI-Assistenten für über 2.000 Menschen an 13 Standorten. Ich mag kleine Teams, kurze Feedbackschleifen und Dinge, die wirklich genutzt werden. Neben der Technik spiele ich Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
   },
   avatarUrl: "/me.jpg",
   skills: [
@@ -111,6 +116,25 @@ export const DATA = {
     },
   ],
   work: [
+    {
+      company: "Freelance",
+      href: "https://faresaouani.com",
+      badges: ["Available"],
+      location: "Remote / Düsseldorf",
+      title: {
+        en: "AI & Software Engineer",
+        fr: "Ingénieur IA & logiciel",
+        de: "KI- & Software-Engineer",
+      },
+      logoUrl: "/me.jpg",
+      start: "July 2026",
+      end: "Present",
+      description: {
+        en: "Independent engineer building AI-powered digital products for startups and companies. I take features from idea to production: LLM and agent systems, retrieval pipelines, and the web apps, APIs and cloud infrastructure they run on. Typical work ranges from a focused AI feature inside an existing product to a full build — design, frontend, backend, deployment and monitoring.",
+        fr: "Ingénieur indépendant, je construis des produits numériques propulsés par l'IA pour des startups et des entreprises. Je mène les fonctionnalités de l'idée à la production : systèmes LLM et agents, pipelines de recherche, ainsi que les applications web, API et infrastructures cloud qui les font tourner. Les missions vont d'une fonctionnalité IA ciblée dans un produit existant à une construction complète — design, frontend, backend, déploiement et monitoring.",
+        de: "Als unabhängiger Engineer baue ich KI-gestützte digitale Produkte für Startups und Unternehmen. Ich bringe Features von der Idee in die Produktion: LLM- und Agentensysteme, Retrieval-Pipelines sowie die Web-Apps, APIs und Cloud-Infrastruktur, auf denen sie laufen. Die Projekte reichen von einem gezielten KI-Feature in einem bestehenden Produkt bis zum kompletten Aufbau — Design, Frontend, Backend, Deployment und Monitoring.",
+      },
+    },
     {
       company: "STE Qartmina",
       href: "https://qartmina.com/",
