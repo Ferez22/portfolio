@@ -46,8 +46,18 @@ export type Dictionary = {
 const dictionaries: Record<Locale, Dictionary> = {
   en: {
     nav: { home: "Home", blog: "Blog", contact: "Contact" },
-    tooltip: { socials: "Socials", less: "Less", theme: "Theme", language: "Language" },
-    hero: { greeting: "Hi, I'm", availability: "Available for freelance projects", availabilityHint: "Taking on new AI and web engineering work. Free 30-minute call, no pitch." },
+    tooltip: {
+      socials: "Socials",
+      less: "Less",
+      theme: "Theme",
+      language: "Language",
+    },
+    hero: {
+      greeting: "Hi, I'm",
+      availability: "Available for freelance projects",
+      availabilityHint:
+        "Taking on new AI and web engineering work. Free 30-minute call, no pitch.",
+    },
     sections: {
       about: "About",
       certifications: "Certifications",
@@ -59,7 +69,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     work: { present: "Present" },
     projects: {
       badge: "Selected Work",
-      heading: "Digital products I've built",
+      heading: "Things I've built",
       subtitle:
         "AI products, SaaS platforms and web apps — shipped end to end. A few of the builds I'm happiest with.",
     },
@@ -83,20 +93,32 @@ const dictionaries: Record<Locale, Dictionary> = {
     blog: {
       title: "Blog",
       postsSuffix: "posts",
-      subtitle: "Notes on AI engineering, building products, and the freelance life.",
+      subtitle:
+        "Notes on AI engineering, building products, and the freelance life.",
       previous: "Previous",
       next: "Next",
       page: "Page",
       of: "of",
       empty: "No blog posts yet. Check back soon!",
       backToBlog: "Back to Blog",
-      metaDescription: "Notes on AI engineering, building products, and the freelance life.",
+      metaDescription:
+        "Notes on AI engineering, building products, and the freelance life.",
     },
   },
   fr: {
     nav: { home: "Accueil", blog: "Blog", contact: "Contact" },
-    tooltip: { socials: "Réseaux", less: "Moins", theme: "Thème", language: "Langue" },
-    hero: { greeting: "Salut, moi c'est", availability: "Disponible pour des missions freelance", availabilityHint: "Je prends de nouvelles missions IA et web. Appel gratuit de 30 minutes, sans argumentaire." },
+    tooltip: {
+      socials: "Réseaux",
+      less: "Moins",
+      theme: "Thème",
+      language: "Langue",
+    },
+    hero: {
+      greeting: "Salut, moi c'est",
+      availability: "Disponible pour des missions freelance",
+      availabilityHint:
+        "Je prends de nouvelles missions IA et web. Appel gratuit de 30 minutes, sans argumentaire.",
+    },
     sections: {
       about: "À propos",
       certifications: "Certifications",
@@ -132,20 +154,32 @@ const dictionaries: Record<Locale, Dictionary> = {
     blog: {
       title: "Blog",
       postsSuffix: "articles",
-      subtitle: "Notes sur l'ingénierie IA, la création de produits et la vie de freelance.",
+      subtitle:
+        "Notes sur l'ingénierie IA, la création de produits et la vie de freelance.",
       previous: "Précédent",
       next: "Suivant",
       page: "Page",
       of: "sur",
       empty: "Pas encore d'articles. Revenez bientôt !",
       backToBlog: "Retour au blog",
-      metaDescription: "Notes sur l'ingénierie IA, la création de produits et la vie de freelance.",
+      metaDescription:
+        "Notes sur l'ingénierie IA, la création de produits et la vie de freelance.",
     },
   },
   de: {
     nav: { home: "Start", blog: "Blog", contact: "Kontakt" },
-    tooltip: { socials: "Sozial", less: "Weniger", theme: "Design", language: "Sprache" },
-    hero: { greeting: "Hi, ich bin", availability: "Verfügbar für Freelance-Projekte", availabilityHint: "Ich nehme neue KI- und Web-Projekte an. Kostenloses 30-Minuten-Gespräch, kein Pitch." },
+    tooltip: {
+      socials: "Sozial",
+      less: "Weniger",
+      theme: "Design",
+      language: "Sprache",
+    },
+    hero: {
+      greeting: "Hi, ich bin",
+      availability: "Verfügbar für Freelance-Projekte",
+      availabilityHint:
+        "Ich nehme neue KI- und Web-Projekte an. Kostenloses 30-Minuten-Gespräch, kein Pitch.",
+    },
     sections: {
       about: "Über mich",
       certifications: "Zertifizierungen",
@@ -181,14 +215,16 @@ const dictionaries: Record<Locale, Dictionary> = {
     blog: {
       title: "Blog",
       postsSuffix: "Beiträge",
-      subtitle: "Notizen zu KI-Engineering, Produktentwicklung und dem Freelance-Leben.",
+      subtitle:
+        "Notizen zu KI-Engineering, Produktentwicklung und dem Freelance-Leben.",
       previous: "Zurück",
       next: "Weiter",
       page: "Seite",
       of: "von",
       empty: "Noch keine Beiträge. Schau bald wieder vorbei!",
       backToBlog: "Zurück zum Blog",
-      metaDescription: "Notizen zu KI-Engineering, Produktentwicklung und dem Freelance-Leben.",
+      metaDescription:
+        "Notizen zu KI-Engineering, Produktentwicklung und dem Freelance-Leben.",
     },
   },
 };
