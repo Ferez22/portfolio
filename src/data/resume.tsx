@@ -236,7 +236,7 @@ export const DATA = {
   projects: [
     {
       title: "Der Heimdall — AI Receptionist",
-      href: "",
+      href: "https://derheimdall.com",
       dates: "August 2026",
       active: true,
       description: {
