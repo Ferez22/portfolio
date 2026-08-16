@@ -244,7 +244,15 @@ export const DATA = {
         fr: "Un réceptionniste vocal IA pour artisans : répond à chaque appel 24h/24 et décroche le rendez-vous au lieu de perdre le client — des dizaines de milliers d'euros économisés par an.",
         de: "Ein Voice-KI-Empfang für Handwerker: nimmt jeden Anruf rund um die Uhr an und bucht den Termin, statt Kunden an die Mailbox zu verlieren — zehntausende Euro Ersparnis im Jahr.",
       },
-      technologies: ["Voice AI", "LLM", "Python", "Typescript"],
+      technologies: [
+        "Elevenlabs",
+        "Twilio",
+        "Typescript",
+        "Next.js",
+        "firebase",
+        "resend email",
+        "cloudflare",
+      ],
       links: [],
       image: "/derheimdall.jpg",
       video: "",
@@ -259,7 +267,7 @@ export const DATA = {
         fr: "Seuls 5 % du monde exploitent l'IA à fond, je devais le vérifier. Un sondage sur qui utilise l'IA, pour quoi et à quelle fréquence ; chaque participant reçoit tous les résultats.",
         de: "Nur 5 % der Welt nutzen KI voll aus, das wollte ich prüfen. Eine Umfrage dazu, wer KI nutzt, wofür und wie oft; alle Teilnehmenden bekommen sämtliche Erkenntnisse zurück.",
       },
-      technologies: ["Next.js", "Typescript", "Supabase"],
+      technologies: ["Next.js", "Typescript", "Firebase"],
       links: [
         {
           type: "Website",
@@ -322,7 +330,13 @@ export const DATA = {
         fr: "Lancez un vrai SaaS en un week-end avec votre agent IA, une stack prête pour la prod, auth, paiements et infra déjà câblés. En ligne sur Product Hunt.",
         de: "Bring ein echtes SaaS an einem Wochenende live, ein produktionsreifer Stack mit fertiger Auth, Payments und Infra. Jetzt auf Product Hunt.",
       },
-      technologies: ["Typescript", "Next.js"],
+      technologies: [
+        "Typescript",
+        "Next.js",
+        "firebase",
+        "resend email",
+        "cloudflare",
+      ],
       links: [
         {
           type: "Product Hunt",
