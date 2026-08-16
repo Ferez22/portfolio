@@ -11,6 +11,7 @@ import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { isLocale, defaultLocale, t } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -43,6 +44,9 @@ export default async function Page({
               addressLocality: DATA.location,
             },
             knowsAbout: [
+              "AI Coaching",
+              "AI Adoption for Business",
+              "AI Workflows and Automation",
               "Artificial Intelligence",
               "Large Language Models",
               "AI Agents",
@@ -137,7 +141,13 @@ export default async function Page({
                       <img
                         src={certification.logoUrl}
                         alt={certification.name}
-                        className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
+                        className={cn(
+                          "size-8 md:size-10 p-1 border shadow ring-2 ring-border overflow-hidden object-contain flex-none",
+                          certification.logoShape === "square"
+                            ? "rounded-md"
+                            : "rounded-full",
+                          certification.invertOnDark && "dark:invert",
+                        )}
                       />
                     ) : (
                       <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />

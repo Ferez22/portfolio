@@ -16,19 +16,19 @@ export const DATA = {
   location: "Düsseldorf, Germany",
   locationLink: "https://www.google.com/maps/place/Düsseldorf",
   headline: {
-    en: "Freelance AI & Software Engineer",
-    fr: "Ingénieur IA & logiciel freelance",
-    de: "Freiberuflicher KI- & Software-Engineer",
+    en: "AI Coach & Engineer",
+    fr: "Coach & ingénieur IA",
+    de: "KI-Coach & Engineer",
   },
   description: {
-    en: "Freelance AI and software engineer. I build digital products powered by AI,  from the model and the agents behind them to the web app people actually use. Available for new projects.",
-    fr: "Ingénieur IA et logiciel en freelance. Je conçois des produits numériques propulsés par l'IA, du modèle et des agents qui les animent jusqu'à l'application web réellement utilisée. Disponible pour de nouveaux projets.",
-    de: "Freiberuflicher KI- und Software-Engineer. Ich baue digitale Produkte mit KI im Kern, vom Modell und den Agenten dahinter bis zur Web-App, die Menschen wirklich nutzen. Verfügbar für neue Projekte.",
+    en: "I coach you and your business on getting the most out of AI, the right tools, the workflows, the agents, and I build the custom AI apps behind them, from a daily automation to a production LLM system in Python. Available for coaching and new projects.",
+    fr: "J'accompagne les personnes et les entreprises pour tirer le maximum de l'IA, les bons outils, les workflows, les agents, et je construis les applications IA sur mesure derrière, d'une automatisation quotidienne à un système LLM en production en Python. Disponible pour du coaching et de nouveaux projets.",
+    de: "Ich coache dich und dein Unternehmen dabei, das Maximum aus KI herauszuholen, die richtigen Tools, Workflows und Agenten, und baue die passenden KI-Anwendungen dahinter, von der täglichen Automatisierung bis zum produktiven LLM-System in Python. Verfügbar für Coaching und neue Projekte.",
   },
   summary: {
-    en: "I work with startups and companies as a freelance engineer, building AI-powered products end to end: LLM features, agents and retrieval systems, plus the web app, APIs and cloud infrastructure around them. Before going independent I spent years shipping production software — most recently a company-wide AI assistant serving 2,000+ people across 13 offices. I like small teams, short feedback loops, and shipping things that actually get used. Beyond tech, I play tennis at a competitive amateur level and produce electronic music.",
-    fr: "Je travaille avec des startups et des entreprises en tant qu'ingénieur freelance, en construisant des produits propulsés par l'IA de bout en bout : fonctionnalités LLM, agents et systèmes de recherche, ainsi que l'application web, les API et l'infrastructure cloud qui les entourent. Avant de me mettre à mon compte, j'ai passé des années à livrer du logiciel en production — dernièrement un assistant IA déployé à l'échelle d'une entreprise, utilisé par plus de 2 000 personnes sur 13 sites. J'aime les petites équipes, les boucles de retour courtes et les produits réellement utilisés. Au-delà de la tech, je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
-    de: "Ich arbeite als freiberuflicher Engineer mit Startups und Unternehmen und baue KI-gestützte Produkte von Anfang bis Ende: LLM-Features, Agenten und Retrieval-Systeme sowie die Web-App, APIs und Cloud-Infrastruktur drumherum. Vor der Selbstständigkeit habe ich jahrelang Produktionssoftware ausgeliefert — zuletzt einen unternehmensweiten KI-Assistenten für über 2.000 Menschen an 13 Standorten. Ich mag kleine Teams, kurze Feedbackschleifen und Dinge, die wirklich genutzt werden. Neben der Technik spiele ich Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
+    en: "I'm an official OpenAI Select Partner and I work with people and companies on two fronts. **Coaching:** I show you how to actually use AI, which tools to pick, how to introduce them into your team, how to build workflows and agents, set up marketing, generate websites and internal tools, find leads, and run daily automations (like a morning digest on the topics you follow) with the agent of your choice. I also help you find the spots in your business or your life where AI genuinely helps, from a pocket therapist to running a company, planning your week, your meals or your training. **Building:** when a workflow isn't enough, I build the custom app, LLMs at the core, tool use, retrieval and agents in Python, plus the web app, APIs and cloud infrastructure around it. Before going independent I spent years shipping production software, most recently a company-wide AI assistant serving 2,000+ people across 13 offices. Beyond tech, I play tennis at a competitive amateur level and produce electronic music.",
+    fr: "Je suis officiellement OpenAI Select Partner et je travaille avec des particuliers et des entreprises sur deux fronts. **Coaching :** je vous montre comment utiliser l'IA pour de vrai — quels outils choisir, comment les introduire dans votre équipe, comment construire des workflows et des agents, mettre en place votre marketing, générer des sites et des outils internes, trouver des leads et lancer des automatisations quotidiennes (comme une revue de presse matinale sur les sujets que vous suivez) avec l'agent de votre choix. Je vous aide aussi à repérer les endroits de votre entreprise ou de votre vie où l'IA aide vraiment, d'un psychologue de poche à la gestion d'une société, en passant par la planification de votre semaine, de vos repas ou de votre entraînement. **Développement :** quand un workflow ne suffit plus, je construis l'application sur mesure, des LLM au cœur, l'usage d'outils, la recherche documentaire et les agents en Python, ainsi que l'application web, les API et l'infrastructure cloud autour. Avant de me mettre à mon compte, j'ai passé des années à livrer du logiciel en production, dernièrement un assistant IA utilisé par plus de 2 000 personnes sur 13 sites. Au-delà de la tech, je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
+    de: "Ich bin offizieller OpenAI Select Partner und arbeite mit Menschen und Unternehmen an zwei Fronten. **Coaching:** Ich zeige dir, wie du KI wirklich nutzt — welche Tools passen, wie du sie im Team einführst, wie du Workflows und Agenten baust, Marketing aufsetzt, Websites und interne Tools generierst, Leads findest und tägliche Automatisierungen laufen lässt (etwa ein Morgen-Briefing zu deinen Themen), mit dem Agenten deiner Wahl. Ich helfe dir auch, die Stellen in deinem Unternehmen oder deinem Leben zu finden, an denen KI echten Nutzen bringt, vom Psychologen für die Hosentasche bis zur Unternehmensführung, der Wochen-, Ernährungs- oder Trainingsplanung. **Entwicklung:** Wenn ein Workflow nicht reicht, baue ich die maßgeschneiderte Anwendung, LLMs im Kern, Tool-Nutzung, Retrieval und Agenten in Python, dazu die Web-App, APIs und Cloud-Infrastruktur drumherum. Vor der Selbstständigkeit habe ich jahrelang Produktionssoftware ausgeliefert, zuletzt einen unternehmensweiten KI-Assistenten für über 2.000 Menschen an 13 Standorten. Neben der Technik spiele ich Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
   },
   avatarUrl: "/me.jpg",
   skills: [
@@ -94,9 +94,20 @@ export const DATA = {
   },
   certifications: [
     {
+      name: "OpenAI Select Partner",
+      href: "https://openai.com/",
+      logoUrl: "/openai-select-partner.svg",
+      logoShape: "square",
+      invertOnDark: true,
+      date: "2026",
+      credentialId: "Official OpenAI Select Partner",
+    },
+    {
       name: "Microsoft Certified: Azure Developer Associate",
       href: "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/?practice-assessment-type=certification",
       logoUrl: "/az204.png",
+      logoShape: "circle",
+      invertOnDark: false,
       date: "March 2025",
       credentialId:
         "Credential ID: 9C0721D2FA6B9253 - Certification number: 4DDC4A-IE3385",
@@ -117,22 +128,22 @@ export const DATA = {
   ],
   work: [
     {
-      company: "Freelance",
+      company: "Independent",
       href: "https://faresaouani.com",
-      badges: ["Available"],
+      badges: ["Available", "OpenAI Select Partner"],
       location: "Remote / Düsseldorf",
       title: {
-        en: "AI & Software Engineer",
-        fr: "Ingénieur IA & logiciel",
-        de: "KI- & Software-Engineer",
+        en: "AI Coach & Engineer",
+        fr: "Coach & ingénieur IA",
+        de: "KI-Coach & Engineer",
       },
       logoUrl: "/me.jpg",
       start: "July 2026",
       end: "Present",
       description: {
-        en: "Independent engineer building AI-powered digital products for startups and companies. I take features from idea to production: LLM and agent systems, retrieval pipelines, and the web apps, APIs and cloud infrastructure they run on. Typical work ranges from a focused AI feature inside an existing product to a full build — design, frontend, backend, deployment and monitoring.",
-        fr: "Ingénieur indépendant, je construis des produits numériques propulsés par l'IA pour des startups et des entreprises. Je mène les fonctionnalités de l'idée à la production : systèmes LLM et agents, pipelines de recherche, ainsi que les applications web, API et infrastructures cloud qui les font tourner. Les missions vont d'une fonctionnalité IA ciblée dans un produit existant à une construction complète — design, frontend, backend, déploiement et monitoring.",
-        de: "Als unabhängiger Engineer baue ich KI-gestützte digitale Produkte für Startups und Unternehmen. Ich bringe Features von der Idee in die Produktion: LLM- und Agentensysteme, Retrieval-Pipelines sowie die Web-Apps, APIs und Cloud-Infrastruktur, auf denen sie laufen. Die Projekte reichen von einem gezielten KI-Feature in einem bestehenden Produkt bis zum kompletten Aufbau — Design, Frontend, Backend, Deployment und Monitoring.",
+        en: "I coach people and teams on using AI in their day-to-day work: choosing the right tools, introducing them without friction, and turning repetitive work into workflows and agents — marketing, websites, internal tools, lead generation, daily news automations, meal or training plans, whatever the actual bottleneck is. I also run AI opportunity audits to find where AI genuinely pays off in a business or a life. When a workflow isn't enough, I build the product: LLMs at the core with tool use, retrieval and agents in Python, plus the web app, APIs and cloud infrastructure around it.",
+        fr: "J'accompagne des personnes et des équipes dans l'usage quotidien de l'IA : choisir les bons outils, les introduire sans friction et transformer le travail répétitif en workflows et en agents — marketing, sites web, outils internes, génération de leads, automatisations d'actualité quotidiennes, plans de repas ou d'entraînement, selon le vrai goulot d'étranglement. Je réalise aussi des audits d'opportunités IA pour repérer là où l'IA rapporte vraiment, dans une entreprise comme dans une vie. Quand un workflow ne suffit plus, je construis le produit : des LLM au cœur avec l'usage d'outils, la recherche documentaire et les agents en Python, ainsi que l'application web, les API et l'infrastructure cloud autour.",
+        de: "Ich coache Menschen und Teams beim täglichen Einsatz von KI: die richtigen Tools wählen, sie reibungslos einführen und wiederkehrende Arbeit in Workflows und Agenten überführen — Marketing, Websites, interne Tools, Leadgenerierung, tägliche News-Automatisierungen, Ernährungs- oder Trainingspläne, je nachdem, wo der echte Engpass liegt. Außerdem mache ich KI-Potenzialanalysen, um zu finden, wo KI im Unternehmen oder im Alltag wirklich etwas bringt. Wenn ein Workflow nicht reicht, baue ich das Produkt: LLMs im Kern mit Tool-Nutzung, Retrieval und Agenten in Python, dazu die Web-App, APIs und Cloud-Infrastruktur drumherum.",
       },
     },
     {
@@ -224,14 +235,92 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Der Heimdall — AI Receptionist",
+      href: "",
+      dates: "August 2026",
+      active: true,
+      description: {
+        en: "A voice AI receptionist for craftsmen: answers every call 24/7 and books the client instead of losing them to voicemail, tens of thousands of euros a year saved.",
+        fr: "Un réceptionniste vocal IA pour artisans : répond à chaque appel 24h/24 et décroche le rendez-vous au lieu de perdre le client — des dizaines de milliers d'euros économisés par an.",
+        de: "Ein Voice-KI-Empfang für Handwerker: nimmt jeden Anruf rund um die Uhr an und bucht den Termin, statt Kunden an die Mailbox zu verlieren — zehntausende Euro Ersparnis im Jahr.",
+      },
+      technologies: ["Voice AI", "LLM", "Python", "Typescript"],
+      links: [],
+      image: "/derheimdall.jpg",
+      video: "",
+    },
+    {
+      title: "AI Usage Survey",
+      href: "https://survey.qartmina.com",
+      dates: "August 2026",
+      active: true,
+      description: {
+        en: "Only 5% of the world uses AI to its full potential, I had to verify that. A survey on who uses AI, what for and how often; every participant gets all the insights back.",
+        fr: "Seuls 5 % du monde exploitent l'IA à fond, je devais le vérifier. Un sondage sur qui utilise l'IA, pour quoi et à quelle fréquence ; chaque participant reçoit tous les résultats.",
+        de: "Nur 5 % der Welt nutzen KI voll aus, das wollte ich prüfen. Eine Umfrage dazu, wer KI nutzt, wofür und wie oft; alle Teilnehmenden bekommen sämtliche Erkenntnisse zurück.",
+      },
+      technologies: ["Next.js", "Typescript", "Supabase"],
+      links: [
+        {
+          type: "Website",
+          href: "https://survey.qartmina.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "3D Coffee Brand Website",
+      href: "https://coffee-website-virid-zeta.vercel.app",
+      dates: "2026",
+      active: true,
+      description: {
+        en: "An animated 3D site for a Jordanian coffee brand, the bag turns and reacts as you scroll, closer to holding the product than reading about it.",
+        fr: "Un site 3D animé pour une marque de café jordanienne, le paquet tourne et réagit au défilement, plus proche du produit en main que d'une page à lire.",
+        de: "Eine animierte 3D-Website für eine jordanische Kaffeemarke — die Packung dreht sich beim Scrollen, näher am Produkt in der Hand als an einer Textseite.",
+      },
+      technologies: ["Next.js", "Three.js", "Typescript", "TailwindCSS"],
+      links: [
+        {
+          type: "Website",
+          href: "https://coffee-website-virid-zeta.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/coffee3dwebsite.jpg",
+      video: "",
+    },
+    {
+      title: "Corian Bathroom Elements Website",
+      href: "https://website-gules-seven-71.vercel.app",
+      dates: "2026",
+      active: true,
+      description: {
+        en: "Site for a business selling Corian bathroom elements, washbasins, shower trays, custom pieces, built to show the catalogue and turn visitors into enquiries.",
+        fr: "Site pour une entreprise d'éléments de salle de bain en Corian, vasques, receveurs, pièces sur mesure, pensé pour présenter le catalogue et générer des demandes.",
+        de: "Website für einen Anbieter von Corian-Badelementen, Waschbecken, Duschtassen, Sonderanfertigungen, gebaut, um den Katalog zu zeigen und Anfragen zu erzeugen.",
+      },
+      technologies: ["Next.js", "Typescript", "TailwindCSS"],
+      links: [
+        {
+          type: "Website",
+          href: "https://website-gules-seven-71.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/seddik.jpg",
+      video: "",
+    },
+    {
       title: "Weekendstack",
       href: "https://www.producthunt.com/products/weekendstack",
       dates: "July 2026",
       active: true,
       description: {
-        en: "Ship a real SaaS in a weekend, with your AI agent. A production-ready stack that gets you from idea to launched product without wiring auth, payments and infra from scratch. Live on Product Hunt.",
-        fr: "Lancez un vrai SaaS en un week-end, avec votre agent IA. Une stack prête pour la production qui vous mène de l'idée au produit lancé sans câbler l'authentification, les paiements et l'infra à partir de zéro. En ligne sur Product Hunt.",
-        de: "Bring ein echtes SaaS an einem Wochenende live — mit deinem KI-Agenten. Ein produktionsreifer Stack, der dich von der Idee zum fertigen Produkt bringt, ohne Auth, Payments und Infra von Grund auf zu verkabeln. Jetzt auf Product Hunt.",
+        en: "Ship a real SaaS in a weekend with your AI agent, a production-ready stack with auth, payments and infra already wired. Live on Product Hunt.",
+        fr: "Lancez un vrai SaaS en un week-end avec votre agent IA, une stack prête pour la prod, auth, paiements et infra déjà câblés. En ligne sur Product Hunt.",
+        de: "Bring ein echtes SaaS an einem Wochenende live, ein produktionsreifer Stack mit fertiger Auth, Payments und Infra. Jetzt auf Product Hunt.",
       },
       technologies: ["Typescript", "Next.js"],
       links: [
@@ -250,9 +339,9 @@ export const DATA = {
       dates: "July 2026",
       active: true,
       description: {
-        en: "Are you a freelancer or a small business who needs to generate invoices fast? This is your tool.",
-        fr: "Vous êtes freelance ou une petite entreprise et devez générer des factures rapidement ? Voici votre outil.",
-        de: "Freelancer oder kleines Unternehmen und musst schnell Rechnungen erstellen? Das ist dein Werkzeug.",
+        en: "Freelancer or small business needing invoices fast? Create, send and track them in a couple of clicks.",
+        fr: "Freelance ou petite entreprise pressé de facturer ? Créez, envoyez et suivez vos factures en deux clics.",
+        de: "Freelancer oder kleines Unternehmen und schnell Rechnungen nötig? In zwei Klicks erstellen, senden und verfolgen.",
       },
       technologies: ["Typescript"],
       links: [
@@ -262,7 +351,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "invova.png",
+      image: "/invova.jpg",
       video: "",
     },
     {
@@ -271,9 +360,9 @@ export const DATA = {
       dates: "May 2026",
       active: true,
       description: {
-        en: "I started learning guitar a few months ago and quickly realized that learning chords first is the fastest path to playing real songs. But finding chords and understanding how to fret them isn't easy — so I built a tool that detects the chords you play in real time (TensorFlow + audio recognition) and visually shows you what you're striking. It also includes a library of chords with visualizations so you can start practicing right away.",
-        fr: "J'ai commencé la guitare il y a quelques mois et j'ai vite compris qu'apprendre d'abord les accords est le chemin le plus rapide pour jouer de vraies chansons. Mais trouver les accords et comprendre comment les placer n'est pas simple — j'ai donc créé un outil qui détecte les accords que vous jouez en temps réel (TensorFlow + reconnaissance audio) et vous montre visuellement ce que vous jouez. Il inclut aussi une bibliothèque d'accords avec des visualisations pour commencer à pratiquer tout de suite.",
-        de: "Vor ein paar Monaten habe ich angefangen, Gitarre zu lernen, und schnell gemerkt, dass es am schnellsten zu echten Songs führt, zuerst Akkorde zu lernen. Doch Akkorde zu finden und zu verstehen, wie man sie greift, ist nicht leicht — also habe ich ein Werkzeug gebaut, das die gespielten Akkorde in Echtzeit erkennt (TensorFlow + Audioerkennung) und visuell anzeigt, was du greifst. Es enthält außerdem eine Akkord-Bibliothek mit Visualisierungen, damit du sofort üben kannst.",
+        en: "Detects the chords you play in real time (TensorFlow + audio recognition) and shows you what you're fretting, with a visual chord library to practice from.",
+        fr: "Détecte en temps réel les accords que vous jouez (TensorFlow + reconnaissance audio) et montre ce que vous placez, avec une bibliothèque d'accords visuelle.",
+        de: "Erkennt in Echtzeit die gespielten Akkorde (TensorFlow + Audioerkennung) und zeigt visuell, was du greifst, inklusive Akkord-Bibliothek zum Üben.",
       },
       technologies: ["Python", "Tensorflow"],
       links: [
@@ -283,7 +372,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "guitar.png",
+      image: "/guitar.jpg",
       video: "",
     },
     {
@@ -292,9 +381,9 @@ export const DATA = {
       dates: "March 2026",
       active: true,
       description: {
-        en: "A multi-agent trip planner that matches users with their perfect destination based on preferences, budget, and travel style. Built on LangGraph and local LLMs via Ollama, it pairs a polished terminal interface with an AI-powered chat system to organize trips end to end.",
-        fr: "Un planificateur de voyage multi-agents qui associe les utilisateurs à leur destination idéale selon leurs préférences, leur budget et leur style de voyage. Basé sur LangGraph et des LLM locaux via Ollama, il combine une interface terminal soignée et un système de chat propulsé par l'IA pour organiser les voyages de bout en bout.",
-        de: "Ein Multi-Agenten-Reiseplaner, der Nutzer anhand von Vorlieben, Budget und Reisestil mit ihrem perfekten Ziel zusammenbringt. Aufgebaut auf LangGraph und lokalen LLMs über Ollama, verbindet er eine ausgefeilte Terminal-Oberfläche mit einem KI-gestützten Chat-System, um Reisen von Anfang bis Ende zu organisieren.",
+        en: "A multi-agent trip planner matching you to the right destination by taste, budget and travel style, LangGraph with local LLMs via Ollama, in a polished terminal UI.",
+        fr: "Un planificateur de voyage multi-agents qui trouve la destination idéale selon goûts, budget et style, LangGraph et LLM locaux via Ollama, interface terminal soignée.",
+        de: "Ein Multi-Agenten-Reiseplaner, der das passende Ziel nach Vorlieben, Budget und Reisestil findet, LangGraph mit lokalen LLMs via Ollama, feine Terminal-UI.",
       },
       technologies: [
         "Python",
@@ -321,9 +410,9 @@ export const DATA = {
       dates: "Jan 2026 - Present",
       active: true,
       description: {
-        en: "Since joining AMLD Africa in July 2025, I built robust infrastructure that powers both the organization's public presence and its internal operations — supporting an event that reached 3,000+ attendees onsite, online, and through ambassador broadcasts. The platform streamlines agenda generation, certificate issuance, and the team's day-to-day workflows.",
-        fr: "Depuis mon arrivée chez AMLD Africa en juillet 2025, j'ai construit une infrastructure robuste qui alimente à la fois la présence publique de l'organisation et ses opérations internes — au service d'un événement ayant réuni plus de 3 000 participants sur place, en ligne et via les diffusions des ambassadeurs. La plateforme simplifie la génération d'agendas, l'émission de certificats et le travail quotidien de l'équipe.",
-        de: "Seit meinem Einstieg bei AMLD Africa im Juli 2025 habe ich eine robuste Infrastruktur aufgebaut, die sowohl den öffentlichen Auftritt der Organisation als auch ihren internen Betrieb trägt — für eine Veranstaltung mit über 3.000 Teilnehmenden vor Ort, online und über Botschafter-Übertragungen. Die Plattform vereinfacht die Agenda-Erstellung, die Ausstellung von Zertifikaten und die täglichen Abläufe des Teams.",
+        en: "The platform behind AMLD Africa's public site and internal operations, agenda generation, certificates and daily workflows — for an event reaching 3,000+ attendees.",
+        fr: "La plateforme derrière le site public et les opérations internes d'AMLD Africa, agendas, certificats, workflows quotidiens — pour un événement de 3 000+ participants.",
+        de: "Die Plattform hinter AMLD Africas Website und internem Betrieb, Agenda, Zertifikate, tägliche Abläufe — für eine Veranstaltung mit über 3.000 Teilnehmenden.",
       },
       technologies: [
         "Next.js",
@@ -339,7 +428,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "amldwebsite.png",
+      image: "/amldwebsite.jpg",
       video: "",
     },
     {
@@ -348,9 +437,9 @@ export const DATA = {
       dates: "Oct 2025 - Present",
       active: true,
       description: {
-        en: "Automations I built for AMLD Africa: anonymized speaker applications for fair, bias-free reviewer scoring; an automated certificate pipeline that generated 1,400 attendee certificates; and informational email campaigns to attendees — saving the team countless manual hours.",
-        fr: "Des automatisations que j'ai créées pour AMLD Africa : anonymisation des candidatures des intervenants pour une évaluation juste et sans biais ; un pipeline automatisé de certificats ayant généré 1 400 certificats de participation ; et des campagnes d'e-mails d'information aux participants — faisant gagner à l'équipe d'innombrables heures de travail manuel.",
-        de: "Automatisierungen, die ich für AMLD Africa gebaut habe: anonymisierte Speaker-Bewerbungen für eine faire, verzerrungsfreie Bewertung; eine automatisierte Zertifikats-Pipeline, die 1.400 Teilnahmezertifikate erzeugt hat; und informative E-Mail-Kampagnen an die Teilnehmenden — was dem Team unzählige manuelle Arbeitsstunden erspart hat.",
+        en: "Anonymized speaker reviews for bias-free scoring, a pipeline that issued 1,400 certificates, and attendee email campaigns, hundreds of manual hours saved.",
+        fr: "Candidatures d'intervenants anonymisées pour une évaluation sans biais, un pipeline ayant émis 1 400 certificats et des campagnes e-mail, des centaines d'heures gagnées.",
+        de: "Anonymisierte Speaker-Bewerbungen für faire Bewertung, eine Pipeline mit 1.400 Zertifikaten und E-Mail-Kampagnen, hunderte manuelle Stunden gespart.",
       },
       technologies: ["Make", "Notion", "Microsoft Outlook", "Google drive"],
       links: [

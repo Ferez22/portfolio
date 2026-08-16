@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * "Available for freelance projects" pill with a floating panel holding a CTA.
+ * "Available for AI coaching & builds" pill with a floating panel holding a CTA.
  * Opens on hover (pointer) and on click/focus (touch + keyboard). Not a real
  * tooltip — it contains a button, so it's a labelled popover instead.
  */

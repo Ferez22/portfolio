@@ -12,14 +12,15 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
+    return <div className="w-full h-36 bg-muted" />;
   }
 
   return (
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover"
+      loading="lazy"
+      className="w-full h-36 object-cover object-top origin-top scale-[1.25]"
       onError={() => setImageError(true)}
     />
   );
@@ -83,7 +84,7 @@ export function ProjectCard({
         className
       )}
     >
-      <div className="relative shrink-0">
+      <div className="relative shrink-0 overflow-hidden">
         {video ? (
           <video
             src={video}
@@ -91,12 +92,12 @@ export function ProjectCard({
             loop
             muted
             playsInline
-            className="w-full h-48 object-cover"
+            className="w-full h-36 object-cover object-top origin-top scale-[1.25]"
           />
         ) : image ? (
           <ProjectImage src={image} alt={title} />
         ) : (
-          <div className="w-full h-48 bg-muted" />
+          <div className="w-full h-36 bg-muted" />
         )}
         {links && links.length > 0 && (
           <div className="absolute top-2 right-2 flex flex-wrap gap-2">
@@ -120,7 +121,7 @@ export function ProjectCard({
           </div>
         )}
       </div>
-      <div className="p-6 flex flex-col gap-3 flex-1">
+      <div className="p-4 flex flex-col gap-2 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="flex flex-col gap-1">
             <h3 className="font-semibold">{title}</h3>
