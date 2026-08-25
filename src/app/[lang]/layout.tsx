@@ -182,9 +182,9 @@ export default async function RootLayout({
               />
             </div>
             <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.92_0.06_45/0.35),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.35_0.08_45/0.25),transparent)]" />
-            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
-              {children}
-            </div>
+            {/* Pages own their own width: the landing page is full-bleed,
+                everything else wraps itself in <PageShell>. */}
+            {children}
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>

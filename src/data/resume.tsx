@@ -21,16 +21,18 @@ export const DATA = {
     de: "KI-Coach & Engineer",
   },
   description: {
-    en: "I coach you and your business on getting the most out of AI, the right tools, the workflows, the agents, and I build the custom AI apps behind them, from a daily automation to a production LLM system in Python. Available for coaching and new projects.",
-    fr: "J'accompagne les personnes et les entreprises pour tirer le maximum de l'IA, les bons outils, les workflows, les agents, et je construis les applications IA sur mesure derrière, d'une automatisation quotidienne à un système LLM en production en Python. Disponible pour du coaching et de nouveaux projets.",
-    de: "Ich coache dich und dein Unternehmen dabei, das Maximum aus KI herauszuholen, die richtigen Tools, Workflows und Agenten, und baue die passenden KI-Anwendungen dahinter, von der täglichen Automatisierung bis zum produktiven LLM-System in Python. Verfügbar für Coaching und neue Projekte.",
+    en: "",
+    fr: "",
+    de: "",
   },
   summary: {
-    en: "I'm an official OpenAI Select Partner and I work with people and companies on two fronts. **Coaching:** I show you how to actually use AI, which tools to pick, how to introduce them into your team, how to build workflows and agents, set up marketing, generate websites and internal tools, find leads, and run daily automations (like a morning digest on the topics you follow) with the agent of your choice. I also help you find the spots in your business or your life where AI genuinely helps, from a pocket therapist to running a company, planning your week, your meals or your training. **Building:** when a workflow isn't enough, I build the custom app, LLMs at the core, tool use, retrieval and agents in Python, plus the web app, APIs and cloud infrastructure around it. Before going independent I spent years shipping production software, most recently a company-wide AI assistant serving 2,000+ people across 13 offices. Beyond tech, I play tennis at a competitive amateur level and produce electronic music.",
-    fr: "Je suis officiellement OpenAI Select Partner et je travaille avec des particuliers et des entreprises sur deux fronts. **Coaching :** je vous montre comment utiliser l'IA pour de vrai — quels outils choisir, comment les introduire dans votre équipe, comment construire des workflows et des agents, mettre en place votre marketing, générer des sites et des outils internes, trouver des leads et lancer des automatisations quotidiennes (comme une revue de presse matinale sur les sujets que vous suivez) avec l'agent de votre choix. Je vous aide aussi à repérer les endroits de votre entreprise ou de votre vie où l'IA aide vraiment, d'un psychologue de poche à la gestion d'une société, en passant par la planification de votre semaine, de vos repas ou de votre entraînement. **Développement :** quand un workflow ne suffit plus, je construis l'application sur mesure, des LLM au cœur, l'usage d'outils, la recherche documentaire et les agents en Python, ainsi que l'application web, les API et l'infrastructure cloud autour. Avant de me mettre à mon compte, j'ai passé des années à livrer du logiciel en production, dernièrement un assistant IA utilisé par plus de 2 000 personnes sur 13 sites. Au-delà de la tech, je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
-    de: "Ich bin offizieller OpenAI Select Partner und arbeite mit Menschen und Unternehmen an zwei Fronten. **Coaching:** Ich zeige dir, wie du KI wirklich nutzt — welche Tools passen, wie du sie im Team einführst, wie du Workflows und Agenten baust, Marketing aufsetzt, Websites und interne Tools generierst, Leads findest und tägliche Automatisierungen laufen lässt (etwa ein Morgen-Briefing zu deinen Themen), mit dem Agenten deiner Wahl. Ich helfe dir auch, die Stellen in deinem Unternehmen oder deinem Leben zu finden, an denen KI echten Nutzen bringt, vom Psychologen für die Hosentasche bis zur Unternehmensführung, der Wochen-, Ernährungs- oder Trainingsplanung. **Entwicklung:** Wenn ein Workflow nicht reicht, baue ich die maßgeschneiderte Anwendung, LLMs im Kern, Tool-Nutzung, Retrieval und Agenten in Python, dazu die Web-App, APIs und Cloud-Infrastruktur drumherum. Vor der Selbstständigkeit habe ich jahrelang Produktionssoftware ausgeliefert, zuletzt einen unternehmensweiten KI-Assistenten für über 2.000 Menschen an 13 Standorten. Neben der Technik spiele ich Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
+    en: "",
+    fr: "",
+    de: "",
   },
   avatarUrl: "/me.jpg",
+  /** Stylized portrait used by the landing page intro. */
+  introPortraitUrl: "/pdp.jpg",
   skills: [
     { name: "Azure", icon: Azure },
     { name: "React", icon: ReactLight },
@@ -93,25 +95,7 @@ export const DATA = {
     },
   },
   certifications: [
-    {
-      name: "OpenAI Select Partner",
-      href: "https://openai.com/",
-      logoUrl: "/openai-select-partner.svg",
-      logoShape: "square",
-      invertOnDark: true,
-      date: "2026",
-      credentialId: "Official OpenAI Select Partner",
-    },
-    {
-      name: "Microsoft Certified: Azure Developer Associate",
-      href: "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/?practice-assessment-type=certification",
-      logoUrl: "/az204.png",
-      logoShape: "circle",
-      invertOnDark: false,
-      date: "March 2025",
-      credentialId:
-        "Credential ID: 9C0721D2FA6B9253 - Certification number: 4DDC4A-IE3385",
-    },
+    
   ],
   nonProfitWork: [
     {
@@ -233,6 +217,205 @@ export const DATA = {
       end: "2023",
     },
   ],
+  /**
+   * The two full-screen quotes on the landing page.
+   * `hero` shows right after the loader, `thesis` sits between the projects
+   * and the chronology. Edit freely — they are rendered verbatim.
+   */
+  quotes: {
+    hero: {
+      en: "The only way to do great work is to love what you do. - Steve Jobs",
+      fr: "Le meilleur moyen de faire un bon travail, c'est d'aimer ce que l'on fait. - Steve Jobs",
+      de: "Der beste weg, um was großes zu schaffen, ist es das zu lieben, was man macht. - Steve Jobs",
+    },
+    thesis: {
+      en: "AI only pays off when it lands inside a real process — one agent, one job, shipped to production.",
+      fr: "L'IA ne rapporte que lorsqu'elle s'intègre à un vrai processus — un agent, une tâche, mis en production.",
+      de: "KI zahlt sich erst aus, wenn sie in einem echten Prozess landet — ein Agent, eine Aufgabe, in Produktion.",
+    },
+  },
+  /**
+   * The full-screen chronology arrow. `kind` drives the styling:
+   * milestone | school | work | world (world = context markers like COVID).
+   */
+  timeline: [
+    {
+      id: "born",
+      kind: "milestone",
+      dateLabel: "22.08.1997",
+      sortDate: "1997-08-22",
+      title: {
+        en: "Born in Carthage, Tunisia",
+        fr: "Né à Carthage, Tunisie",
+        de: "Geboren in Karthago, Tunesien",
+      },
+      body: {
+        en: "A Friday, in a city built on layers of other cities.",
+        fr: "Un vendredi, dans une ville bâtie sur les couches d'autres villes.",
+        de: "Ein Freitag, in einer Stadt, die auf anderen Städten gebaut ist.",
+      },
+    },
+    {
+      id: "bac",
+      kind: "school",
+      dateLabel: "2015",
+      sortDate: "2015-06-01",
+      title: {
+        en: "French Baccalauréat",
+        fr: "Baccalauréat français",
+        de: "Französisches Abitur",
+      },
+      body: {
+        en: "Finished school in the French system, already pointed at engineering.",
+        fr: "Fin du lycée dans le système français, déjà tourné vers l'ingénierie.",
+        de: "Schulabschluss im französischen System, schon Richtung Technik orientiert.",
+      },
+    },
+    {
+      id: "goethe",
+      kind: "school",
+      dateLabel: "2016",
+      sortDate: "2016-01-01",
+      title: {
+        en: "Goethe-Institut — German",
+        fr: "Goethe-Institut — allemand",
+        de: "Goethe-Institut — Deutsch",
+      },
+      body: {
+        en: "A year of German, to make studying in Germany possible.",
+        fr: "Une année d'allemand, pour rendre possible des études en Allemagne.",
+        de: "Ein Jahr Deutsch, um das Studium in Deutschland möglich zu machen.",
+      },
+    },
+    {
+      id: "berlin",
+      kind: "school",
+      dateLabel: "2017 – 2018",
+      sortDate: "2017-09-01",
+      title: {
+        en: "Computer Science — Berlin",
+        fr: "Informatique — Berlin",
+        de: "Informatik — Berlin",
+      },
+      body: {
+        en: "First years of CS studies in Berlin.",
+        fr: "Premières années d'études d'informatique à Berlin.",
+        de: "Erste Jahre des Informatikstudiums in Berlin.",
+      },
+    },
+    {
+      id: "hsrw",
+      kind: "school",
+      dateLabel: "2019 – 2023",
+      sortDate: "2019-09-01",
+      title: {
+        en: "Digital Media & Computer Science — Kamp-Lintfort",
+        fr: "Médias numériques & informatique — Kamp-Lintfort",
+        de: "Medien- und Kommunikationsinformatik — Kamp-Lintfort",
+      },
+      body: {
+        en: "Where the engineering and the design halves finally met.",
+        fr: "Là où l'ingénierie et le design se sont enfin rencontrés.",
+        de: "Wo Technik und Gestaltung endlich zusammenkamen.",
+      },
+    },
+    {
+      id: "covid",
+      kind: "world",
+      dateLabel: "2020 – 2021",
+      sortDate: "2020-03-01",
+      title: {
+        en: "COVID",
+        fr: "COVID",
+        de: "COVID",
+      },
+      body: {
+        en: "Everything went remote and quiet. Studies, work and side projects all collapsed into one desk, and I spent the time building.",
+        fr: "Tout est devenu distant et silencieux. Études, travail et projets perso se sont retrouvés sur le même bureau, et j'ai passé ce temps à construire.",
+        de: "Alles wurde remote und still. Studium, Arbeit und Nebenprojekte fielen auf einen Schreibtisch zusammen, und ich habe die Zeit zum Bauen genutzt.",
+      },
+    },
+    {
+      id: "datalog",
+      kind: "work",
+      dateLabel: "2021",
+      sortDate: "2021-02-01",
+      title: {
+        en: "Datalog Finance — Web Design",
+        fr: "Datalog Finance — web design",
+        de: "Datalog Finance — Webdesign",
+      },
+      body: {
+        en: "Rebuilt a treasury management UI from the ground up.",
+        fr: "Refonte complète de l'interface d'un système de gestion de trésorerie.",
+        de: "Die Oberfläche eines Treasury-Management-Systems neu gebaut.",
+      },
+    },
+    {
+      id: "adesso",
+      kind: "work",
+      dateLabel: "2022",
+      sortDate: "2022-09-01",
+      title: {
+        en: "adesso GmbH — Software Engineer & Team Lead",
+        fr: "adesso GmbH — ingénieur logiciel & chef d'équipe",
+        de: "adesso GmbH — Software Engineer & Teamleiter",
+      },
+      body: {
+        en: "Led a full-stack and IoT build end to end, first time owning delivery.",
+        fr: "Direction d'un projet full-stack et IoT de bout en bout, première responsabilité de livraison.",
+        de: "Ein Full-Stack- und IoT-Projekt end to end geleitet, erstmals mit Lieferverantwortung.",
+      },
+    },
+    {
+      id: "chatgpt",
+      kind: "world",
+      dateLabel: "Nov 2022",
+      sortDate: "2022-11-30",
+      title: {
+        en: "ChatGPT ships",
+        fr: "ChatGPT sort",
+        de: "ChatGPT erscheint",
+      },
+      body: {
+        en: "This is what shaped the direction I wanted to go into: artificial intelligence. It was suddenly obvious which problems were worth automating, and the interest stopped being a direction and became the work.",
+        fr: "C'est ce qui a façonné la direction que je voulais prendre : l'intelligence artificielle. On voyait soudain quels problèmes méritaient d'être automatisés, et l'intérêt a cessé d'être une direction pour devenir le métier.",
+        de: "Das hat die Richtung geprägt, die ich einschlagen wollte: künstliche Intelligenz. Plötzlich war klar, welche Probleme Automatisierung verdienen, und aus dem Interesse wurde die eigentliche Arbeit.",
+      },
+    },
+    {
+      id: "forvis",
+      kind: "work",
+      dateLabel: "2023 – now",
+      sortDate: "2023-05-01",
+      title: {
+        en: "Forvis Mazars GmbH — Fullstack Engineer",
+        fr: "Forvis Mazars GmbH — ingénieur fullstack",
+        de: "Forvis Mazars GmbH — Fullstack-Entwickler",
+      },
+      body: {
+        en: "A company-wide AI chatbot and a document generator, serving 2,000+ people across 13 locations.",
+        fr: "Un chatbot IA à l'échelle de l'entreprise et un générateur de documents, pour 2 000+ personnes sur 13 sites.",
+        de: "Ein unternehmensweiter KI-Chatbot und ein Dokumentengenerator für über 2.000 Menschen an 13 Standorten.",
+      },
+    },
+    {
+      id: "freelance",
+      kind: "milestone",
+      dateLabel: "Oct 2027",
+      sortDate: "2027-10-01",
+      title: {
+        en: "Freelance AI Engineer",
+        fr: "Ingénieur IA indépendant",
+        de: "Freiberuflicher KI-Engineer",
+      },
+      body: {
+        en: "It consolidated into one thing: AI engineering. Agents built for specific use cases, agentic and multi-agent systems, production-ready by today's best practices.",
+        fr: "Tout s'est consolidé en une seule chose : l'ingénierie IA. Des agents conçus pour des cas d'usage précis, des systèmes agentiques et multi-agents, prêts pour la production selon les meilleures pratiques actuelles.",
+        de: "Alles hat sich zu einer Sache verdichtet: KI-Engineering. Agenten für konkrete Anwendungsfälle, agentische und Multi-Agenten-Systeme, produktionsreif nach heutigen Best Practices.",
+      },
+    },
+  ],
   projects: [
     {
       title: "Der Heimdall — AI Receptionist",
@@ -344,7 +527,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/weekendstack.jpg",
+      image: "/weekendstack-dev.jpg",
       video: "",
     },
     {

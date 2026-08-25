@@ -258,3 +258,11 @@
   }
 
 }
+/*
+ * The intro overlay ships in the server HTML but stays hidden unless the
+ * inline script in <IntroGate/> set data-intro="play" before first paint —
+ * i.e. whenever reduced motion is off.
+ */
+html:not([data-intro="play"]) .intro-overlay {
+  display: none;
+}

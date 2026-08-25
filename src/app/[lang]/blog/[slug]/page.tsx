@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { locales, isLocale, defaultLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import PageShell from "@/components/page-shell";
 
 function getSortedPosts() {
   return [...allPosts].sort((a, b) => {
@@ -123,7 +124,8 @@ export default async function Blog({
   }).replace(/</g, "\\u003c");
 
   return (
-    <section id="blog">
+    <PageShell>
+      <section id="blog">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -198,5 +200,6 @@ export default async function Blog({
         </div>
       </nav>
     </section>
+    </PageShell>
   );
 }

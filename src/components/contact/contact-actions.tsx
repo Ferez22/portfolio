@@ -49,7 +49,13 @@ export function BookCallButton({
         }}
         aria-busy={!ready}
         className={cn(
-          "group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-heading text-base font-bold tracking-wide text-primary-foreground shadow-[0_12px_40px_-12px_oklch(0.45_0.1_45/0.5)] ring-1 ring-amber-950/10 dark:ring-amber-200/15 transition-all hover:shadow-[0_16px_50px_-12px_oklch(0.45_0.1_45/0.6)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer",
+          "group inline-flex cursor-pointer items-center justify-center gap-2",
+          "rounded-2xl border-4 border-foreground bg-primary px-6 py-3",
+          "font-display text-base font-bold tracking-wide text-primary-foreground",
+          "shadow-[8px_9px_0_0_var(--color-foreground)] transition-all",
+          "hover:-translate-y-0.5 hover:shadow-[10px_12px_0_0_var(--color-foreground)]",
+          "active:translate-y-0.5 active:shadow-[3px_4px_0_0_var(--color-foreground)]",
+          "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring",
           className
         )}
       >
@@ -90,7 +96,13 @@ export function CopyEmailButton({
       onClick={handleCopy}
       aria-label={copied ? "Email copied" : "Copy email address"}
       className={cn(
-        "inline-flex items-center gap-2 rounded-lg border border-border bg-card/80 px-3 py-2 font-tech text-xs font-bold uppercase tracking-wider text-muted-foreground ring-1 ring-amber-950/5 dark:ring-amber-200/10 transition-colors hover:text-foreground hover:ring-amber-800/15 dark:hover:ring-amber-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer",
+        "inline-flex cursor-pointer items-center gap-2",
+        "rounded-xl border-[3px] border-foreground bg-card px-3 py-2",
+        "font-tech text-xs font-bold uppercase tracking-wider text-foreground",
+        "shadow-[4px_5px_0_0_var(--color-foreground)] transition-all",
+        "hover:-translate-y-0.5 hover:shadow-[5px_6px_0_0_var(--color-foreground)]",
+        "active:translate-y-0.5 active:shadow-[2px_2px_0_0_var(--color-foreground)]",
+        "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring",
         className
       )}
     >

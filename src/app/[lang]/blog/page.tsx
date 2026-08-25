@@ -6,6 +6,7 @@ import { paginate, normalizePage } from "@/lib/pagination";
 import { ChevronRight } from "lucide-react";
 import { isLocale, defaultLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import PageShell from "@/components/page-shell";
 
 export async function generateMetadata({
   params,
@@ -61,7 +62,8 @@ export default async function BlogPage({
   });
 
   return (
-    <section id="blog">
+    <PageShell>
+      <section id="blog">
       <BlurFade delay={BLUR_FADE_DELAY}>
         <h1 className="text-2xl font-semibold tracking-tight mb-2">{dict.blog.title} <span className="ml-1 bg-card border border-border rounded-md px-2 py-1 text-muted-foreground text-sm">{sortedPosts.length} {dict.blog.postsSuffix}</span></h1>
         <p className="text-sm text-muted-foreground mb-8">
@@ -153,5 +155,6 @@ export default async function BlogPage({
         </BlurFade>
       )}
     </section>
+    </PageShell>
   );
 }

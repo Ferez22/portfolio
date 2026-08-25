@@ -12,7 +12,7 @@ import {
 import { DATA } from "@/data/resume";
 import { AnimatePresence, motion } from "motion/react";
 import { Languages, MoreHorizontal, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   locales,
@@ -25,12 +25,14 @@ import {
 import { getDictionary } from "@/i18n/dictionaries";
 import { cn } from "@/lib/utils";
 
+// Same cartoon-outline language as the landing cards: thick foreground border,
+// hard offset shadow, no glass.
 const DOCK_CLASS =
-  "z-50 pointer-events-auto relative h-14 px-3 py-2 w-fit max-w-[calc(100vw-1rem)] mx-auto flex gap-3 border bg-card/90 backdrop-blur-3xl shadow-[0_0_10px_3px] shadow-primary/5";
+  "z-50 pointer-events-auto relative h-16 px-3 py-2 w-fit max-w-[calc(100vw-1rem)] mx-auto flex gap-2.5 rounded-2xl border-4 border-foreground bg-card shadow-[8px_9px_0_0_var(--color-foreground)]";
 const DOCK_ICON_CLASS =
-  "rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors";
+  "rounded-xl cursor-pointer size-full bg-background p-0 text-foreground border-[3px] border-foreground transition-all hover:-translate-y-0.5 hover:bg-muted";
 const TOOLTIP_CLASS =
-  "rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]";
+  "rounded-xl border-[3px] border-foreground bg-card text-foreground px-4 py-2 font-tech text-xs font-bold uppercase tracking-wider shadow-[4px_5px_0_0_var(--color-foreground)]";
 
 function IconLink({
   href,
@@ -68,7 +70,7 @@ function IconLink({
       </TooltipTrigger>
       <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
         <p>{label}</p>
-        <TooltipArrow className="fill-primary" />
+        <TooltipArrow className="fill-foreground" />
       </TooltipContent>
     </Tooltip>
   );
@@ -113,6 +115,27 @@ export default function Navbar() {
     ([, social]) => social.navbar
   );
 
+  // On the landing page the dock stays out of the way of the full-screen hero
+  // and slides in as soon as the visitor starts scrolling. Everywhere else it
+  // is always there.
+  const isLanding = restPath === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isLanding) return;
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    // rAF rather than a direct call so the first read happens after paint
+    // (covers a reload that restores a scrolled position).
+    const frame = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [isLanding]);
+
+  const dockVisible = !isLanding || scrolled;
+
   return (
     <>
       {/* Click-away layer: closes the open secondary dock when tapping outside it */}
@@ -124,7 +147,13 @@ export default function Navbar() {
         />
       )}
 
-      <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30 flex flex-col items-center gap-3">
+      <motion.div
+        inert={!dockVisible}
+        animate={{ opacity: dockVisible ? 1 : 0, y: dockVisible ? 0 : 28 }}
+        initial={false}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none fixed inset-x-0 bottom-4 z-30 flex flex-col items-center gap-3"
+      >
         {/* Secondary dock: expanded social links, floats above the main bar */}
         <AnimatePresence>
           {showSocials && (
@@ -171,10 +200,10 @@ export default function Navbar() {
                       >
                         <DockIcon
                           className={cn(
-                            "flex items-center justify-center rounded-3xl cursor-pointer size-full bg-background font-tech text-[0.7rem] font-bold uppercase tracking-wider backdrop-blur-3xl border border-border transition-colors",
+                            "flex size-full cursor-pointer items-center justify-center rounded-xl border-[3px] border-foreground bg-background font-tech text-[0.7rem] font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5",
                             loc === lang
-                              ? "text-foreground bg-muted"
-                              : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                              ? "bg-primary text-primary-foreground"
+                              : "text-foreground hover:bg-muted"
                           )}
                         >
                           {localeNames[loc]}
@@ -183,7 +212,7 @@ export default function Navbar() {
                     </TooltipTrigger>
                     <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
                       <p>{localeNames[loc]}</p>
-                      <TooltipArrow className="fill-primary" />
+                      <TooltipArrow className="fill-foreground" />
                     </TooltipContent>
                   </Tooltip>
                 ))}
@@ -209,7 +238,7 @@ export default function Navbar() {
 
           <Separator
             orientation="vertical"
-            className="h-2/3 m-auto w-px bg-border"
+            className="m-auto h-2/3 w-[3px] bg-foreground/70"
           />
 
           <Tooltip>
@@ -219,7 +248,7 @@ export default function Navbar() {
                 aria-label={showSocials ? dict.tooltip.less : dict.tooltip.socials}
                 aria-expanded={showSocials}
                 onClick={toggleSocials}
-                className="flex size-10 shrink-0 aspect-square items-center justify-center rounded-3xl cursor-pointer bg-background text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors"
+                className="flex size-10 shrink-0 aspect-square cursor-pointer items-center justify-center rounded-xl border-[3px] border-foreground bg-background text-foreground transition-all hover:-translate-y-0.5 hover:bg-muted"
               >
                 {showSocials ? (
                   <X className="size-1/2" />
@@ -230,13 +259,13 @@ export default function Navbar() {
             </TooltipTrigger>
             <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
               <p>{showSocials ? dict.tooltip.less : dict.tooltip.socials}</p>
-              <TooltipArrow className="fill-primary" />
+              <TooltipArrow className="fill-foreground" />
             </TooltipContent>
           </Tooltip>
 
           <Separator
             orientation="vertical"
-            className="h-2/3 m-auto w-px bg-border"
+            className="m-auto h-2/3 w-[3px] bg-foreground/70"
           />
 
           {/* Language switcher toggle — opens the languages dock */}
@@ -247,7 +276,7 @@ export default function Navbar() {
                 aria-label={dict.tooltip.language}
                 aria-expanded={showLangs}
                 onClick={toggleLangs}
-                className="flex h-10 shrink-0 items-center justify-center gap-1 rounded-3xl cursor-pointer bg-background px-2.5 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors"
+                className="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-1 rounded-xl border-[3px] border-foreground bg-background px-2.5 text-foreground transition-all hover:-translate-y-0.5 hover:bg-muted"
               >
                 {showLangs ? (
                   <X className="size-5" />
@@ -263,13 +292,13 @@ export default function Navbar() {
             </TooltipTrigger>
             <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
               <p>{dict.tooltip.language}</p>
-              <TooltipArrow className="fill-primary" />
+              <TooltipArrow className="fill-foreground" />
             </TooltipContent>
           </Tooltip>
 
           <Separator
             orientation="vertical"
-            className="h-2/3 m-auto w-px bg-border"
+            className="m-auto h-2/3 w-[3px] bg-foreground/70"
           />
 
           <Tooltip>
@@ -280,11 +309,11 @@ export default function Navbar() {
             </TooltipTrigger>
             <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
               <p>{dict.tooltip.theme}</p>
-              <TooltipArrow className="fill-primary" />
+              <TooltipArrow className="fill-foreground" />
             </TooltipContent>
           </Tooltip>
         </Dock>
-      </div>
+      </motion.div>
     </>
   );
 }

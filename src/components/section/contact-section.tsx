@@ -38,7 +38,7 @@ export default function ContactSection({
           <BlurFadeText
             delay={BLUR_FADE_DELAY * 1.5}
             yOffset={8}
-            className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-balance bg-linear-to-br from-foreground via-foreground to-amber-950/80 dark:to-amber-200/90 bg-clip-text text-transparent"
+            className="font-display text-4xl font-extrabold tracking-tight text-balance sm:text-5xl"
             text={dict.contact.heading}
           />
           <BlurFade delay={BLUR_FADE_DELAY * 2.5}>
@@ -52,7 +52,7 @@ export default function ContactSection({
       {/* Primary CTA — book a call */}
       <div>
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <div className="relative overflow-hidden rounded-2xl border border-border bg-card/60 p-8 sm:p-10">
+          <div className="relative overflow-hidden rounded-3xl border-4 border-foreground bg-card p-8 shadow-[12px_14px_0_0_var(--color-foreground)] sm:p-10">
             <div className="pointer-events-none absolute inset-0 top-0 h-2/3 opacity-[0.5] dark:opacity-[0.35]">
               <FlickeringGrid
                 className="h-full w-full"
@@ -71,7 +71,7 @@ export default function ContactSection({
                 <span className="font-tech text-xs font-bold uppercase tracking-widest text-amber-800/70 dark:text-amber-300/70">
                   {dict.contact.ctaEyebrow}
                 </span>
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight">
+                <h2 className="font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
                   {dict.contact.ctaHeading}
                 </h2>
                 <p className="font-sans text-muted-foreground max-w-md text-pretty">
@@ -92,14 +92,14 @@ export default function ContactSection({
       {/* Secondary — email */}
       <div>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card/40 p-6 sm:p-8">
+          <div className="flex flex-col gap-4 rounded-3xl border-4 border-foreground bg-card p-6 shadow-[8px_9px_0_0_var(--color-foreground)] sm:p-8">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-background ring-2 ring-border">
-                  <Mail className="size-4 text-muted-foreground" aria-hidden />
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border-[3px] border-foreground bg-background shadow-[3px_4px_0_0_var(--color-foreground)]">
+                  <Mail className="size-4" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-0.5 min-w-0">
-                  <span className="font-heading text-base font-bold">
+                  <span className="font-display text-base font-bold">
                     {dict.contact.emailEyebrow}
                   </span>
                   <a
@@ -134,7 +134,7 @@ export default function ContactSection({
       <div>
         <div className="flex flex-col gap-4">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="font-heading text-xl font-bold tracking-wide">
+            <h2 className="font-display text-xl font-extrabold tracking-tight">
               {dict.contact.socialsHeading}
             </h2>
           </BlurFade>
@@ -147,7 +147,7 @@ export default function ContactSection({
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-2 rounded-lg border border-border bg-card/80 ring-1 ring-amber-950/5 dark:ring-amber-200/10 px-3 py-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:ring-amber-800/15 dark:hover:ring-amber-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    className="group flex items-center gap-2 rounded-xl border-[3px] border-foreground bg-card px-3 py-2 shadow-[4px_5px_0_0_var(--color-foreground)] transition-all hover:-translate-y-0.5 hover:shadow-[5px_6px_0_0_var(--color-foreground)] active:translate-y-0.5 active:shadow-[2px_2px_0_0_var(--color-foreground)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
                   >
                     <Icon className="size-4 object-contain opacity-90" />
                     <span className="font-tech text-xs font-bold uppercase tracking-wider text-foreground">
@@ -168,7 +168,7 @@ export default function ContactSection({
       {/* Trust line */}
       <div>
         <BlurFade delay={BLUR_FADE_DELAY * 8}>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground border-t border-border/60 pt-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t-[3px] border-dashed border-foreground/40 pt-6 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="size-3.5" aria-hidden />
               {DATA.location} · CET

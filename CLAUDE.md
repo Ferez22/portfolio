@@ -6,7 +6,7 @@ Guidance for working in this repo.
 
 Personal portfolio + blog for Fares Aouani Cherif. Fork of `dillionverma/portfolio`, heavily customized. Deployed on Vercel (`faresaouani.com`).
 
-**Positioning: AI coach & engineer** (not "freelance engineer" — that framing was replaced). Two offers, both reflected in the copy: *coaching* people and businesses on adopting AI (tool choice, team rollout, workflows and agents, marketing, websites, internal tools, lead gen, daily automations, life/planning use cases, AI opportunity audits) and *building* custom AI apps (LLM core, tool use, retrieval, agents in Python + web app/APIs/cloud). Fares is an **official OpenAI Select Partner** — badge at `public/openai-select-partner.svg`, listed first in `DATA.certifications`. Keep new copy consistent with this in all three locales.
+**Positioning: AI coach & engineer** (not "freelance engineer" — that framing was replaced). Two offers, both reflected in the copy: *coaching* people and businesses on adopting AI (tool choice, team rollout, workflows and agents, marketing, websites, internal tools, lead gen, daily automations, life/planning use cases, AI opportunity audits) and *building* custom AI apps (LLM core, tool use, retrieval, agents in Python + web app/APIs/cloud). Fares is an **official OpenAI Select Partner** — badge at `public/openai-select-partner.svg`, rendered in the landing hero. Keep new copy consistent with this in all three locales.
 
 ## Stack
 
@@ -15,13 +15,16 @@ Personal portfolio + blog for Fares Aouani Cherif. Fork of `dillionverma/portfol
 - **Tailwind CSS v4** — CSS-first config via `@theme` in `src/app/globals.css`, no `tailwind.config.ts`
 - **shadcn/ui** (new-york style) + **Magic UI** components
 - **motion** v12 (Framer Motion successor) for animation
+- **three** + **@react-three/fiber** + **@react-three/drei** for the landing page's 3D
 - **content-collections** for MDX blog posts
 - **Shiki** for code highlighting
 - Package manager: **pnpm**
 
 ## Single source of truth
 
-`src/data/resume.tsx` exports `DATA` (const-asserted object). It drives the **entire** site — name, description, skills, work, education, projects, certifications, non-profit work, contact, social links, navbar. **To change site content, edit this file.** Most pages/sections just map over `DATA`.
+`src/data/resume.tsx` exports `DATA` (const-asserted object). It drives the **entire** site — name, description, portraits, work, education, projects, the landing quotes (`DATA.quotes`), the chronology (`DATA.timeline`), non-profit work, contact, social links, navbar. **To change site content, edit this file.** Most pages/sections just map over `DATA`.
+
+Fields that are no longer rendered anywhere but still exist in `DATA`: `certifications` (empty), `skills`, `summary`, `hackathons`, `education` (its content lives in `timeline` now).
 
 ## Layout of the code
 
@@ -37,9 +40,12 @@ src/
     [lang]/                     ★ all pages live under the locale segment.
       layout.tsx                Root layout (html lang={lang}), fonts, providers, navbar,
                                 bg. generateStaticParams over locales; localized metadata.
-      page.tsx                  Home. Sections: hero, about, certifications, non-profit,
-                                work, education, skills, projects, contact.
-                                (hackathons commented out). Passes lang+dict to sections.
+      page.tsx                  Home — full-bleed animated landing. Section order:
+                                hero (huge quote) → projects (carousel) → thesis (huge
+                                quote) → chronology → video → contact.
+                                Certifications/about/education/skills sections were
+                                removed; work + education live in the chronology and
+                                the OpenAI Select Partner badge sits in the hero.
       not-found.tsx
       opengraph-image.tsx       Home OG image (edge, ImageResponse), localized description.
       blog/
@@ -49,17 +55,34 @@ src/
           page.tsx              Post render (MDX), JSON-LD, prev/next nav.
           opengraph-image.tsx
   components/
+    landing/                    The animated landing page:
+      intro-loader.tsx          Intro on every load (portrait → greeting → blur out)
+      quote-panel.tsx           Full-viewport quote, parallax mosaic shards
+      project-carousel.tsx      Scroll-snap carousel of big project cards, with
+                                styled arrows; hovered card grows in place
+      project-stage.tsx         react-three-fiber plaque, mounted on hover only
+      chronology.tsx            Full-screen horizontal arrow, scroll-driven
+      video-slot.tsx            16:9 placeholder for the future intro video (pass `src`
+                                once a file exists in public/)
+      harissa.tsx               The recurring chili mascot
+      location-globe.tsx        Hero globe → Germany map with a pin on Düsseldorf
+      section-nav-provider.tsx  Enables the SPACE section jump
+    page-shell.tsx              The max-w-2xl reading column (blog + 404 use it)
     section/                    WorkSection, ProjectsSection, ContactSection,
-                                HackathonsSection (currently unused)
+                                HackathonsSection (unused by the landing page now)
     magicui/                    BlurFade, BlurFadeText, Dock, FlickeringGrid
     mdx/                        CodeBlock (Shiki + copy), MediaContainer
     ui/                         shadcn primitives
     ui/svgs/                    Tech-logo SVG wrappers (many defined, only 8 used)
     icons.tsx                   Inline social/brand SVGs (Icons object)
     navbar.tsx                  Fixed bottom Dock: nav + social + theme toggle
+    availability-badge.tsx      Hero availability pill with a booking popover
     project-card.tsx, timeline.tsx, mode-toggle.tsx, theme-provider.tsx
+                                (project-card + timeline are legacy, unused by the
+                                landing page)
   data/resume.tsx               ★ site content
-  lib/                          utils (cn, formatDate), pagination, remark-code-meta
+  lib/                          utils (cn, formatDate), pagination, remark-code-meta,
+                                section-nav.ts (SECTION_IDS + the SPACE jump)
   mdx-components.tsx            MDX element → component mapping
 content/*.mdx                   Blog posts (frontmatter schema in content-collections.ts)
 ```
@@ -71,11 +94,17 @@ content/*.mdx                   Blog posts (frontmatter schema in content-collec
 - Styling: Tailwind utility classes + oklch design tokens (warm paper light / warm ink dark). Dark variant is `@custom-variant dark (&:where(.dark, .dark *))`.
 - Fonts exposed as CSS vars: `--font-sans` (Crimson serif body), `--font-heading` (Quattrocento), `--font-display` (Turret Road), `--font-hand` (Caveat), `--font-tech` (Quantico), `--font-mono` (Geist Mono). Use via `font-sans`, `font-heading`, etc.
 - Section reveal animations use `BlurFade` with a shared `BLUR_FADE_DELAY` stagger constant.
-- Skill icons: import the SVG wrapper from `ui/svgs/` and add `{ name, icon }` to `DATA.skills`.
 - Social links: add to `DATA.contact.social`; set `navbar: true` to show in the bottom dock; icon comes from `Icons` in `icons.tsx`.
-- Certifications: every entry in `DATA.certifications` must set `logoShape` (`"square" | "circle"`) and `invertOnDark` (boolean) — `DATA` is const-asserted, so a missing key on one entry breaks the union type read in `page.tsx`. `invertOnDark: true` applies `dark:invert` (used for the black-on-white OpenAI badge).
-- Projects: `DATA.projects[].description` is capped at **~2 rendered lines** per card (≈150 chars EN, a bit more DE) — cards sit in a `auto-rows-fr` grid, so long copy stretches the whole row. Keep new entries equally short in all locales.
-- Project images: leading-slash paths (`/foo.jpg`) — relative paths only work by accident of URL resolution. Screenshots go through `sips -s format jpeg -s formatOptions 72 -Z 1200` before landing in `public/` (raw 3000px PNGs are multi-MB and `project-card.tsx` uses a plain `<img>`, not `next/image`). Cards crop with `h-36 object-top origin-top scale-[1.25]` — `scale-[1.25]` is the zoom knob.
+- Projects: `DATA.projects[].description` runs to ~3 lines on a carousel card. Order in the carousel comes from `FEATURED_FIRST` in `page.tsx` (AMLD entries first), everything else keeps its `DATA.projects` order. An entry with `image: ""` falls back to a hatched placeholder card.
+- Project images: leading-slash paths (`/foo.jpg`) — relative paths only work by accident of URL resolution. Screenshots go through `sips -s format jpeg -s formatOptions 72 -Z 1200` before landing in `public/` (raw 3000px PNGs are multi-MB and the cards use a plain `<img>`, not `next/image`). Carousel cards crop with `aspect-[16/10] object-cover`.
+- Carousel affordances: an entry nudge (IntersectionObserver, fires once), a pulsing right arrow, live position dots, and a handwritten swipe hint. All hints except the dots retire on the first real interaction (`pointerdown` / `wheel` / `touchstart` / arrow click). Keep that retirement working when editing.
+- **Landing page**: it is full-bleed — the root layout no longer wraps children in a column, so every *other* page wraps itself in `<PageShell>`. Sections are `min-h-dvh` and their ids must stay in sync with `SECTION_IDS` in `src/lib/section-nav.ts`, which powers the SPACE / shift+SPACE jump. Scrolling is never hijacked; SPACE is an addition, not a replacement.
+- **Landing copy**: the two giant quotes live in `DATA.quotes` (`hero`, `thesis`) and the chronology in `DATA.timeline` — both localized `{en,fr,de}`, both meant to be edited directly. Nothing on the landing page is cached client-side (no localStorage/sessionStorage anywhere in `src/`), so an edit that "doesn't show up" is an edit that didn't reach the file, or one made in a locale other than the one being viewed. Timeline `kind` is `milestone | school | work | world`; `world` entries (COVID, ChatGPT) render as bursts on the arrow rather than stops.
+- **Navbar**: the floating dock hides on the landing page until the visitor scrolls past 24px, and is always visible on every other route (`isLanding` in `navbar.tsx`). It is `inert` while hidden so it stays out of the tab order.
+- **Location globe**: `location-globe.tsx` holds Germany's outline as an equirectangular projection of ~47 real border coordinates into a 0–100 box (lon 5.6–15.2, lat 47.2–55.2), with Düsseldorf at `(12.2, 49.6)` in that same space. To pin a different city, project its lon/lat with the same formula; to swap countries, re-project a new coordinate list. Pure SVG + motion, deliberately no WebGL so it costs nothing beside the carousel's canvas.
+- **Portraits**: `DATA.avatarUrl` (`/me.jpg`) is the OG/schema.org image; `DATA.introPortraitUrl` (`/pdp.jpg`) is what the intro loader and the hero show. `public/fares-portrait.jpg` is the Higgsfield illustration, currently unused.
+- **Reduced motion**: every animated landing section ships a static fallback branch (`useReducedMotion()`), and the intro never plays (it otherwise replays on every page load, by design). Keep that branch working when editing them.
+- **3D**: `project-stage.tsx` is dynamically imported with `ssr: false` and mounted only for the card currently hovered, so at most one WebGL context exists at a time. Keep it that way.
 - **i18n**: prose fields in `DATA` (description, summary, `work[].title/description`, `nonProfitWork[].description`, `projects[].description`) are `{ en, fr, de }` objects — resolve them at render with `t(field, lang)` from `@/i18n/config`. Non-prose (names, dates, urls, tech, logos) stay plain strings. Fixed UI strings (headings, buttons, nav) live in `i18n/dictionaries.ts`; read via `getDictionary(lang)`. Server components get `lang` from `params.lang`; the client `navbar` derives it from `usePathname()`. Build internal links with `localePath(lang, path)`. Blog *posts* stay English; only their chrome is translated. To add a locale: extend `locales` in `config.ts`, add a dictionary + the field key to every localized `DATA` prose object.
 
 ## Commands

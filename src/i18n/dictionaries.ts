@@ -13,6 +13,24 @@ export type Dictionary = {
     skills: string;
   };
   work: { present: string };
+  landing: {
+    skipIntro: string;
+    scrollHint: string;
+    spaceHint: string;
+    projectsEyebrow: string;
+    swipeHint: string;
+    chronologyEyebrow: string;
+    chronologyTitle: string;
+    chronologyHint: string;
+    videoEyebrow: string;
+    videoPlaceholder: string;
+    partnerBadge: string;
+    locationLabel: string;
+    surveyTitle: string;
+    surveyBody: string;
+    surveyCta: string;
+    surveyDismiss: string;
+  };
   projects: { badge: string; heading: string; subtitle: string };
   contact: {
     handLabel: string;
@@ -67,6 +85,25 @@ const dictionaries: Record<Locale, Dictionary> = {
       skills: "Skills",
     },
     work: { present: "Present" },
+    landing: {
+      skipIntro: "Skip intro",
+      scrollHint: "Scroll",
+      spaceHint: "Hit SPACE for the next section",
+      projectsEyebrow: "Selected work",
+      swipeHint: "drag to see more",
+      chronologyEyebrow: "Chronology",
+      chronologyTitle: "How I got here",
+      chronologyHint: "Drag or scroll to move along the arrow",
+      videoEyebrow: "Watch",
+      videoPlaceholder: "A video is coming here soon.",
+      partnerBadge: "OpenAI Select Partner",
+      locationLabel: "Düsseldorf, Germany",
+      surveyTitle: "How do you actually use AI?",
+      surveyBody:
+        "Two minutes of your time, and you get every insight from the survey back.",
+      surveyCta: "Take the survey",
+      surveyDismiss: "Dismiss",
+    },
     projects: {
       badge: "Selected Work",
       heading: "Things I've built",
@@ -128,6 +165,25 @@ const dictionaries: Record<Locale, Dictionary> = {
       skills: "Compétences",
     },
     work: { present: "Aujourd'hui" },
+    landing: {
+      skipIntro: "Passer l'intro",
+      scrollHint: "Défiler",
+      spaceHint: "Appuyez sur ESPACE pour la section suivante",
+      projectsEyebrow: "Travaux sélectionnés",
+      swipeHint: "faites glisser pour voir la suite",
+      chronologyEyebrow: "Chronologie",
+      chronologyTitle: "Comment j'en suis arrivé là",
+      chronologyHint: "Faites glisser ou défilez pour suivre la flèche",
+      videoEyebrow: "À regarder",
+      videoPlaceholder: "Une vidéo arrive bientôt ici.",
+      partnerBadge: "OpenAI Select Partner",
+      locationLabel: "Düsseldorf, Allemagne",
+      surveyTitle: "Comment utilisez-vous vraiment l'IA ?",
+      surveyBody:
+        "Deux minutes de votre temps, et vous recevez tous les résultats du sondage.",
+      surveyCta: "Répondre au sondage",
+      surveyDismiss: "Fermer",
+    },
     projects: {
       badge: "Travaux sélectionnés",
       heading: "Les produits numériques que j'ai construits",
@@ -189,6 +245,25 @@ const dictionaries: Record<Locale, Dictionary> = {
       skills: "Kenntnisse",
     },
     work: { present: "Heute" },
+    landing: {
+      skipIntro: "Intro überspringen",
+      scrollHint: "Scrollen",
+      spaceHint: "LEERTASTE für den nächsten Abschnitt",
+      projectsEyebrow: "Ausgewählte Arbeiten",
+      swipeHint: "ziehen für mehr",
+      chronologyEyebrow: "Chronologie",
+      chronologyTitle: "Wie ich hierher kam",
+      chronologyHint: "Ziehen oder scrollen, um dem Pfeil zu folgen",
+      videoEyebrow: "Ansehen",
+      videoPlaceholder: "Hier kommt bald ein Video.",
+      partnerBadge: "OpenAI Select Partner",
+      locationLabel: "Düsseldorf, Deutschland",
+      surveyTitle: "Wie nutzt du KI wirklich?",
+      surveyBody:
+        "Zwei Minuten deiner Zeit, und du bekommst alle Erkenntnisse der Umfrage zurück.",
+      surveyCta: "Zur Umfrage",
+      surveyDismiss: "Schließen",
+    },
     projects: {
       badge: "Ausgewählte Arbeiten",
       heading: "Digitale Produkte, die ich gebaut habe",
