@@ -244,7 +244,7 @@ export default async function Page({
               {dict.sections.education}
             </h2>
           </BlurFade>
-          <div className="flex flex-col gap-8">
+          {/* <div className="flex flex-col gap-8">
             {DATA.education.map((education, index) => (
               <BlurFade
                 key={education.school}
@@ -287,7 +287,7 @@ export default async function Page({
                 </Link>
               </BlurFade>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
       <section id="skills">

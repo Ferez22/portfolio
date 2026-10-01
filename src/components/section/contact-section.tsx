@@ -131,7 +131,7 @@ export default function ContactSection({
       </div>
 
       {/* Socials */}
-      {/* <div>
+      <div>
         <div className="flex flex-col gap-4">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="font-heading text-xl font-bold tracking-wide">
@@ -163,7 +163,7 @@ export default function ContactSection({
             })}
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* Trust line */}
       <div>
