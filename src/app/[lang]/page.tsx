@@ -237,14 +237,14 @@ export default async function Page({
           </BlurFade>
         </div>
       </section>
-      <section id="education">
+      {/* <section id="education">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-wide">
               {dict.sections.education}
             </h2>
           </BlurFade>
-          {/* <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8">
             {DATA.education.map((education, index) => (
               <BlurFade
                 key={education.school}
@@ -287,9 +287,9 @@ export default async function Page({
                 </Link>
               </BlurFade>
             ))}
-          </div> */}
+          </div>
         </div>
-      </section>
+      </section> */}
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
