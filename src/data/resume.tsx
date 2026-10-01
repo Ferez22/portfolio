@@ -21,14 +21,14 @@ export const DATA = {
     de: "KI-Coach & Engineer",
   },
   description: {
-    en: "I coach you and your business on getting the most out of AI, the right tools, the workflows, the agents, and I build the custom AI apps behind them, from a daily automation to a production LLM system in Python. Available for coaching and new projects.",
-    fr: "J'accompagne les personnes et les entreprises pour tirer le maximum de l'IA, les bons outils, les workflows, les agents, et je construis les applications IA sur mesure derrière, d'une automatisation quotidienne à un système LLM en production en Python. Disponible pour du coaching et de nouveaux projets.",
-    de: "Ich coache dich und dein Unternehmen dabei, das Maximum aus KI herauszuholen, die richtigen Tools, Workflows und Agenten, und baue die passenden KI-Anwendungen dahinter, von der täglichen Automatisierung bis zum produktiven LLM-System in Python. Verfügbar für Coaching und neue Projekte.",
+    en: "Build systems. Skyrocket your productivity.",
+    fr: "Crées des systèmes, booste ta productivité.",
+    de: "Nutze Systeme, erhöhe deine Produktivität.",
   },
   summary: {
-    en: "I'm an official OpenAI Select Partner and I work with people and companies on two fronts. **Coaching:** I show you how to actually use AI, which tools to pick, how to introduce them into your team, how to build workflows and agents, set up marketing, generate websites and internal tools, find leads, and run daily automations (like a morning digest on the topics you follow) with the agent of your choice. I also help you find the spots in your business or your life where AI genuinely helps, from a pocket therapist to running a company, planning your week, your meals or your training. **Building:** when a workflow isn't enough, I build the custom app, LLMs at the core, tool use, retrieval and agents in Python, plus the web app, APIs and cloud infrastructure around it. Before going independent I spent years shipping production software, most recently a company-wide AI assistant serving 2,000+ people across 13 offices. Beyond tech, I play tennis at a competitive amateur level and produce electronic music.",
-    fr: "Je suis officiellement OpenAI Select Partner et je travaille avec des particuliers et des entreprises sur deux fronts. **Coaching :** je vous montre comment utiliser l'IA pour de vrai — quels outils choisir, comment les introduire dans votre équipe, comment construire des workflows et des agents, mettre en place votre marketing, générer des sites et des outils internes, trouver des leads et lancer des automatisations quotidiennes (comme une revue de presse matinale sur les sujets que vous suivez) avec l'agent de votre choix. Je vous aide aussi à repérer les endroits de votre entreprise ou de votre vie où l'IA aide vraiment, d'un psychologue de poche à la gestion d'une société, en passant par la planification de votre semaine, de vos repas ou de votre entraînement. **Développement :** quand un workflow ne suffit plus, je construis l'application sur mesure, des LLM au cœur, l'usage d'outils, la recherche documentaire et les agents en Python, ainsi que l'application web, les API et l'infrastructure cloud autour. Avant de me mettre à mon compte, j'ai passé des années à livrer du logiciel en production, dernièrement un assistant IA utilisé par plus de 2 000 personnes sur 13 sites. Au-delà de la tech, je joue au tennis à un niveau amateur compétitif et je produis de la musique électronique.",
-    de: "Ich bin offizieller OpenAI Select Partner und arbeite mit Menschen und Unternehmen an zwei Fronten. **Coaching:** Ich zeige dir, wie du KI wirklich nutzt — welche Tools passen, wie du sie im Team einführst, wie du Workflows und Agenten baust, Marketing aufsetzt, Websites und interne Tools generierst, Leads findest und tägliche Automatisierungen laufen lässt (etwa ein Morgen-Briefing zu deinen Themen), mit dem Agenten deiner Wahl. Ich helfe dir auch, die Stellen in deinem Unternehmen oder deinem Leben zu finden, an denen KI echten Nutzen bringt, vom Psychologen für die Hosentasche bis zur Unternehmensführung, der Wochen-, Ernährungs- oder Trainingsplanung. **Entwicklung:** Wenn ein Workflow nicht reicht, baue ich die maßgeschneiderte Anwendung, LLMs im Kern, Tool-Nutzung, Retrieval und Agenten in Python, dazu die Web-App, APIs und Cloud-Infrastruktur drumherum. Vor der Selbstständigkeit habe ich jahrelang Produktionssoftware ausgeliefert, zuletzt einen unternehmensweiten KI-Assistenten für über 2.000 Menschen an 13 Standorten. Neben der Technik spiele ich Tennis auf ambitioniertem Amateurniveau und produziere elektronische Musik.",
+    en: "In the AI era, a lot has changed for enterprises. Priorities have shifted. Projects and ideas, that were too crazy to even think about, have become accessible. The right people with the right frameworks using AI Agents have changed what it costs to create a custom tool, start that new project, try out that idea, rebuild your whole codebase, as have done it many big companies.",
+    fr: "",
+    de: "",
   },
   avatarUrl: "/me.jpg",
   skills: [
@@ -102,16 +102,7 @@ export const DATA = {
       date: "2026",
       credentialId: "Official OpenAI Select Partner",
     },
-    {
-      name: "Microsoft Certified: Azure Developer Associate",
-      href: "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/?practice-assessment-type=certification",
-      logoUrl: "/az204.png",
-      logoShape: "circle",
-      invertOnDark: false,
-      date: "March 2025",
-      credentialId:
-        "Credential ID: 9C0721D2FA6B9253 - Certification number: 4DDC4A-IE3385",
-    },
+   
   ],
   nonProfitWork: [
     {
@@ -128,26 +119,7 @@ export const DATA = {
   ],
   work: [
     {
-      company: "Independent",
-      href: "https://faresaouani.com",
-      badges: ["Available", "OpenAI Select Partner"],
-      location: "Remote / Düsseldorf",
-      title: {
-        en: "AI Coach & Engineer",
-        fr: "Coach & ingénieur IA",
-        de: "KI-Coach & Engineer",
-      },
-      logoUrl: "/me.jpg",
-      start: "July 2026",
-      end: "Present",
-      description: {
-        en: "I coach people and teams on using AI in their day-to-day work: choosing the right tools, introducing them without friction, and turning repetitive work into workflows and agents — marketing, websites, internal tools, lead generation, daily news automations, meal or training plans, whatever the actual bottleneck is. I also run AI opportunity audits to find where AI genuinely pays off in a business or a life. When a workflow isn't enough, I build the product: LLMs at the core with tool use, retrieval and agents in Python, plus the web app, APIs and cloud infrastructure around it.",
-        fr: "J'accompagne des personnes et des équipes dans l'usage quotidien de l'IA : choisir les bons outils, les introduire sans friction et transformer le travail répétitif en workflows et en agents — marketing, sites web, outils internes, génération de leads, automatisations d'actualité quotidiennes, plans de repas ou d'entraînement, selon le vrai goulot d'étranglement. Je réalise aussi des audits d'opportunités IA pour repérer là où l'IA rapporte vraiment, dans une entreprise comme dans une vie. Quand un workflow ne suffit plus, je construis le produit : des LLM au cœur avec l'usage d'outils, la recherche documentaire et les agents en Python, ainsi que l'application web, les API et l'infrastructure cloud autour.",
-        de: "Ich coache Menschen und Teams beim täglichen Einsatz von KI: die richtigen Tools wählen, sie reibungslos einführen und wiederkehrende Arbeit in Workflows und Agenten überführen — Marketing, Websites, interne Tools, Leadgenerierung, tägliche News-Automatisierungen, Ernährungs- oder Trainingspläne, je nachdem, wo der echte Engpass liegt. Außerdem mache ich KI-Potenzialanalysen, um zu finden, wo KI im Unternehmen oder im Alltag wirklich etwas bringt. Wenn ein Workflow nicht reicht, baue ich das Produkt: LLMs im Kern mit Tool-Nutzung, Retrieval und Agenten in Python, dazu die Web-App, APIs und Cloud-Infrastruktur drumherum.",
-      },
-    },
-    {
-      company: "STE Qartmina",
+      company: "STE Qartmina & Independant Consultant and Contractor",
       href: "https://qartmina.com/",
       badges: ["Tech"],
       location: "Online",
@@ -157,12 +129,12 @@ export const DATA = {
         de: "Geschäftsführender Gesellschafter",
       },
       logoUrl: "/Qartmina Logo main.png",
-      start: "October 2026",
+      start: "Oct 2026",
       end: "Present",
       description: {
-        en: "STE Qartmina is a tech startup that provides innovative solutions for the tech industry. As Managing Partner, I am responsible for the overall strategy and direction of the company. We mainly offer Consulting in Technology and AI, helping businesses gain back execution time, by finding use cases for automation and AI in their employees daily workflow.",
-        fr: "STE Qartmina est une startup technologique qui propose des solutions innovantes pour le secteur de la tech. En tant qu'associé gérant, je suis responsable de la stratégie et de la direction globale de l'entreprise. Nous proposons principalement du conseil en technologie et en IA, aidant les entreprises à regagner du temps d'exécution en identifiant des cas d'usage d'automatisation et d'IA dans le quotidien de leurs employés.",
-        de: "STE Qartmina ist ein Tech-Startup, das innovative Lösungen für die Technologiebranche bietet. Als geschäftsführender Gesellschafter verantworte ich die Gesamtstrategie und Ausrichtung des Unternehmens. Wir bieten vor allem Beratung in Technologie und KI an und helfen Unternehmen, Ausführungszeit zurückzugewinnen, indem wir Anwendungsfälle für Automatisierung und KI im Arbeitsalltag ihrer Mitarbeitenden finden.",
+        en: "STE Qartmina is a tech consultancy that provides innovative solutions for the tech industry. As Managing Partner, I am responsible for the overall strategy and direction of the company. We mainly offer Consulting in Technology and AI, helping businesses plan and start big technology projects and gain back execution time, by finding use cases for automation and AI in their employees daily workflow.",
+        fr: "STE Qartmina est une société de consulting qui propose des solutions innovantes pour le secteur de la tech. En tant qu'associé gérant, je suis responsable de la stratégie et de la direction globale de l'entreprise. Nous proposons principalement du conseil en technologie et en IA, aidant les entreprises à attaquer les projets technologiques les plus demandants et  mettre en place des processus pour regagner du temps d'exécution en identifiant des cas d'usage d'automatisation et d'IA dans le quotidien de leurs employés.",
+        de: "STE Qartmina ist ein Tech-Beratung, das innovative Lösungen für die Technologiebranche bietet. Als geschäftsführender Gesellschafter verantworte ich die Gesamtstrategie und Ausrichtung des Unternehmens. Wir bieten vor allem Beratung in Technologie und KI an und helfen Unternehmen, große Technologie Projekte zu planen und umzusetzen, und Ausführungszeit zurückzugewinnen, indem wir Anwendungsfälle für Automatisierung und KI im Arbeitsalltag ihrer Mitarbeitenden finden.",
       },
     },
     {
@@ -223,59 +195,32 @@ export const DATA = {
       },
     },
   ],
-  education: [
-    {
-      school: "Hochschule Rhein-Waal",
-      href: "https://www.hochschule-rhein-waal.de/de",
-      degree: "Medien- und Kommuniationsinformatik",
-      logoUrl: "/hsrw.png",
-      start: "2018",
-      end: "2023",
-    },
-  ],
+  education: [],
   projects: [
-    {
-      title: "Der Heimdall — AI Receptionist",
-      href: "https://derheimdall.com",
-      dates: "August 2026",
+     {
+      title: "bcards.io",
+      href: "https://www.bcards.io",
+      dates: "Present",
       active: true,
       description: {
-        en: "A voice AI receptionist for craftsmen: answers every call 24/7 and books the client instead of losing them to voicemail, tens of thousands of euros a year saved.",
-        fr: "Un réceptionniste vocal IA pour artisans : répond à chaque appel 24h/24 et décroche le rendez-vous au lieu de perdre le client — des dizaines de milliers d'euros économisés par an.",
-        de: "Ein Voice-KI-Empfang für Handwerker: nimmt jeden Anruf rund um die Uhr an und bucht den Termin, statt Kunden an die Mailbox zu verlieren — zehntausende Euro Ersparnis im Jahr.",
+        en: "Your business card, shared in one scan. One profile, one QR code, one web page. Contacts save themselves in a tap, your stats follow, your team keeps one image. GDPR-compliant from day one.",
+        fr: "Ta carte de visite, partagée en un scan. Un profil, un QR code, une page web. Tes contacts se sauvegardent en un geste, tes statistiques suivent, ton équipe garde une seule image. Conforme au RGPD dès le premier jour.",
+        de: "Deine Visitenkarte, sehr schnell geteilt. Ein Profil,. ein QR Code, eine Webseite. Deine Kontakten sind gespeichert, deine Statistiken auch, dein Team hat ein eigenes Branding. GDPR-compliant seit dem ersten Tag.",
       },
       technologies: [
-        "Elevenlabs",
-        "Twilio",
-        "Typescript",
         "Next.js",
-        "firebase",
-        "resend email",
-        "cloudflare",
+        "Railway",
+        "Cronjobs",
+        "und mehr"
       ],
-      links: [],
-      image: "/derheimdall.jpg",
-      video: "",
-    },
-    {
-      title: "AI Usage Survey",
-      href: "https://survey.qartmina.com",
-      dates: "August 2026",
-      active: true,
-      description: {
-        en: "Only 5% of the world uses AI to its full potential, I had to verify that. A survey on who uses AI, what for and how often; every participant gets all the insights back.",
-        fr: "Seuls 5 % du monde exploitent l'IA à fond, je devais le vérifier. Un sondage sur qui utilise l'IA, pour quoi et à quelle fréquence ; chaque participant reçoit tous les résultats.",
-        de: "Nur 5 % der Welt nutzen KI voll aus, das wollte ich prüfen. Eine Umfrage dazu, wer KI nutzt, wofür und wie oft; alle Teilnehmenden bekommen sämtliche Erkenntnisse zurück.",
-      },
-      technologies: ["Next.js", "Typescript", "Firebase"],
       links: [
         {
           type: "Website",
-          href: "https://survey.qartmina.com",
+          href: "https://www.mlafrica.org",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: "/bcards-logo.png",
       video: "",
     },
     {
@@ -318,75 +263,6 @@ export const DATA = {
         },
       ],
       image: "/seddik.jpg",
-      video: "",
-    },
-    {
-      title: "Weekendstack",
-      href: "https://www.producthunt.com/products/weekendstack",
-      dates: "July 2026",
-      active: true,
-      description: {
-        en: "Ship a real SaaS in a weekend with your AI agent, a production-ready stack with auth, payments and infra already wired. Live on Product Hunt.",
-        fr: "Lancez un vrai SaaS en un week-end avec votre agent IA, une stack prête pour la prod, auth, paiements et infra déjà câblés. En ligne sur Product Hunt.",
-        de: "Bring ein echtes SaaS an einem Wochenende live, ein produktionsreifer Stack mit fertiger Auth, Payments und Infra. Jetzt auf Product Hunt.",
-      },
-      technologies: [
-        "Typescript",
-        "Next.js",
-        "firebase",
-        "resend email",
-        "cloudflare",
-      ],
-      links: [
-        {
-          type: "Product Hunt",
-          href: "https://www.producthunt.com/products/weekendstack",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/weekendstack.jpg",
-      video: "",
-    },
-    {
-      title: "SaaS: Invoice Generator",
-      href: "",
-      dates: "July 2026",
-      active: true,
-      description: {
-        en: "Freelancer or small business needing invoices fast? Create, send and track them in a couple of clicks.",
-        fr: "Freelance ou petite entreprise pressé de facturer ? Créez, envoyez et suivez vos factures en deux clics.",
-        de: "Freelancer oder kleines Unternehmen und schnell Rechnungen nötig? In zwei Klicks erstellen, senden und verfolgen.",
-      },
-      technologies: ["Typescript"],
-      links: [
-        {
-          type: "Website",
-          href: "https://invova.app",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/invova.jpg",
-      video: "",
-    },
-    {
-      title: "Guitar Practice Companion",
-      href: "",
-      dates: "May 2026",
-      active: true,
-      description: {
-        en: "Detects the chords you play in real time (TensorFlow + audio recognition) and shows you what you're fretting, with a visual chord library to practice from.",
-        fr: "Détecte en temps réel les accords que vous jouez (TensorFlow + reconnaissance audio) et montre ce que vous placez, avec une bibliothèque d'accords visuelle.",
-        de: "Erkennt in Echtzeit die gespielten Akkorde (TensorFlow + Audioerkennung) und zeigt visuell, was du greifst, inklusive Akkord-Bibliothek zum Üben.",
-      },
-      technologies: ["Python", "Tensorflow"],
-      links: [
-        {
-          type: "Website",
-          href: "https://learn-guitarre.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/guitar.jpg",
       video: "",
     },
     {
@@ -445,28 +321,7 @@ export const DATA = {
       image: "/amldwebsite.jpg",
       video: "",
     },
-    {
-      title: "AMLD Africa: Automations",
-      href: "https://www.mlafrica.org/",
-      dates: "Oct 2025 - Present",
-      active: true,
-      description: {
-        en: "Anonymized speaker reviews for bias-free scoring, a pipeline that issued 1,400 certificates, and attendee email campaigns, hundreds of manual hours saved.",
-        fr: "Candidatures d'intervenants anonymisées pour une évaluation sans biais, un pipeline ayant émis 1 400 certificats et des campagnes e-mail, des centaines d'heures gagnées.",
-        de: "Anonymisierte Speaker-Bewerbungen für faire Bewertung, eine Pipeline mit 1.400 Zertifikaten und E-Mail-Kampagnen, hunderte manuelle Stunden gespart.",
-      },
-      technologies: ["Make", "Notion", "Microsoft Outlook", "Google drive"],
-      links: [
-        {
-          type: "Website",
-          href: "https://www.mlafrica.org/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://old.mlafrica.org/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-02-at-15.51.55.mp4",
-    },
+   
   ],
   hackathons: [
     {
