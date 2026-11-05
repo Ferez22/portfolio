@@ -2,20 +2,23 @@
 title: "I built a harness so Claude writes in my voice (and you can clone it)"
 publishedAt: "2026-11-05"
 author: "Fares Aouani Cherif"
-summary: "A free Claude setup that writes your posts in your voice and learns from every correction. Install it in one prompt, ready in 15 minutes."
+summary: "A free Claude setup that learns your voice from your own posts, then from every correction you make. One prompt to install, ready in 15 minutes."
 image: "/blog/marketing-harness.svg"
 category: "itch"
 ---
 
-<TLDR repo="https://github.com/Ferez22/marketing-harness">
-- One prompt to install. A 15-minute interview, then Claude writes posts in your voice.
+<TLDR repo="https://github.com/Ferez22/marketing-harness" demo="live-demo">
+- It learns from you: it reads your best posts, then interviews you for 15 minutes.
+- One prompt to install. After that, Claude writes posts in your voice.
 - Every correction you make is logged. The ones that repeat become rules.
 - It never posts for you. Free, MIT licensed.
 </TLDR>
 
 Your agent is good. It's just not to your taste.
 
-This fixes that. It's a folder of rules, memory and four skills that Claude follows. You install it once, it interviews you, and from then on every post starts from your voice and from what you corrected last time.
+This fixes that, and it starts with you, not with a template. The first thing it asks for is your own writing: 3 posts you're proud of and 1 you can't stand. It reads them, tells you what it noticed about your voice, and you correct it. From then on, every post starts from that voice and from what you fixed last time.
+
+Under the hood it's a folder of rules, memory and four skills that Claude follows.
 
 It's the free version of my Marketing & SEO Brain: one brand, posts only.
 
@@ -40,7 +43,7 @@ Or clone it yourself, run `claude` inside the folder and type `start`. Claude Co
 
 ## Use it well
 
-1. **Do the interview properly.** Paste 3 posts you're proud of and 1 you hate. The voice guide is only as good as what you give it.
+1. **Give it your real best.** The voice guide is only as good as the posts you paste. When it shows you what it noticed about your voice, correct every guess that's off: that's where it learns the most.
 2. **Ask for a post.** "Write a post about..." or "What should I post this week?". You get 3 hooks, a draft, and a version per platform.
 3. **Correct it in your own words.** Don't just rewrite the draft: say why ("too salesy", "I never open with a question"). Every reason is logged.
 4. **Post it yourself, then come back with the results.** "This one got 40 comments" is the best feedback it can get.

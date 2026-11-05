@@ -1,30 +1,51 @@
 "use client";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ArrowUpRight, Check, Copy, Minus, Plus } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, Copy, Minus, Plus } from "lucide-react";
 import { useEffect, useRef, useState, type ComponentPropsWithoutRef } from "react";
 import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
-/** Light summary card at the top of a post; optional repo button. */
-export function TLDR({ children, repo }: { children: React.ReactNode; repo?: string }) {
+/** Light summary card at the top of a post; optional repo button and a "Live demo" button that scrolls to `#demo`. */
+export function TLDR({ children, repo, demo }: { children: React.ReactNode; repo?: string; demo?: string }) {
   return (
     <aside className="not-prose my-6 rounded-2xl border border-amber-900/10 bg-amber-50/70 p-4 text-foreground shadow-[0_12px_32px_-22px_oklch(0.45_0.1_45/0.5)] sm:p-5 dark:border-amber-200/15 dark:bg-amber-100/[0.06]">
       <p className="m-0 mb-2 font-mono text-[11px] uppercase tracking-[0.12em] text-amber-800 dark:text-amber-300">TL;DR</p>
       <div className="font-sans text-[16px] leading-relaxed [&_li]:my-1 [&_li]:pl-0.5 [&_p]:m-0 [&_strong]:text-foreground [&_ul]:m-0 [&_ul]:list-disc [&_ul]:pl-5 [&_code]:rounded [&_code]:bg-amber-900/[0.07] [&_code]:px-1 [&_code]:font-mono [&_code]:text-[13px] dark:[&_code]:bg-amber-100/10">
         {children}
       </div>
-      {repo && (
-        <a
-          href={repo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-4 inline-flex items-center gap-2 rounded-full bg-primary no-underline! px-4 py-2 font-sans text-[15px] font-semibold text-primary-foreground transition-shadow hover:shadow-[0_10px_28px_-12px_oklch(0.45_0.1_45/0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-        >
-          <Icons.github className="size-4" />
-          {repo.replace(/^https?:\/\/(www\.)?github\.com\//, "")}
-          <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
-        </a>
+      {(repo || demo) && (
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          {repo && (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary no-underline! px-4 py-2 font-sans text-[15px] font-semibold text-primary-foreground transition-shadow hover:shadow-[0_10px_28px_-12px_oklch(0.45_0.1_45/0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            >
+              <Icons.github className="size-4" />
+              {repo.replace(/^https?:\/\/(www\.)?github\.com\//, "")}
+              <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
+            </a>
+          )}
+          {demo && (
+            <a
+              href={`#${demo}`}
+              onClick={(e) => {
+                const target = document.getElementById(demo);
+                if (!target) return;
+                e.preventDefault();
+                const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+                target.querySelector("textarea")?.focus({ preventScroll: true });
+              }}
+              className="group inline-flex items-center gap-2 rounded-full border border-amber-900/20 no-underline! px-4 py-2 font-sans text-[15px] font-semibold text-foreground transition-colors hover:bg-amber-900/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 dark:border-amber-200/20 dark:hover:bg-amber-100/[0.08]"
+            >
+              Live demo
+              <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" aria-hidden />
+            </a>
+          )}
+        </div>
       )}
     </aside>
   );

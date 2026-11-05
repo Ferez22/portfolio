@@ -41,7 +41,7 @@ function check(text: string): Flag[] {
 }
 
 /** Live demo of the humanize checker: edit the text, press Check, read the flags. */
-export function CheckerDemo() {
+export function CheckerDemo({ anchor = "live-demo" }: { anchor?: string }) {
   const id = useId();
   const [text, setText] = useState(SAMPLE);
   const [flags, setFlags] = useState<Flag[] | null>(null);
@@ -49,7 +49,7 @@ export function CheckerDemo() {
   const warnings = (flags?.length ?? 0) - blocking;
 
   return (
-    <figure className="not-prose my-6 flex flex-col gap-3 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-5">
+    <figure id={anchor} className="not-prose my-6 flex scroll-mt-24 flex-col gap-3 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-5">
       <div className="flex flex-col gap-0.5">
         <label htmlFor={id} className="font-garamond text-xl font-medium leading-tight text-l-text">
           Paste something you wrote and see how it does.
