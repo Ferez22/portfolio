@@ -78,7 +78,7 @@ export function HarnessLadder() {
   };
 
   return (
-    <figure ref={ref} className="not-prose my-8 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-6">
+    <figure ref={ref} className="not-prose my-6 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-6">
       {layer(STEPS.length - 1)}
       <figcaption aria-live="polite" className="mt-4 flex items-baseline gap-2 font-garamond text-[17px] leading-snug">
         <span className={cn("font-mono text-xs uppercase tracking-[0.1em]", active === 3 ? "text-l-gold" : "text-l-muted")}>

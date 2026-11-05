@@ -52,7 +52,7 @@ export function Tabs({ labels, children }: { labels: string[]; children: React.R
           role="tabpanel"
           aria-labelledby={`${id}-tab-${i}`}
           hidden={active !== i}
-          className="prose max-w-full font-sans leading-relaxed text-muted-foreground dark:prose-invert"
+          className="mt-3 [&>*:first-child]:mt-0"
         >
           {panel}
         </div>

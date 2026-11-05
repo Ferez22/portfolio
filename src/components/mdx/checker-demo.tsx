@@ -49,7 +49,7 @@ export function CheckerDemo() {
   const warnings = (flags?.length ?? 0) - blocking;
 
   return (
-    <figure className="not-prose my-8 flex flex-col gap-3 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-5">
+    <figure className="not-prose my-6 flex flex-col gap-3 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-5">
       <label htmlFor={id} className="font-mono text-xs text-l-dim">
         draft.txt
       </label>

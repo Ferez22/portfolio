@@ -21,7 +21,7 @@ export function HarnessCta() {
   const dict = getDictionary(lang);
 
   return (
-    <div className="not-prose my-10 flex flex-col gap-4">
+    <div className="not-prose my-8 flex flex-col gap-4">
       <div className="flex flex-col gap-4 rounded-2xl bg-l-panel p-5 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-6">
         <p className="m-0 font-garamond text-2xl font-medium leading-tight">Clone it, type start.</p>
         <a

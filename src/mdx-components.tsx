@@ -6,7 +6,7 @@ import { FileTree } from "@/components/mdx/file-tree";
 import { CheckerDemo } from "@/components/mdx/checker-demo";
 import { Tab, Tabs } from "@/components/mdx/tabs";
 import { HarnessCta } from "@/components/mdx/harness-cta";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, TLDR } from "@/components/mdx/post-ui";
 import type { ComponentProps } from "react";
 
 type CodeProps = ComponentProps<"code"> & {
@@ -23,6 +23,7 @@ export const mdxComponents = {
   Tabs,
   Tab,
   HarnessCta,
+  TLDR,
   Accordion,
   AccordionItem,
   AccordionTrigger,

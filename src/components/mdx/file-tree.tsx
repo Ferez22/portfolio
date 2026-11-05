@@ -119,7 +119,7 @@ export function FileTree() {
   );
 
   return (
-    <figure className="not-prose my-8 grid gap-3 rounded-2xl bg-l-panel p-3 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:grid-cols-[1.1fr_1fr] sm:p-5">
+    <figure className="not-prose my-6 grid gap-3 rounded-2xl bg-l-panel p-3 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:grid-cols-[1.1fr_1fr] sm:p-5">
       <div className="min-w-0">
         <p className="m-0 mb-1.5 px-1.5 font-mono text-xs text-l-dim">marketing-harness/</p>
         {render(TREE, "", 0)}
