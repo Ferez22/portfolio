@@ -21,23 +21,23 @@ src/i18n/config.ts      locales, Locale, defaultLocale, isLocale, LOCALE_COOKIE,
 src/i18n/dictionaries.ts  Dictionary type + en/fr/de; getDictionary(lang)
 src/app/[lang]/
   layout.tsx            html lang, fonts, Theme/Tooltip providers, LanguageSwitcher, Navbar, NewsletterPopup
-  page.tsx              LANDING: fixed inset-0, no scroll; header(name, partner pill, GitHub stats) + <AgentGraph>
+  page.tsx              LANDING: <Landing> (fixed inset-0, no scroll); passes github, all posts (title, slug, date, summary; newest first), postCount
   cv/page.tsx           CV: hero, about, #contact(CtaSection 2col), certifications, non-profit, work, skills, projects, #newsletter
   blog/page.tsx         list, 5/page; blog/[slug]/page.tsx MDX + JSON-LD + prev/next
   opengraph-image.tsx ×3 (home, blog, post) — shared styles block, keep in sync
   not-found.tsx
 src/app/sitemap.ts      "", /cv, /blog, posts × locales
 src/components/
-  landing/              agent-graph.tsx (graph), node-preview.tsx (click cards), graph-dialog.tsx (native modal), github-heatmap.tsx
+  landing/              landing.tsx (shell+tabs), agent-graph.tsx, node-preview.tsx, products-grid.tsx, graph-dialog.tsx, github-heatmap.tsx
   newsletter/           newsletter-form.tsx(NewsletterCard), newsletter-popup.tsx, subscription.ts
   section/              WorkSection, ProjectsSection, CtaSection, NewsletterSection, HackathonsSection(unused)
   contact/contact-actions.tsx  BookCallButton(Calendly popup, lazy script), CopyEmailButton
   navbar.tsx            bottom Dock (nav+socials+theme); returns null on landing
-  language-switcher.tsx quiet top-right trigger + native [popover] menu; sets NEXT_LOCALE
+  language-switcher.tsx native [popover] menu; sets NEXT_LOCALE. fixed top-right (hidden on landing) | `inline` (landing header)
   icons.tsx             Icons{github,linkedin,x,youtube,soundcloud,instagram,email,…}
   magicui/ mdx/ ui/ ui/svgs/(many unused)
 src/lib/github.ts       getGithubData(): profile, recent own repos, contributions (ISR 1d; calendar via github-contributions-api.jogruber.de, optional → null). opt env GITHUB_TOKEN
-content/*.mdx           posts (schema content-collections.ts); posts EN only, chrome localized
+content/*.mdx           posts (schema content-collections.ts: + `category` about|case-study|itch); posts EN only, chrome localized
 ```
 
 ## conventions
@@ -59,47 +59,36 @@ content/*.mdx           posts (schema content-collections.ts); posts EN only, ch
 - state: `subscription.ts` useSubscribed (useSyncExternalStore, localStorage). subscribed ⇒ every card shows onboarded (`successText` if just now, else `alreadyText`); popup never opens.
 - popup: non-modal bottom-right; once/visit; 3s on landing, else 30s or 50% scroll; skips if #newsletter visible.
 
-## AGENT GRAPH (landing) — strict procedure
-file: `components/landing/agent-graph.tsx`. model = data tables, one renderer. ✗ ad-hoc per-node JSX.
-
-meaning (⇒ keep; edges encode it):
-- agent → hubs kb, mcp, crm, github · mcp ↔ {agent, kb} only (tools I built) · github → agent only
-- crm → email, calendar · socials (contact + knowledge) ⇒ each → {agent, kb, crm}
-placement ⇒ scattered "agent workflow" look (ref: orchestrator screenshot), ✗ tiers/rows/columns. agent near centre, hubs around it, leaves scattered at edges.
-
-tables (all keyed by `NodeId` union — TS enforces completeness):
+## LANDING (agent workflow) — strict procedure
+design source: Claude Design project "Portfolio v2.dc.html" (ink + gold). page bg + header text follow the SITE theme (`bg-background`, `text-foreground`; ✗ forced `.dark`); dark "device" surfaces (graph panel, product cards) use tokens `--color-l-*` in globals.css `@theme` (l-bg, l-panel, l-node, l-pop, l-row, l-line, l-border(2), l-edge, l-hover, l-text, l-soft, l-muted, l-dim, l-gold, l-gold-hi). popovers/dialogs use site tokens. fonts: `font-garamond` (EB Garamond) prose, `font-mono` (Geist Mono) chrome/commands.
+files (`components/landing/`):
+- loading flow (landing.tsx PHASE): 0 intro = name decodes big centred (DecodeText scrambleFirst) → 1.9s logo → 2.4s graph mounts (draws itself ~5s) + navbar (tabs, language, Let's talk) together → `markLandingReady()` → newsletter popup 10s later. once per visit (module flag); reduced motion skips. schedule timers once on mount (✗ per-phase effect: cleanup cancels the rest).
+- deep links: `/{lang}#overview|#products|#blog` open that tab (hash read after mount + hashchange).
+- header = absolute glass (`backdrop-blur-xl` only, ✗ bg tint, h-16); main pt-20 gap. products main scrolls under it.
+- landing.tsx — shell: header [`~/fares.aouani` (DecodeText: glyph decode on hover; ✗ avatar/badge) | SegmentedTabs (light-orange track, #B5541F pill slides via offsetLeft/Width, cubic-bezier(.65,0,.35,1) .4s) | inline LanguageSwitcher + DirectionButton "Let's talk" (amber clip-path fill from cursor entry, `.direction-btn` in globals)], body = AgentGraph | ProductsGrid | BlogList (blog-list.tsx: Netflix shelves (order) Scratch your own itch · About me · Case studies; posts by frontmatter `category` about|case-study|itch (default case-study), itch shelf also lists non-client DATA.tools; posters 16:9, snap-x rows + arrow buttons, `.shelf` = clipped scroller so hover shadow is a ring only). owns tab + contact GraphDialog. header-ui.tsx holds the 3 header widgets.
+- outlines = light gray (`l-border*` = text @14–20%); edges `l-edge` (@30%) brighter than outlines; graph panel: shadow only, ✗ border.
+- agent-graph.tsx — graph. node-preview.tsx — `buildPreview(id, ctx)` → PreviewSpec + `NodePopover` renderer. products-grid.tsx — DATA.offers cards (bg image = placeholder, TODO). github-heatmap.tsx.
+graph model (tables, one renderer, ✗ per-node JSX):
 | table | role |
 |---|---|
-| `NodeId` | union of ids |
-| `KIND` | page·dialog·external → edge/beam colour (BEAM) + legend |
-| `ACTION` | click: `link` (socials: open URL, label=@handle, no card) · `preview` (toggle NodePreview card) · `dialog` (CRM → contact GraphDialog) |
-| `HUBS` | size class: agent=88/64 · hub=64/50 · leaf=52/40 (wide/tall px), all `rounded-full` |
-| `POS.wide/.tall` | centre as canvas fraction; layout = wide if w ≥ 1.15h |
-| `SOCIALS` | ids that auto-get edges → agent, kb, crm |
-| `SOCIAL_ROUTING` | per social/target `{first?|route?}` so wide routes skirt nodes |
-| `EDGES` | `{from,to,at,dur,connects,first?,route?}` |
-| `icon()` `label()` | switch over NodeId; label = [title, sub?] |
+| `NodeId` | union |
+| `CANVAS` | wide 1200×700 · tall 520×1000 (layout tall if wrapper < 760px) |
+| `GEO.wide/.tall` | `{x,y,r,lb}` canvas px; r: agent 46 · hub 32 · leaf 24 (leaf ⇒ handle label, hidden on tall) |
+| `EDGES` | `[a,b,kind]` in draw order; kind page·dialog·external → COL |
+| `icon()` `label()` | switch over NodeId |
+canvas scaled to fit: `scale = clamp(min((w-24)/W,(h-70)/H), .3, 1.25)`.
+edges: `route(A,B)` = side-to-side + mid vertical if |dx| > rA+rB+20, else label-bottom → top + mid horizontal; `rpath` rounds corners (r14) and returns length for packets.
+motion: intro — agent 0.1s, edge i draws at 0.3+0.35i, target node + check pop when drawn (13 edges ≈ 4.9s). packets = 44px dash `<animate>` dashoffset per edge; run/pause button; off for prefers-reduced-motion (`useReducedMotion`).
+interaction: hover/focus OR click ⇒ focus (`active = sel ?? hovered`): others opacity .18 + blur 1.5px, unrelated edges .25, gold halo; click toggles card + gold ring; popover wide = inside canvas beside node (right if agent or x<W/2), tall = bottom sheet portal. close: canvas click, Esc, re-click.
+popover (NodePopover) = compact site-token card (w-80, p-3, rounded-xl, bg-card — dark via landing `.dark`): header icon(32) · title/sub · Pill (neutral|live|warm) · primary arrow button; rows `→ icon title/sub(mono) Pill` (tone from KIND_TONE); rows can `href` | `onClick` | `copy` (clipboard + "Copied ✓"). extra block: agent org avatars (work+nonProfit, dedupe by logo, max 6 then …), github heatmap.
+add node ⇒ (1) NodeId (2) GEO wide+tall (3) EDGES entry (position = draw order) (4) icon()+label() (5) buildPreview case (6) strings `dict.landing` ×3 (7) social url/icon in DATA.contact.social.
+offer cards: `.offer` hover = scale(1.03) from centre (spring) + amber `.offer-fill` + glow + z-30; transform only (✗ layout change); growth must fit main padding (≥16px) so no scroll (above glass header z-20); siblings ONLY dim via `.offer-grid:has(.offer:hover)` — ✗ sibling scale/move. products main: `overflow-x-hidden` + `scrollbar-gutter: stable` so hover never toggles a scrollbar (jitter).
+offers ⇒ `DATA.offers {id, group: product|hire, icon: OFFER_ICON key, title/description Localized, tags, command, free?: post slug (card shows "Free version →")}`; feeds Products tab + products/qartmina/agent popovers.
 
-add node ⇒ (1) extend NodeId (2) KIND (3) ACTION (4) POS wide+tall (5) icon()+label() (6) ≥1 edge (7) if preview: case in NodePreview (8) strings in `dict.landing` ×3 (9) social url/icon in DATA.contact.social + SOCIAL_KEY.
-edges:
-- routing: wide → `route` (hand polyline, fractions, from→to) > elbow with `first` ("h" default | "v"). tall → always h-first elbow. moving a node ⇒ re-check routes that pass near it (screenshot).
-- path direction = draw + beam direction ⇒ leaves/socials point INTO hubs, agent edges point OUT.
-- ✗ overlap (shared collinear runs), ✓ intersections. enforced by `separate(polys, gap)` after routing: same-line overlapping segments of different edges → parallel tracks gap=6px (tall 5). pipeline: edgePoints → clean (dup/collinear) → separate → roundedPath (r=14).
-- agent trunks: x 0.49 (left hubs) / 0.51 (right hubs).
-- stroke: idle line 1px `--border`@40%, idle beam 1.75px opacity .4; lit (active node) line 1.5px + beam 2.25px BEAM[kind] .9.
-- `connects` = node whose check pops when edge finishes. node appears at `connectsAt(id)` = max(at+dur) of its edges.
-- timeline budget ≈5s: agent 0.1 → mcp → kb(+mcp→kb) → crm → github → leaves via `leaf(i)` (2.6+0.33i: socials 0–4, email 5, calendar 6). keep total ≤5s; legend fades at 4.8.
-interaction:
-- hover/focus ⇒ halo + blur overlay (z10) + lifted active node & neighbours (z20/30) + lit edges (2nd SVG z20).
-- `selected` (click) wins over hover. close: outside pointerdown (`[data-graph-node]`/`[data-graph-popover]`), Esc, re-click.
-- card position wide: beside node (right if x<.55w, up if y>.55h). tall: bottom sheet via `createPortal(body)` (main is fixed z10 context).
-- beams: `.animate-beam` (globals.css) pathLength=1 dash, ~0.9–1.35s.
-NodePreview (`node-preview.tsx`) card spec — compact:
-- Shell w-80 (narrow w-64) · p-3 · gap-2 · rounded-xl. header = icon(32 round) · title/sub · Pill? · open-arrow button (primary, size-7) = the only CTA. ✗ CTA buttons in body.
-- body rows = `Row` "tool-call" style: → icon main/detail(mono for commands) meta-pill; border-t list.
-- Pill tones: neutral · live(pulsing dot) · warm.
-- current cards: agent(description + org avatars size-11 = work+nonProfit deduped by logo, max 6 then "…") · mcp(DATA.tools: `{name, command?, href, kind:oss|own|client}`) · kb(3 latest posts) · github(heatmap + 3 repos) · email · calendar.
-- page passes `posts`(3 latest: title,slug,publishedAt) + `postCount` + `github`.
+## posts (MDX)
+- interactive components live in `src/components/mdx/` (client) and are registered in `src/mdx-components.tsx`: HarnessLadder, HarnessLoop, FileTree, CheckerDemo, Tabs/Tab, HarnessCta, TLDR + Accordion* (post-ui.tsx: light TL;DR card; accordions = one bordered card, compact rows). workflow diagrams follow the landing graph look (round nodes, rounded orthogonal track via `@/lib/graph-path` rpath, packets, focus dim); ✗ `<code>` inside dark panels (global prose code style forces colours, use span). wrap in `not-prose`; dark device surface (`bg-l-panel`), works light+dark, Esc closes popovers, static under reduced motion.
+- post posters: local 16:9 under `public/blog/` (ink + gold), ✗ Unsplash for new posts.
+- copy rules: ✗ em/en dashes, ✗ slop words, nothing invented (facts from the source repo/README).
 
 ## gotchas
 - next.config.mjs: security headers; `withContentCollections` ⇒ outermost.

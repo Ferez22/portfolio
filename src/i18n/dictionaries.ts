@@ -75,6 +75,43 @@ export type Dictionary = {
     external: string;
     email: string;
     callLength: string;
+    overview: string;
+    tabProducts: string;
+    tabBlog: string;
+    freeVersion: string;
+    shelfAbout: string;
+    shelfAboutSub: string;
+    shelfCases: string;
+    shelfCasesSub: string;
+    shelfItch: string;
+    shelfItchSub: string;
+    comingSoon: string;
+    scrollPrev: string;
+    scrollNext: string;
+    letsTalk: string;
+    founder: string;
+    productsSub: string;
+    offers: string;
+    ways: string;
+    copy: string;
+    copied: string;
+    tagProduct: string;
+    tagHire: string;
+    tagPage: string;
+    tagDialog: string;
+    run: string;
+    pause: string;
+    contactForm: string;
+    writeEmail: string;
+    pickSlot: string;
+    productGroup: string;
+    hireGroup: string;
+    live: string;
+    available: string;
+    offersRow: string;
+    products2: string;
+    introCall: string;
+    channels: string;
   };
   blog: {
     title: string;
@@ -146,7 +183,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       subscribe: "Subscribe",
       subscribing: "Subscribing…",
       steps: ["Checking your ticket…", "Crossing the gangway…", "Stepping aboard…"],
-      successText: "You're saved from sinking in the nonsense! Welcome to the premium experience.",
+      successText: "You're saved from sinking in the AI informational nonsense! Welcome to the premium experience.",
       alreadyText: "You're aboard the lifeboat…",
       error: "That didn't go through. Check your email address and try again.",
       close: "Close",
@@ -181,6 +218,32 @@ const dictionaries: Record<Locale, Dictionary> = {
       external: "External",
       email: "Email",
       callLength: "30 min",
+      overview: "Overview",
+      tabProducts: "Products", tabBlog: "Blog", freeVersion: "Free version", shelfAbout: "About me", shelfAboutSub: "Who I am and how I work", shelfCases: "Case studies", shelfCasesSub: "Learnings from my career", shelfItch: "Scratch your own itch", shelfItchSub: "Tools I built for my own problems", comingSoon: "Coming soon", scrollPrev: "Scroll left", scrollNext: "Scroll right",
+      letsTalk: "Let's talk",
+      founder: "Founder",
+      productsSub: "Web · SEO · Hire",
+      offers: "offers",
+      ways: "ways",
+      copy: "Copy",
+      copied: "Copied ✓",
+      tagProduct: "Product",
+      tagHire: "Hire",
+      tagPage: "Page",
+      tagDialog: "Dialog",
+      run: "▶ run",
+      pause: "❚❚ pause",
+      contactForm: "Contact form",
+      writeEmail: "Write me an email",
+      pickSlot: "Pick a slot",
+      productGroup: "Product",
+      hireGroup: "Freelance · On hire",
+      live: "live",
+      available: "available",
+      offersRow: "Products & freelance",
+      products2: "products",
+      introCall: "Intro call",
+      channels: "Activity, last 12 months",
     },
     blog: {
       title: "Blog",
@@ -252,7 +315,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       subscribe: "S'abonner",
       subscribing: "Inscription…",
       steps: ["Vérification du billet…", "Traversée de la passerelle…", "Montée à bord…"],
-      successText: "Sauvé du naufrage dans le bruit ambiant ! Bienvenue dans l'expérience premium.",
+      successText: "Sauvé du naufrage dans le bruit informationnel de l'IA ! Bienvenue dans l'expérience premium.",
       alreadyText: "Vous êtes à bord du canot…",
       error: "L'inscription n'a pas abouti. Vérifiez votre adresse e-mail et réessayez.",
       close: "Fermer",
@@ -287,6 +350,32 @@ const dictionaries: Record<Locale, Dictionary> = {
       external: "Externe",
       email: "E-mail",
       callLength: "30 min",
+      overview: "Aperçu",
+      tabProducts: "Produits", tabBlog: "Blog", freeVersion: "Version gratuite", shelfAbout: "À propos de moi", shelfAboutSub: "Qui je suis et comment je travaille", shelfCases: "Études de cas", shelfCasesSub: "Les leçons de mon parcours", shelfItch: "Scratch your own itch", shelfItchSub: "Les outils que j'ai construits pour mes propres problèmes", comingSoon: "Bientôt", scrollPrev: "Défiler à gauche", scrollNext: "Défiler à droite",
+      letsTalk: "Discutons",
+      founder: "Fondateur",
+      productsSub: "Web · SEO · Freelance",
+      offers: "offres",
+      ways: "moyens",
+      copy: "Copier",
+      copied: "Copié ✓",
+      tagProduct: "Produit",
+      tagHire: "Freelance",
+      tagPage: "Page",
+      tagDialog: "Fenêtre",
+      run: "▶ lancer",
+      pause: "❚❚ pause",
+      contactForm: "Formulaire de contact",
+      writeEmail: "M'écrire un e-mail",
+      pickSlot: "Choisir un créneau",
+      productGroup: "Produit",
+      hireGroup: "Freelance · Disponible",
+      live: "en ligne",
+      available: "disponible",
+      offersRow: "Produits & freelance",
+      products2: "produits",
+      introCall: "Appel découverte",
+      channels: "Activité, 12 derniers mois",
     },
     blog: {
       title: "Blog",
@@ -358,7 +447,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       subscribe: "Anmelden",
       subscribing: "Wird angemeldet…",
       steps: ["Ticket wird geprüft…", "Über die Gangway…", "An Bord gehen…"],
-      successText: "Gerettet vor dem Untergang im Unsinn! Willkommen beim Premium-Erlebnis.",
+      successText: "Gerettet vor dem Untergang im KI-Informationschaos! Willkommen beim Premium-Erlebnis.",
       alreadyText: "Du bist an Bord des Rettungsboots…",
       error: "Das hat nicht geklappt. Prüf deine E-Mail-Adresse und versuch es noch einmal.",
       close: "Schließen",
@@ -393,6 +482,32 @@ const dictionaries: Record<Locale, Dictionary> = {
       external: "Extern",
       email: "E-Mail",
       callLength: "30 Min.",
+      overview: "Überblick",
+      tabProducts: "Produkte", tabBlog: "Blog", freeVersion: "Kostenlose Version", shelfAbout: "Über mich", shelfAboutSub: "Wer ich bin und wie ich arbeite", shelfCases: "Fallstudien", shelfCasesSub: "Learnings aus meiner Laufbahn", shelfItch: "Scratch your own itch", shelfItchSub: "Tools, die ich für meine eigenen Probleme gebaut habe", comingSoon: "Demnächst", scrollPrev: "Nach links scrollen", scrollNext: "Nach rechts scrollen",
+      letsTalk: "Lass uns reden",
+      founder: "Gründer",
+      productsSub: "Web · SEO · Freelance",
+      offers: "Angebote",
+      ways: "Wege",
+      copy: "Kopieren",
+      copied: "Kopiert ✓",
+      tagProduct: "Produkt",
+      tagHire: "Freelance",
+      tagPage: "Seite",
+      tagDialog: "Dialog",
+      run: "▶ start",
+      pause: "❚❚ pause",
+      contactForm: "Kontaktformular",
+      writeEmail: "Schreib mir eine E-Mail",
+      pickSlot: "Termin wählen",
+      productGroup: "Produkt",
+      hireGroup: "Freelance · Verfügbar",
+      live: "live",
+      available: "verfügbar",
+      offersRow: "Produkte & Freelance",
+      products2: "Produkte",
+      introCall: "Kennenlerngespräch",
+      channels: "Aktivität, letzte 12 Monate",
     },
     blog: {
       title: "Blog",

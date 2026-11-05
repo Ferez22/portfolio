@@ -1,5 +1,12 @@
 import { CodeBlock } from "@/components/mdx/code-block";
 import { MediaContainer } from "@/components/mdx/media-container";
+import { HarnessLadder } from "@/components/mdx/harness-ladder";
+import { HarnessLoop } from "@/components/mdx/harness-loop";
+import { FileTree } from "@/components/mdx/file-tree";
+import { CheckerDemo } from "@/components/mdx/checker-demo";
+import { Tab, Tabs } from "@/components/mdx/tabs";
+import { HarnessCta } from "@/components/mdx/harness-cta";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Prompt, TLDR } from "@/components/mdx/post-ui";
 import type { ComponentProps } from "react";
 
 type CodeProps = ComponentProps<"code"> & {
@@ -8,6 +15,20 @@ type CodeProps = ComponentProps<"code"> & {
 
 export const mdxComponents = {
   MediaContainer,
+  // Interactive post components (client); see CLAUDE.md "posts".
+  HarnessLadder,
+  HarnessLoop,
+  FileTree,
+  CheckerDemo,
+  Tabs,
+  Tab,
+  HarnessCta,
+  TLDR,
+  Prompt,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
   pre: (props: ComponentProps<"pre">) => <CodeBlock {...props} />,
   hr: (props: ComponentProps<"hr">) => (
     <div className="my-10 flex w-full items-center" {...props}>

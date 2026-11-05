@@ -1,0 +1,111 @@
+---
+title: "I built a harness so Claude writes in my voice (and you can clone it)"
+publishedAt: "2026-11-05"
+author: "Fares Aouani Cherif"
+summary: "A free Claude setup that learns your voice from your own posts, then from every correction you make. One prompt to install, ready in 15 minutes."
+image: "/blog/marketing-harness.svg"
+category: "itch"
+---
+
+<TLDR repo="https://github.com/Ferez22/marketing-harness" demo="live-demo">
+- It learns from you: it reads your best posts, then interviews you for 15 minutes.
+- One prompt to install. After that, Claude writes posts in your voice.
+- Every correction you make is logged. The ones that repeat become rules.
+- It never posts for you. Free, MIT licensed.
+</TLDR>
+
+Your agent is good. It's just not to your taste.
+
+This fixes that, and it starts with you, not with a template. The first thing it asks for is your own writing: 3 posts you're proud of and 1 you can't stand. It reads them, tells you what it noticed about your voice, and you correct it. From then on, every post starts from that voice and from what you fixed last time.
+
+Under the hood it's a folder of rules, memory and four skills that Claude follows.
+
+It's the free version of my Marketing & SEO Brain: one brand, posts only.
+
+## Install
+
+<Tabs labels={["Claude Cowork", "Claude Code"]} badges={["Recommended"]}>
+<Tab>
+
+<Prompt title="Claude Cowork">Install this repo, then let's run it: https://github.com/Ferez22/marketing-harness</Prompt>
+
+Open an empty folder in Cowork and paste the prompt. Cowork reading `CLAUDE.md` from a folder isn't documented yet, so the key rules are also written inside each skill.
+
+</Tab>
+<Tab>
+
+<Prompt title="Claude Code">Install this repo, then let's run it: https://github.com/Ferez22/marketing-harness</Prompt>
+
+Or clone it yourself, run `claude` inside the folder and type `start`. Claude Code loads `CLAUDE.md` and the skills on its own.
+
+</Tab>
+</Tabs>
+
+## Use it well
+
+1. **Give it your real best.** The voice guide is only as good as the posts you paste. When it shows you what it noticed about your voice, correct every guess that's off: that's where it learns the most.
+2. **Ask for a post.** "Write a post about..." or "What should I post this week?". You get 3 hooks, a draft, and a version per platform.
+3. **Correct it in your own words.** Don't just rewrite the draft: say why ("too salesy", "I never open with a question"). Every reason is logged.
+4. **Post it yourself, then come back with the results.** "This one got 40 comments" is the best feedback it can get.
+5. **Run a weekly review.** Say "weekly review". It turns repeated corrections into rules and proposes changes to your voice guide. Nothing changes without your yes.
+6. **Feed it.** Drop your hook formulas, sales notes or audience research in `knowledge/`. Every post reads them.
+
+## The loop
+
+<HarnessLoop />
+
+One correction is an anecdote. Two is a pattern. That's the whole difference with a prompt: before it writes this week, it reads what you fixed last week.
+
+## What's inside
+
+<FileTree />
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="setup">
+    <AccordionTrigger>setup</AccordionTrigger>
+    <AccordionContent>**Runs:** on first install, or when you say "setup". **You get:** `brand.md` (facts) and `voice.md` (how you write), validated by you.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="write-post">
+    <AccordionTrigger>write-post</AccordionTrigger>
+    <AccordionContent>**Runs:** "write a post about...", "what should I post?". **You get:** 3 hooks, 1 draft, one version per platform, saved in `posts/`.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="humanize">
+    <AccordionTrigger>humanize</AccordionTrigger>
+    <AccordionContent>**Runs:** before any text reaches you. **You get:** a clean draft, or the list of what to fix.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="learn">
+    <AccordionTrigger>learn</AccordionTrigger>
+    <AccordionContent>**Runs:** "weekly review", or after 5 new corrections. **You get:** new rules, and voice changes for you to approve.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+## The checker
+
+Every draft goes through a small script before you see it. It blocks AI tells, em dashes and invisible characters in English, and AI tics, English calques and a mixed tu/vous in French. When you keep deleting the same phrase, it learns that one too.
+
+Try a few of its rules:
+
+<CheckerDemo />
+
+## FAQ
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="post">
+    <AccordionTrigger>Does it post for me?</AccordionTrigger>
+    <AccordionContent>Never. You get copy-ready text and you press publish.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="data">
+    <AccordionTrigger>Where does my data go?</AccordionTrigger>
+    <AccordionContent>Your files stay in your folder. What you send to Claude falls under your Claude plan's terms.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="lang">
+    <AccordionTrigger>Which languages?</AccordionTrigger>
+    <AccordionContent>English and French out of the box. Copy a lexicon file to add yours.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="cost">
+    <AccordionTrigger>What does it cost?</AccordionTrigger>
+    <AccordionContent>Nothing. The repo is free and MIT licensed. You need your own Claude plan.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+<HarnessCta />

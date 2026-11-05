@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import {
   Caveat,
   Crimson_Text,
+  EB_Garamond,
   Geist_Mono,
   Quantico,
   Quattrocento,
@@ -65,6 +66,13 @@ const quantico = Quantico({
   variable: "--font-quantico",
   weight: ["400", "700"],
   style: ["normal", "italic"],
+});
+
+/** Landing (agent workflow) — editorial serif */
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-eb-garamond",
+  weight: ["400", "500", "600"],
 });
 
 const geistMono = Geist_Mono({
@@ -166,6 +174,7 @@ export default async function RootLayout({
           caveat.variable,
           quantico.variable,
           geistMono.variable,
+          ebGaramond.variable,
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
