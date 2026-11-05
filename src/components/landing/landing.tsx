@@ -11,24 +11,23 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { GithubData } from "@/lib/github";
 import { cn } from "@/lib/utils";
-import { AgentGraph, GRAPH_INTRO_S } from "./agent-graph";
+import { AgentGraph } from "./agent-graph";
 import { GraphDialog } from "./graph-dialog";
 import { DecodeText, DirectionButton, SegmentedTabs } from "./header-ui";
 import type { PostPreview } from "./node-preview";
 import { ProductsGrid } from "./products-grid";
+import { BlogList } from "./blog-list";
 
-type Tab = "overview" | "products";
+type Tab = "overview" | "products" | "blog";
 
 /**
  * Loading flow (ms from mount): name decodes big & centred → logo → workflow
- * (draws itself for GRAPH_INTRO_S) → tabs → "Let's talk"; the newsletter popup
+ * together with the navbar (tabs, language, Let's talk); the newsletter popup
  * follows 10s later (markLandingReady). Plays once per visit; skipped for
  * reduced motion.
  */
 const PHASE = { logo: 1900, graph: 2400 } as const;
-const PHASE_TABS = PHASE.graph + GRAPH_INTRO_S * 1000 + 200;
-const PHASE_CTA = PHASE_TABS + 500;
-type Phase = 0 | 1 | 2 | 3 | 4; // intro · logo · graph · tabs · cta
+type Phase = 0 | 1 | 2; // intro · logo · graph + navbar (tabs, language, Let's talk)
 
 /** Survives client navigation (layout persists); a full reload replays it. */
 let introPlayed = false;
@@ -60,7 +59,7 @@ export function Landing({
   const [tab, setTab] = useState<Tab>("overview");
   const [contactOpen, setContactOpen] = useState(false);
   const [decode, setDecode] = useState(0);
-  const [phase, setPhase] = useState<Phase>(() => (introPlayed ? 4 : 0));
+  const [phase, setPhase] = useState<Phase>(() => (introPlayed ? 2 : 0));
   const l = dict.landing;
   const openContact = () => setContactOpen(true);
   const ctx = { lang, dict, github, posts, postCount, openContact, toProducts: () => setTab("products") };
@@ -70,19 +69,17 @@ export function Landing({
     if (introPlayed) return;
     const skip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const steps: [number, Phase][] = skip
-      ? [[0, 4]]
+      ? [[0, 2]]
       : [
           [PHASE.logo, 1],
           [PHASE.graph, 2],
-          [PHASE_TABS, 3],
-          [PHASE_CTA, 4],
         ];
     const ids = steps.map(([ms, p]) => window.setTimeout(() => setPhase(p), ms));
     return () => ids.forEach(window.clearTimeout);
   }, []);
 
   useEffect(() => {
-    if (phase !== 4) return;
+    if (phase !== 2) return;
     introPlayed = true;
     markLandingReady();
   }, [phase]);
@@ -111,25 +108,26 @@ export function Landing({
       <header className="absolute inset-x-0 top-0 z-20 grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-4 px-[clamp(12px,3vw,36px)] backdrop-blur-xl">
         <motion.div
           {...reveal(phase >= 1)}
-          className="flex w-fit items-center font-mono text-[13px]"
+          className="hidden w-fit items-center font-mono text-[13px] sm:flex"
           onMouseEnter={() => setDecode((n) => n + 1)}
         >
           <span className="text-muted-foreground">~/</span>
           <DecodeText text="fares.aouani" trigger={decode} className="text-foreground" />
         </motion.div>
-        <motion.div {...reveal(phase >= 3)} className={cn(phase < 3 && "pointer-events-none")}>
+        <motion.div {...reveal(phase >= 2)} className={cn(phase < 2 && "pointer-events-none")}>
           <SegmentedTabs<Tab>
             tabs={[
               { id: "overview", label: l.overview },
               { id: "products", label: l.tabProducts },
+              { id: "blog", label: l.tabBlog },
             ]}
             value={tab}
             onChange={setTab}
           />
         </motion.div>
         <motion.div
-          {...reveal(phase >= 4)}
-          className={cn("flex items-center justify-end gap-2 sm:gap-[18px]", phase < 4 && "pointer-events-none")}
+          {...reveal(phase >= 2)}
+          className={cn("flex items-center justify-end gap-2 sm:gap-[18px]", phase < 2 && "pointer-events-none")}
         >
           <LanguageSwitcher inline />
           <DirectionButton onClick={openContact} className="hidden sm:inline-block">
@@ -155,7 +153,11 @@ export function Landing({
         // Scrolls under the glass header.
         // stable gutter + hidden x-overflow: the hover lift never toggles a scrollbar (no jitter).
         <main className="h-full overflow-x-hidden overflow-y-auto [scrollbar-gutter:stable] px-[clamp(16px,3vw,36px)] pb-[clamp(16px,2.4vw,28px)] pt-20">
-          <ProductsGrid lang={lang} dict={dict} onContact={openContact} />
+          {tab === "products" ? (
+            <ProductsGrid lang={lang} dict={dict} onContact={openContact} />
+          ) : (
+            <BlogList lang={lang} dict={dict} posts={posts} />
+          )}
         </main>
       )}
 

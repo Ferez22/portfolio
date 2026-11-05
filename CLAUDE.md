@@ -21,7 +21,7 @@ src/i18n/config.ts      locales, Locale, defaultLocale, isLocale, LOCALE_COOKIE,
 src/i18n/dictionaries.ts  Dictionary type + en/fr/de; getDictionary(lang)
 src/app/[lang]/
   layout.tsx            html lang, fonts, Theme/Tooltip providers, LanguageSwitcher, Navbar, NewsletterPopup
-  page.tsx              LANDING: <Landing> (fixed inset-0, no scroll); passes github, 3 latest posts, postCount
+  page.tsx              LANDING: <Landing> (fixed inset-0, no scroll); passes github, all posts (title, slug, date, summary; newest first), postCount
   cv/page.tsx           CV: hero, about, #contact(CtaSection 2col), certifications, non-profit, work, skills, projects, #newsletter
   blog/page.tsx         list, 5/page; blog/[slug]/page.tsx MDX + JSON-LD + prev/next
   opengraph-image.tsx ×3 (home, blog, post) — shared styles block, keep in sync
@@ -37,7 +37,7 @@ src/components/
   icons.tsx             Icons{github,linkedin,x,youtube,soundcloud,instagram,email,…}
   magicui/ mdx/ ui/ ui/svgs/(many unused)
 src/lib/github.ts       getGithubData(): profile, recent own repos, contributions (ISR 1d; calendar via github-contributions-api.jogruber.de, optional → null). opt env GITHUB_TOKEN
-content/*.mdx           posts (schema content-collections.ts); posts EN only, chrome localized
+content/*.mdx           posts (schema content-collections.ts: + `category` about|case-study|itch); posts EN only, chrome localized
 ```
 
 ## conventions
@@ -62,9 +62,9 @@ content/*.mdx           posts (schema content-collections.ts); posts EN only, ch
 ## LANDING (agent workflow) — strict procedure
 design source: Claude Design project "Portfolio v2.dc.html" (ink + gold). page bg + header text follow the SITE theme (`bg-background`, `text-foreground`; ✗ forced `.dark`); dark "device" surfaces (graph panel, product cards) use tokens `--color-l-*` in globals.css `@theme` (l-bg, l-panel, l-node, l-pop, l-row, l-line, l-border(2), l-edge, l-hover, l-text, l-soft, l-muted, l-dim, l-gold, l-gold-hi). popovers/dialogs use site tokens. fonts: `font-garamond` (EB Garamond) prose, `font-mono` (Geist Mono) chrome/commands.
 files (`components/landing/`):
-- loading flow (landing.tsx PHASE): 0 intro = name decodes big centred (DecodeText scrambleFirst) → 1.9s logo → 2.4s graph mounts (draws for `GRAPH_INTRO_S`) → tabs → +0.5s language + Let's talk → `markLandingReady()` → newsletter popup 10s later. once per visit (module flag); reduced motion skips. schedule timers once on mount (✗ per-phase effect: cleanup cancels the rest).
+- loading flow (landing.tsx PHASE): 0 intro = name decodes big centred (DecodeText scrambleFirst) → 1.9s logo → 2.4s graph mounts (draws itself ~5s) + navbar (tabs, language, Let's talk) together → `markLandingReady()` → newsletter popup 10s later. once per visit (module flag); reduced motion skips. schedule timers once on mount (✗ per-phase effect: cleanup cancels the rest).
 - header = absolute glass (`backdrop-blur-xl` only, ✗ bg tint, h-16); main pt-20 gap. products main scrolls under it.
-- landing.tsx — shell: header [`~/fares.aouani` (DecodeText: glyph decode on hover; ✗ avatar/badge) | SegmentedTabs (light-orange track, #B5541F pill slides via offsetLeft/Width, cubic-bezier(.65,0,.35,1) .4s) | inline LanguageSwitcher + DirectionButton "Let's talk" (amber clip-path fill from cursor entry, `.direction-btn` in globals)], body = AgentGraph | ProductsGrid. owns tab + contact GraphDialog. header-ui.tsx holds the 3 header widgets.
+- landing.tsx — shell: header [`~/fares.aouani` (DecodeText: glyph decode on hover; ✗ avatar/badge) | SegmentedTabs (light-orange track, #B5541F pill slides via offsetLeft/Width, cubic-bezier(.65,0,.35,1) .4s) | inline LanguageSwitcher + DirectionButton "Let's talk" (amber clip-path fill from cursor entry, `.direction-btn` in globals)], body = AgentGraph | ProductsGrid | BlogList (blog-list.tsx: Netflix shelves (order) Scratch your own itch · About me · Case studies; posts by frontmatter `category` about|case-study|itch (default case-study), itch shelf also lists non-client DATA.tools; posters 16:9, snap-x rows + arrow buttons, `.shelf` = clipped scroller so hover shadow is a ring only). owns tab + contact GraphDialog. header-ui.tsx holds the 3 header widgets.
 - outlines = light gray (`l-border*` = text @14–20%); edges `l-edge` (@30%) brighter than outlines; graph panel: shadow only, ✗ border.
 - agent-graph.tsx — graph. node-preview.tsx — `buildPreview(id, ctx)` → PreviewSpec + `NodePopover` renderer. products-grid.tsx — DATA.offers cards (bg image = placeholder, TODO). github-heatmap.tsx.
 graph model (tables, one renderer, ✗ per-node JSX):

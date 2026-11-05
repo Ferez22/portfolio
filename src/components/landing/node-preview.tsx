@@ -29,7 +29,14 @@ import type { GithubData } from "@/lib/github";
 import { cn } from "@/lib/utils";
 import { Heatmap } from "./github-heatmap";
 
-export type PostPreview = { title: string; slug: string; publishedAt: string };
+export type PostPreview = {
+  title: string;
+  slug: string;
+  publishedAt: string;
+  summary: string;
+  category: "about" | "case-study" | "itch";
+  image?: string;
+};
 
 /** "@handle" from a profile URL (last path segment). */
 export const handleOf = (url: string) => {
@@ -219,7 +226,7 @@ export function buildPreview(id: string, ctx: PreviewCtx): PreviewSpec | null {
         sub: l.kbSub,
         count: `${postCount} ${l.posts}`,
         open: { href: localePath(lang, "/blog") },
-        items: posts.map((p) => ({
+        items: posts.slice(0, 3).map((p) => ({
           t: p.title,
           s: new Date(p.publishedAt).toLocaleDateString(lang, { year: "numeric", month: "short", day: "numeric" }),
           icon: <FileText className={ic} />,

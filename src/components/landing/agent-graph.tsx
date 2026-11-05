@@ -94,8 +94,6 @@ const EDGES: [NodeId, NodeId, Kind][] = [
 const AGENT_AT = 0.1;
 const STEP = 0.35;
 const edgeAt = (i: number) => 0.3 + i * STEP;
-/** Seconds until the last node has connected (used by the landing loading flow). */
-export const GRAPH_INTRO_S = edgeAt(EDGES.length - 1) + STEP + 0.25;
 const nodeAt = (id: NodeId) => {
   const i = EDGES.findIndex(([, b]) => b === id);
   return i < 0 ? AGENT_AT : edgeAt(i) + STEP;

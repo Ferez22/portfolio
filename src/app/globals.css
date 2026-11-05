@@ -391,6 +391,10 @@
 .offer:hover .offer-fill {
   opacity: 1;
 }
+/* Inside a horizontal shelf the scroller clips; a big shadow would show as a box. */
+.shelf .offer:hover {
+  box-shadow: 0 0 0 1px rgb(242 196 106 / 0.4);
+}
 .offer-grid:has(.offer:hover) .offer:not(:hover) {
   opacity: 0.55;
 }

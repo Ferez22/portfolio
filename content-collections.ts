@@ -15,6 +15,8 @@ const posts = defineCollection({
         author: z.string().optional(),
         summary: z.string(),
         image: z.string().optional(),
+        /** Blog shelf: about (who I am / how I work) · case-study (career learnings) · itch (tools I built). */
+        category: z.enum(["about", "case-study", "itch"]).default("case-study"),
         content: z.string(),
     }),
     transform: async (document, context) => {

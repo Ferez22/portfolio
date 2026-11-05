@@ -7,7 +7,7 @@ import { getGithubData } from "@/lib/github";
 
 /**
  * Landing: full-viewport, no scroll. Overview = agent-workflow graph as site
- * nav; Products = offers grid. Live GitHub data via ISR (lib/github.ts).
+ * nav; Products = offers grid; Blog = all posts (newest first). Live GitHub data via ISR (lib/github.ts).
  */
 export default async function LandingPage({
   params,
@@ -20,11 +20,13 @@ export default async function LandingPage({
   const github = await getGithubData();
   const posts = [...allPosts]
     .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt))
-    .slice(0, 3)
     .map((p) => ({
       title: p.title,
       slug: p._meta.path.replace(/\.mdx$/, ""),
       publishedAt: p.publishedAt,
+      summary: p.summary,
+      category: p.category,
+      image: p.image,
     }));
 
   return (
