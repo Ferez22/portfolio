@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { DATA } from "@/data/resume";
-import { t, type Locale } from "@/i18n/config";
+import Link from "next/link";
+import { localePath, t, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { OFFER_ICON } from "./node-preview";
 
@@ -63,6 +64,14 @@ export function ProductsGrid({ lang, dict, onContact }: { lang: Locale; dict: Di
               <h3 className="m-0 font-garamond text-[clamp(24px,3.4vh,36px)] font-medium leading-[1.05] tracking-[-0.01em] text-l-text">
                 {t(o.title, lang)}
               </h3>
+              {"free" in o && (
+                <Link
+                  href={localePath(lang, `/blog/${o.free}`)}
+                  className="w-fit font-mono text-xs text-[#34D399] underline-offset-4 hover:underline"
+                >
+                  {l.freeVersion} → {o.free}
+                </Link>
+              )}
               <p className="m-0 line-clamp-2 max-w-[440px] font-garamond text-[clamp(15px,2vh,18px)] leading-[1.35] text-l-muted text-pretty">
                 {t(o.description, lang)}
               </p>

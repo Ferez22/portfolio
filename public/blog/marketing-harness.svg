@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <radialGradient id="glow" cx="78%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#78482c" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#0e0f17" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#f2c46a" stroke-opacity=".05" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="#0e0f17"/>
+  <rect width="1280" height="720" fill="url(#hatch)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <!-- ladder: each layer wraps the previous one -->
+  <g fill="none" font-family="ui-monospace, Menlo, monospace" font-size="18" letter-spacing="2">
+    <rect x="700" y="130" width="460" height="460" rx="56" stroke="#f2c46a" stroke-width="3" fill="#f2c46a" fill-opacity=".05"/>
+    <text x="736" y="176" fill="#f2c46a">HARNESS</text>
+    <rect x="752" y="200" width="356" height="356" rx="44" stroke="#ece9e4" stroke-opacity=".35" stroke-width="2"/>
+    <text x="786" y="242" fill="#a9a39b">MCP</text>
+    <rect x="804" y="264" width="252" height="260" rx="34" stroke="#ece9e4" stroke-opacity=".28" stroke-width="2"/>
+    <text x="836" y="304" fill="#a9a39b">RAG</text>
+    <rect x="856" y="326" width="148" height="164" rx="26" stroke="#ece9e4" stroke-opacity=".22" stroke-width="2" fill="#151726"/>
+    <text x="876" y="414" fill="#ece9e4" font-size="16">CHATBOT</text>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace">
+    <text x="96" y="168" fill="#6b6a78" font-size="22">~/<tspan fill="#a9a39b">marketing-harness</tspan></text>
+    <text x="96" y="560" fill="#f2c46a" font-size="26">$ start</text>
+    <text x="96" y="604" fill="#6b6a78" font-size="20">free · MIT · Claude Code + Cowork</text>
+  </g>
+  <g font-family="'EB Garamond', Georgia, 'Times New Roman', serif" fill="#ece9e4">
+    <text x="92" y="300" font-size="76" font-weight="500">Claude,</text>
+    <text x="92" y="384" font-size="76" font-weight="500">in your voice.</text>
+    <text x="96" y="446" font-size="30" fill="#a9a39b">A harness that learns from every correction.</text>
+  </g>
+</svg>

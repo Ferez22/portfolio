@@ -78,6 +78,20 @@ export function Landing({
     return () => ids.forEach(window.clearTimeout);
   }, []);
 
+  // Deep links: /{lang}#products or #blog open that tab.
+  useEffect(() => {
+    const fromHash = () => {
+      const h = window.location.hash.slice(1);
+      if (h === "overview" || h === "products" || h === "blog") setTab(h);
+    };
+    const id = window.setTimeout(fromHash, 0);
+    window.addEventListener("hashchange", fromHash);
+    return () => {
+      window.clearTimeout(id);
+      window.removeEventListener("hashchange", fromHash);
+    };
+  }, []);
+
   useEffect(() => {
     if (phase !== 2) return;
     introPlayed = true;

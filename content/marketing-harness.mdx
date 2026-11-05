@@ -1,0 +1,143 @@
+---
+title: "I built a harness so Claude writes in my voice (and you can clone it)"
+publishedAt: "2026-11-05"
+author: "Fares Aouani Cherif"
+summary: "Your agent is good, but not to your taste. Clone a folder, type start, and 15 minutes later Claude writes like you and learns from every correction."
+image: "/blog/marketing-harness.svg"
+category: "itch"
+---
+
+Your agent is good. It's just not to your taste.
+
+You don't need a better model for that. You need a harness around the one you have.
+
+So I built one for marketing and open-sourced it. Clone a folder, type `start`, and about 15 minutes later Claude writes posts in your voice. Every correction you make after that gets logged, and the ones that repeat become rules.
+
+It's the free version of my Marketing & SEO Brain: one brand, posts only, MIT licensed.
+
+## Chatbot, RAG, MCP, harness
+
+Each step keeps the one before it and adds a layer around it.
+
+<HarnessLadder />
+
+Send a message, it's a chatbot. Give it a document, that's RAG. Give it your tools, that's MCP. Build a system around it so it curates itself, learns over time and remembers: that's a harness.
+
+## What it does
+
+- **Learns your voice.** A 15-minute interview turns your best posts into a written voice guide.
+- **Writes your posts.** Three hooks, one draft, and a variant per platform (LinkedIn, Instagram, X).
+- **Checks every word.** A built-in checker blocks AI tells, em dashes and "translated" French before you see a draft.
+- **Remembers corrections.** Every edit you make is logged. The same lesson twice, and it becomes a rule.
+- **Never posts for you.** You get copy-ready text. You stay the one who presses publish.
+
+## The loop
+
+This is the part a chatbot doesn't have.
+
+<HarnessLoop />
+
+One correction is an anecdote. Two is a pattern. The harness only changes your voice guide when you say yes.
+
+## Quickstart
+
+<Tabs labels={["Claude Code", "Claude Cowork"]}>
+<Tab>
+
+```bash
+git clone https://github.com/Ferez22/marketing-harness.git \
+  && cd marketing-harness && claude
+```
+
+Then type `start`. Claude reads `CLAUDE.md`, sees that your voice guide is empty and runs the `setup` interview. About 15 minutes later, it writes your first post.
+
+</Tab>
+<Tab>
+
+```bash
+bash scripts/package-for-cowork.sh
+```
+
+1. The script creates one ZIP per skill in `dist/`.
+2. In Claude, go to **Customize > Skills > + > Upload a skill** and upload the four ZIPs. Code execution must be on.
+3. Open the folder in Cowork and say `run the setup skill, then follow CLAUDE.md`.
+
+One honest note: Cowork reading `CLAUDE.md` from the folder isn't documented yet. That's why the key rules are repeated inside each skill.
+
+</Tab>
+</Tabs>
+
+## What's inside
+
+Open the folders, click a file to see what it's for.
+
+<FileTree />
+
+## The four skills
+
+<Accordion type="single" collapsible className="not-prose">
+  <AccordionItem value="setup">
+    <AccordionTrigger>setup</AccordionTrigger>
+    <AccordionContent>**When it runs:** on first run, or when you say "setup". **What you get:** `brand.md` and `voice.md`, filled from a short interview and validated by you.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="write-post">
+    <AccordionTrigger>write-post</AccordionTrigger>
+    <AccordionContent>**When it runs:** "write a post about...", or "what should I post?". **What you get:** 3 hooks, 1 draft and one variant per platform, saved in `posts/`.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="humanize">
+    <AccordionTrigger>humanize</AccordionTrigger>
+    <AccordionContent>**When it runs:** before any text reaches you. **What you get:** a clean draft, or a list of what to fix.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="learn">
+    <AccordionTrigger>learn</AccordionTrigger>
+    <AccordionContent>**When it runs:** "weekly review", or after 5 new corrections. **What you get:** new rules, and voice changes for you to approve.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+## The checker
+
+`humanize` ships a small script, standard library Python only. Every draft has to pass it. It comes with an English and a French lexicon: AI tells, em dashes, invisible characters, English calques in French and a mixed tu/vous register.
+
+Here are a few of its rules. Edit the text and check it.
+
+<CheckerDemo />
+
+It grows with you. When you keep deleting the same phrase, `learn` adds it to the lexicon.
+
+## Make it yours
+
+- **Your frameworks:** drop hook formulas, sales tables or audience notes in `knowledge/`. Every post reads them.
+- **Your platforms:** list them in `brand/brand.md`. `write-post` makes one variant per platform.
+- **Your rules:** edit `CLAUDE.md`. It's plain text, and Claude follows it.
+- **Another language:** copy `lexicon/en.json`, turn the patterns into tells of your language, and add `--lang`.
+
+## FAQ
+
+<Accordion type="single" collapsible className="not-prose">
+  <AccordionItem value="where">
+    <AccordionTrigger>Claude Code or Cowork?</AccordionTrigger>
+    <AccordionContent>Claude Code is the recommended path: it loads `CLAUDE.md` and the skills on its own. Cowork works through skill uploads, with the key rules repeated in each skill.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="post">
+    <AccordionTrigger>Does it post for me?</AccordionTrigger>
+    <AccordionContent>Never. You get copy-ready text and you press publish.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="data">
+    <AccordionTrigger>Where does my data go?</AccordionTrigger>
+    <AccordionContent>Your files stay in your folder. What you send to Claude falls under your model provider's terms.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="lang">
+    <AccordionTrigger>Which languages?</AccordionTrigger>
+    <AccordionContent>English and French out of the box. Copy a lexicon to add yours.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="prompt">
+    <AccordionTrigger>How is this different from a good prompt?</AccordionTrigger>
+    <AccordionContent>A prompt starts from zero every time. The harness has memory, written rules and a feedback loop: before it writes this week, it reads what you corrected last week.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="cost">
+    <AccordionTrigger>What does it cost?</AccordionTrigger>
+    <AccordionContent>The repo is free and MIT licensed. You need your own Claude plan.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+<HarnessCta />

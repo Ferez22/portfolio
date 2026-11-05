@@ -63,6 +63,7 @@ content/*.mdx           posts (schema content-collections.ts: + `category` about
 design source: Claude Design project "Portfolio v2.dc.html" (ink + gold). page bg + header text follow the SITE theme (`bg-background`, `text-foreground`; ✗ forced `.dark`); dark "device" surfaces (graph panel, product cards) use tokens `--color-l-*` in globals.css `@theme` (l-bg, l-panel, l-node, l-pop, l-row, l-line, l-border(2), l-edge, l-hover, l-text, l-soft, l-muted, l-dim, l-gold, l-gold-hi). popovers/dialogs use site tokens. fonts: `font-garamond` (EB Garamond) prose, `font-mono` (Geist Mono) chrome/commands.
 files (`components/landing/`):
 - loading flow (landing.tsx PHASE): 0 intro = name decodes big centred (DecodeText scrambleFirst) → 1.9s logo → 2.4s graph mounts (draws itself ~5s) + navbar (tabs, language, Let's talk) together → `markLandingReady()` → newsletter popup 10s later. once per visit (module flag); reduced motion skips. schedule timers once on mount (✗ per-phase effect: cleanup cancels the rest).
+- deep links: `/{lang}#overview|#products|#blog` open that tab (hash read after mount + hashchange).
 - header = absolute glass (`backdrop-blur-xl` only, ✗ bg tint, h-16); main pt-20 gap. products main scrolls under it.
 - landing.tsx — shell: header [`~/fares.aouani` (DecodeText: glyph decode on hover; ✗ avatar/badge) | SegmentedTabs (light-orange track, #B5541F pill slides via offsetLeft/Width, cubic-bezier(.65,0,.35,1) .4s) | inline LanguageSwitcher + DirectionButton "Let's talk" (amber clip-path fill from cursor entry, `.direction-btn` in globals)], body = AgentGraph | ProductsGrid | BlogList (blog-list.tsx: Netflix shelves (order) Scratch your own itch · About me · Case studies; posts by frontmatter `category` about|case-study|itch (default case-study), itch shelf also lists non-client DATA.tools; posters 16:9, snap-x rows + arrow buttons, `.shelf` = clipped scroller so hover shadow is a ring only). owns tab + contact GraphDialog. header-ui.tsx holds the 3 header widgets.
 - outlines = light gray (`l-border*` = text @14–20%); edges `l-edge` (@30%) brighter than outlines; graph panel: shadow only, ✗ border.
@@ -82,7 +83,12 @@ interaction: hover/focus OR click ⇒ focus (`active = sel ?? hovered`): others 
 popover (NodePopover) = compact site-token card (w-80, p-3, rounded-xl, bg-card — dark via landing `.dark`): header icon(32) · title/sub · Pill (neutral|live|warm) · primary arrow button; rows `→ icon title/sub(mono) Pill` (tone from KIND_TONE); rows can `href` | `onClick` | `copy` (clipboard + "Copied ✓"). extra block: agent org avatars (work+nonProfit, dedupe by logo, max 6 then …), github heatmap.
 add node ⇒ (1) NodeId (2) GEO wide+tall (3) EDGES entry (position = draw order) (4) icon()+label() (5) buildPreview case (6) strings `dict.landing` ×3 (7) social url/icon in DATA.contact.social.
 offer cards: `.offer` hover = scale(1.03) from centre (spring) + amber `.offer-fill` + glow + z-30; transform only (✗ layout change); growth must fit main padding (≥16px) so no scroll (above glass header z-20); siblings ONLY dim via `.offer-grid:has(.offer:hover)` — ✗ sibling scale/move. products main: `overflow-x-hidden` + `scrollbar-gutter: stable` so hover never toggles a scrollbar (jitter).
-offers ⇒ `DATA.offers {id, group: product|hire, icon: OFFER_ICON key, title/description Localized, tags, command}`; feeds Products tab + products/qartmina/agent popovers.
+offers ⇒ `DATA.offers {id, group: product|hire, icon: OFFER_ICON key, title/description Localized, tags, command, free?: post slug (card shows "Free version →")}`; feeds Products tab + products/qartmina/agent popovers.
+
+## posts (MDX)
+- interactive components live in `src/components/mdx/` (client) and are registered in `src/mdx-components.tsx`: HarnessLadder, HarnessLoop, FileTree, CheckerDemo, Tabs/Tab, HarnessCta, Accordion* (ui/accordion). wrap in `not-prose`; dark device surface (`bg-l-panel`), works light+dark, Esc closes popovers, static under reduced motion.
+- post posters: local 16:9 under `public/blog/` (ink + gold), ✗ Unsplash for new posts.
+- copy rules: ✗ em/en dashes, ✗ slop words, nothing invented (facts from the source repo/README).
 
 ## gotchas
 - next.config.mjs: security headers; `withContentCollections` ⇒ outermost.
