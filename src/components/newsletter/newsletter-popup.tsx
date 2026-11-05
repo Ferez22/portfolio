@@ -10,8 +10,17 @@ import { NewsletterCard } from "./newsletter-form";
 import { isSubscribed, useSubscribed } from "./subscription";
 
 const DELAY_MS = 30_000;
-/** The landing page has no scroll, so the popup shows early there. */
-const LANDING_DELAY_MS = 3_000;
+/** Landing: 10s after its loading flow finishes (see markLandingReady). */
+const AFTER_LANDING_MS = 10_000;
+
+/** Set by the landing once its intro sequence is done; popup keys off it. */
+let landingReadyAt: number | null = null;
+const READY_EVENT = "landing-ready";
+export function markLandingReady() {
+  if (landingReadyAt !== null) return;
+  landingReadyAt = Date.now();
+  window.dispatchEvent(new Event(READY_EVENT));
+}
 const SCROLL_DEPTH = 0.5;
 const AUTO_CLOSE_AFTER_SUCCESS_MS = 12_000;
 
@@ -21,8 +30,8 @@ let shownThisVisit = false;
 
 /**
  * Newsletter popup — non-modal card pinned bottom-right (no overlay, page
- * stays usable). Opens once per visit after 30s (3s on the landing page, which
- * has no scroll) or 50% scroll depth, unless
+ * stays usable). Opens once per visit after 30s or 50% scroll depth (landing:
+ * 10s after its loading flow), unless
  * the inline #newsletter section is on screen or the visitor subscribed.
  * Sits above the bottom dock on small screens.
  */
@@ -60,10 +69,18 @@ export function NewsletterPopup({
       if (max > 0 && window.scrollY / max >= SCROLL_DEPTH) show();
     };
 
-    const timer = window.setTimeout(show, isLanding ? LANDING_DELAY_MS : DELAY_MS);
+    let timer: number | undefined;
+    const arm = () => {
+      const wait = isLanding ? AFTER_LANDING_MS - (Date.now() - (landingReadyAt ?? Date.now())) : DELAY_MS;
+      timer = window.setTimeout(show, Math.max(0, wait));
+    };
+    // On the landing, wait for its intro to finish; elsewhere start right away.
+    if (!isLanding || landingReadyAt !== null) arm();
+    else window.addEventListener(READY_EVENT, arm, { once: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     function cleanup() {
       window.clearTimeout(timer);
+      window.removeEventListener(READY_EVENT, arm);
       window.removeEventListener("scroll", onScroll);
     }
     return cleanup;
@@ -91,9 +108,9 @@ export function NewsletterPopup({
       role="dialog"
       aria-labelledby="newsletter-popup-title"
       className={cn(
-        "fixed inset-x-4 z-40 sm:inset-x-auto sm:right-6 sm:w-[22rem] lg:bottom-6 animate-in fade-in-0 slide-in-from-bottom-4 duration-500",
+        "fixed inset-x-3 z-40 sm:inset-x-auto sm:right-3 sm:w-[22rem] lg:bottom-3 animate-in fade-in-0 slide-in-from-bottom-4 duration-500",
         // The bottom dock is hidden on the landing page.
-        isLanding ? "bottom-4" : "bottom-24",
+        isLanding ? "bottom-3" : "bottom-24",
       )}
     >
       <NewsletterCard

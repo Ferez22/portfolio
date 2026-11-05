@@ -102,6 +102,61 @@ export const DATA = {
       },
     },
   },
+  /** Landing "Products" tab + node. group: product (Qartmina) | hire (freelance). */
+  offers: [
+    {
+      id: "website",
+      group: "product",
+      icon: "app-window",
+      title: { en: "Website creation", fr: "Création de sites web", de: "Website-Erstellung" },
+      description: {
+        en: "Custom websites, designed and shipped fast — performance and SEO built in from the first commit.",
+        fr: "Des sites sur mesure, conçus et livrés vite — performance et SEO intégrés dès le premier commit.",
+        de: "Maßgeschneiderte Websites, schnell gestaltet und ausgeliefert — Performance und SEO ab dem ersten Commit.",
+      },
+      tags: ["design", "next.js", "cms", "hosting"],
+      command: "$ qartmina create --site",
+    },
+    {
+      id: "seo-brain",
+      group: "product",
+      icon: "brain-circuit",
+      title: { en: "Marketing & SEO Brain", fr: "Cerveau Marketing & SEO", de: "Marketing- & SEO-Brain" },
+      description: {
+        en: "An AI agent that researches, writes and optimizes your content — and keeps learning from your results.",
+        fr: "Un agent IA qui recherche, rédige et optimise vos contenus — et apprend en continu de vos résultats.",
+        de: "Ein KI-Agent, der deine Inhalte recherchiert, schreibt und optimiert — und aus deinen Ergebnissen weiterlernt.",
+      },
+      tags: ["keyword research", "content agents", "analytics"],
+      command: "$ qartmina brain --seo",
+    },
+    {
+      id: "ai-engineer",
+      group: "hire",
+      icon: "bot",
+      title: { en: "AI Engineer on hire", fr: "Ingénieur IA en freelance", de: "KI-Engineer zum Mieten" },
+      description: {
+        en: "Agents, RAG pipelines, MCP servers and LLM integrations — from prototype to production.",
+        fr: "Agents, pipelines RAG, serveurs MCP et intégrations LLM — du prototype à la production.",
+        de: "Agenten, RAG-Pipelines, MCP-Server und LLM-Integrationen — vom Prototyp bis in Produktion.",
+      },
+      tags: ["agents", "rag", "mcp", "evals", "openai api"],
+      command: "$ hire fares --role ai",
+    },
+    {
+      id: "software-engineer",
+      group: "hire",
+      icon: "code-xml",
+      title: { en: "Software Engineer on hire", fr: "Ingénieur logiciel en freelance", de: "Software-Engineer zum Mieten" },
+      description: {
+        en: "Full-stack product engineering — APIs, web apps and infrastructure that hold up in production.",
+        fr: "Ingénierie produit full-stack — API, applications web et infrastructure qui tiennent en production.",
+        de: "Full-Stack-Produktentwicklung — APIs, Web-Apps und Infrastruktur, die in Produktion halten.",
+      },
+      tags: ["typescript", "python", "apis", "cloud"],
+      command: "$ hire fares --role swe",
+    },
+  ],
   /** Shown in the landing "MCP" node preview — things I've shipped. */
   tools: [
     {

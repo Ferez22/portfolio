@@ -33,7 +33,7 @@ function rememberLocale(loc: Locale) {
  * Visitors land in their browser language via `proxy.ts`; picking one here
  * stores it in a cookie that the proxy then prefers.
  */
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ inline = false }: { inline?: boolean }) {
   const pathname = usePathname();
   const segment = pathname.split("/")[1];
   const lang: Locale = isLocale(segment) ? segment : defaultLocale;
@@ -42,6 +42,9 @@ export function LanguageSwitcher() {
     ? pathname.slice(`/${segment}`.length) || "/"
     : pathname;
   const label = getDictionary(lang).tooltip.language;
+  // The landing page renders its own inline switcher in its header.
+  const isLanding = pathname === `/${segment}` && isLocale(segment);
+  if (!inline && isLanding) return null;
 
   return (
     <>
@@ -50,7 +53,12 @@ export function LanguageSwitcher() {
         popoverTarget={POPOVER_ID}
         aria-label={label}
         title={label}
-        className="fixed right-3 top-3 z-40 inline-flex items-center gap-1 rounded-full px-2 py-1 font-tech text-[0.65rem] font-bold tracking-wider text-muted-foreground/60 transition-colors hover:bg-muted/70 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
+        className={cn(
+          "inline-flex items-center gap-1.5 rounded-full px-2 py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 cursor-pointer",
+          inline
+            ? "font-mono text-xs text-l-muted hover:text-l-text focus-visible:ring-l-gold"
+            : "fixed right-3 top-3 z-40 font-tech text-[0.65rem] font-bold tracking-wider text-muted-foreground/60 hover:bg-muted/70 hover:text-foreground focus-visible:ring-ring",
+        )}
       >
         <Languages className="size-3.5" aria-hidden />
         {localeNames[lang]}
@@ -58,7 +66,10 @@ export function LanguageSwitcher() {
       <div
         id={POPOVER_ID}
         popover="auto"
-        className="fixed inset-auto right-3 top-11 m-0 min-w-36 rounded-xl border border-border bg-card p-1 text-foreground shadow-[0_18px_50px_-24px_oklch(0.45_0.1_45/0.45)]"
+        className={cn(
+          "fixed inset-auto m-0 min-w-36 rounded-xl border border-border bg-card p-1 text-foreground shadow-[0_18px_50px_-24px_oklch(0.45_0.1_45/0.45)]",
+          inline ? "right-32 top-14" : "right-3 top-11",
+        )}
       >
         <ul aria-label={label} className="flex flex-col">
           {locales.map((loc) => (
