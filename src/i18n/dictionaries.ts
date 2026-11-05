@@ -1,7 +1,7 @@
 import type { Locale } from "./config";
 
 export type Dictionary = {
-  nav: { home: string; blog: string; contact: string };
+  nav: { home: string; cv: string; blog: string; contact: string };
   tooltip: { socials: string; less: string; theme: string; language: string };
   hero: { greeting: string; availability: string; availabilityHint: string };
   sections: {
@@ -21,6 +21,7 @@ export type Dictionary = {
     ctaEyebrow: string;
     ctaHeading: string;
     ctaText: string;
+    ctaShort: string;
     bookCall: string;
     emailEyebrow: string;
     sendEmail: string;
@@ -44,6 +45,37 @@ export type Dictionary = {
     error: string;
     close: string;
   };
+  landing: {
+    agentSub: string;
+    kbSub: string;
+    mcpSub: string;
+    crmSub: string;
+    legendPage: string;
+    legendDialog: string;
+    legendExternal: string;
+    repos: string;
+    contributions: string;
+    languages: string;
+    since: string;
+    githubActivity: string;
+    recentRepos: string;
+    viewProfile: string;
+    contactTitle: string;
+    contactText: string;
+    online: string;
+    openCv: string;
+    tools: string;
+    kindOss: string;
+    kindOwn: string;
+    kindClient: string;
+    seeProjects: string;
+    posts: string;
+    showAll: string;
+    open: string;
+    external: string;
+    email: string;
+    callLength: string;
+  };
   blog: {
     title: string;
     postsSuffix: string;
@@ -60,7 +92,7 @@ export type Dictionary = {
 
 const dictionaries: Record<Locale, Dictionary> = {
   en: {
-    nav: { home: "Home", blog: "Blog", contact: "Contact" },
+    nav: { home: "Home", cv: "CV", blog: "Blog", contact: "Contact" },
     tooltip: {
       socials: "Socials",
       less: "Less",
@@ -97,6 +129,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       ctaHeading: "Grab a coffee chat",
       ctaText:
         "A free 30-minute call — no pitch, no pressure. Just pick a slot that works for you and we'll take it from there.",
+      ctaShort: "Free 30-minute call, no pitch.",
       bookCall: "Book a call",
       emailEyebrow: "Prefer to write?",
       sendEmail: "Send an email",
@@ -118,6 +151,37 @@ const dictionaries: Record<Locale, Dictionary> = {
       error: "That didn't go through. Check your email address and try again.",
       close: "Close",
     },
+    landing: {
+      agentSub: "Fares Aouani",
+      kbSub: "Blog",
+      mcpSub: "Tools I've built",
+      crmSub: "Contact me",
+      legendPage: "Page",
+      legendDialog: "Dialog",
+      legendExternal: "External",
+      repos: "repos",
+      contributions: "contributions in 12 months",
+      languages: "languages",
+      since: "on GitHub since",
+      githubActivity: "Activity, last 12 months",
+      recentRepos: "Recently pushed",
+      viewProfile: "View profile on GitHub",
+      contactTitle: "Let's talk",
+      contactText: "Book a call, write me, or get the newsletter.",
+      online: "Online",
+      openCv: "Open CV",
+      tools: "tools",
+      kindOss: "Open source",
+      kindOwn: "Own company",
+      kindClient: "Client work",
+      seeProjects: "See all projects",
+      posts: "posts",
+      showAll: "Show all",
+      open: "Open",
+      external: "External",
+      email: "Email",
+      callLength: "30 min",
+    },
     blog: {
       title: "Blog",
       postsSuffix: "posts",
@@ -134,7 +198,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
   },
   fr: {
-    nav: { home: "Accueil", blog: "Blog", contact: "Contact" },
+    nav: { home: "Accueil", cv: "CV", blog: "Blog", contact: "Contact" },
     tooltip: {
       socials: "Réseaux",
       less: "Moins",
@@ -171,6 +235,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       ctaHeading: "Prenons un café virtuel",
       ctaText:
         "Un appel gratuit de 30 minutes — sans argumentaire, sans pression. Choisissez simplement un créneau qui vous convient et on part de là.",
+      ctaShort: "Appel gratuit de 30 minutes, sans argumentaire.",
       bookCall: "Réserver un appel",
       emailEyebrow: "Vous préférez écrire ?",
       sendEmail: "Envoyer un e-mail",
@@ -192,6 +257,37 @@ const dictionaries: Record<Locale, Dictionary> = {
       error: "L'inscription n'a pas abouti. Vérifiez votre adresse e-mail et réessayez.",
       close: "Fermer",
     },
+    landing: {
+      agentSub: "Fares Aouani",
+      kbSub: "Blog",
+      mcpSub: "Mes outils",
+      crmSub: "Me contacter",
+      legendPage: "Page",
+      legendDialog: "Fenêtre",
+      legendExternal: "Externe",
+      repos: "dépôts",
+      contributions: "contributions en 12 mois",
+      languages: "langages",
+      since: "sur GitHub depuis",
+      githubActivity: "Activité, 12 derniers mois",
+      recentRepos: "Mis à jour récemment",
+      viewProfile: "Voir le profil GitHub",
+      contactTitle: "Discutons",
+      contactText: "Réservez un appel, écrivez-moi ou recevez la newsletter.",
+      online: "En ligne",
+      openCv: "Ouvrir le CV",
+      tools: "outils",
+      kindOss: "Open source",
+      kindOwn: "Ma société",
+      kindClient: "Projet client",
+      seeProjects: "Voir tous les projets",
+      posts: "articles",
+      showAll: "Tout voir",
+      open: "Ouvrir",
+      external: "Externe",
+      email: "E-mail",
+      callLength: "30 min",
+    },
     blog: {
       title: "Blog",
       postsSuffix: "articles",
@@ -208,7 +304,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
   },
   de: {
-    nav: { home: "Start", blog: "Blog", contact: "Kontakt" },
+    nav: { home: "Start", cv: "Lebenslauf", blog: "Blog", contact: "Kontakt" },
     tooltip: {
       socials: "Sozial",
       less: "Weniger",
@@ -245,6 +341,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       ctaHeading: "Auf einen virtuellen Kaffee",
       ctaText:
         "Ein kostenloses 30-minütiges Gespräch — kein Pitch, kein Druck. Wähl einfach einen passenden Termin und wir nehmen es von dort.",
+      ctaShort: "Kostenloses 30-Minuten-Gespräch, kein Pitch.",
       bookCall: "Termin buchen",
       emailEyebrow: "Lieber schreiben?",
       sendEmail: "E-Mail senden",
@@ -265,6 +362,37 @@ const dictionaries: Record<Locale, Dictionary> = {
       alreadyText: "Du bist an Bord des Rettungsboots…",
       error: "Das hat nicht geklappt. Prüf deine E-Mail-Adresse und versuch es noch einmal.",
       close: "Schließen",
+    },
+    landing: {
+      agentSub: "Fares Aouani",
+      kbSub: "Blog",
+      mcpSub: "Meine Tools",
+      crmSub: "Kontakt",
+      legendPage: "Seite",
+      legendDialog: "Dialog",
+      legendExternal: "Extern",
+      repos: "Repos",
+      contributions: "Beiträge in 12 Monaten",
+      languages: "Sprachen",
+      since: "auf GitHub seit",
+      githubActivity: "Aktivität, letzte 12 Monate",
+      recentRepos: "Zuletzt aktualisiert",
+      viewProfile: "Profil auf GitHub ansehen",
+      contactTitle: "Lass uns reden",
+      contactText: "Termin buchen, schreiben oder Newsletter abonnieren.",
+      online: "Online",
+      openCv: "Lebenslauf öffnen",
+      tools: "Tools",
+      kindOss: "Open Source",
+      kindOwn: "Eigene Firma",
+      kindClient: "Kundenprojekt",
+      seeProjects: "Alle Projekte ansehen",
+      posts: "Beiträge",
+      showAll: "Alle anzeigen",
+      open: "Öffnen",
+      external: "Extern",
+      email: "E-Mail",
+      callLength: "30 Min.",
     },
     blog: {
       title: "Blog",

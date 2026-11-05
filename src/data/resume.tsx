@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { Contact, HomeIcon, NotebookIcon } from "lucide-react";
+import { Contact, FileText, HomeIcon, NotebookIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
 import { Typescript } from "@/components/ui/svgs/typescript";
@@ -16,9 +16,9 @@ export const DATA = {
   location: "Düsseldorf, Germany",
   locationLink: "https://www.google.com/maps/place/Düsseldorf",
   headline: {
-    en: "AI Coach & Engineer",
-    fr: "Coach & ingénieur IA",
-    de: "KI-Coach & Engineer",
+    en: "AI Engineer",
+    fr: "Ingénieur IA",
+    de: "KI-Engineer",
   },
   description: {
     en: "Build systems. Skyrocket your productivity.",
@@ -26,9 +26,9 @@ export const DATA = {
     de: "Nutze Systeme, erhöhe deine Produktivität.",
   },
   summary: {
-    en: "In the AI era, a lot has changed for enterprises. Priorities have shifted. Projects and ideas, that were too crazy to even think about, have become accessible. The right people with the right frameworks using AI Agents have changed what it costs to create a custom tool, start that new project, try out that idea, rebuild your whole codebase, as have done it many big companies.",
-    fr: "",
-    de: "",
+    en: "I was always fascinated by how computers work, and by the German combo of quality and efficiency, so I decided to study computer science in Germany. Then ChatGPT was released, AI kept getting better and better at code, and my goals for developing software changed. I quickly saw that with solid software engineering knowledge, I could steer AI to do exactly what I want, follow best practices, and turn my wildest ideas into concrete projects. The best part? I can do all that with less manpower, in a fraction of the time.",
+    fr: "J'ai toujours été fasciné par le fonctionnement des ordinateurs, et par ce mélange allemand de qualité et d'efficacité. J'ai donc choisi d'étudier l'informatique en Allemagne. Puis ChatGPT est sorti, l'IA est devenue de plus en plus forte en code, et mes objectifs en développement logiciel ont changé. J'ai vite compris qu'avec de solides bases en génie logiciel, je pouvais piloter l'IA pour faire exactement ce que je veux, suivre les bonnes pratiques et transformer mes idées les plus folles en projets concrets. Le meilleur ? Je peux faire tout ça avec moins de monde, en une fraction du temps.",
+    de: "Mich hat schon immer fasziniert, wie Computer funktionieren – und die deutsche Kombination aus Qualität und Effizienz. Deshalb habe ich mich entschieden, Informatik in Deutschland zu studieren. Dann kam ChatGPT, KI wurde beim Programmieren immer besser, und meine Ziele in der Softwareentwicklung haben sich verändert. Mir wurde schnell klar: Mit fundiertem Software-Engineering-Wissen kann ich KI genau so steuern, wie ich es will, Best Practices einhalten und meine verrücktesten Ideen in konkrete Projekte verwandeln. Das Beste daran? Ich schaffe das mit weniger Personal und in einem Bruchteil der Zeit.",
   },
   avatarUrl: "/me.jpg",
   skills: [
@@ -43,8 +43,9 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/cv", icon: FileText, label: "CV" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    { href: "/#contact", icon: Contact, label: "Contact" },
+    { href: "/cv#contact", icon: Contact, label: "Contact" },
   ],
   contact: {
     email: "fares.aouani@proton.me",
@@ -86,6 +87,12 @@ export const DATA = {
         icon: Icons.soundcloud,
         navbar: true,
       },
+      Instagram: {
+        name: "Instagram",
+        url: "https://www.instagram.com/faresela22/",
+        icon: Icons.instagram,
+        navbar: false,
+      },
       email: {
         name: "Send Email",
         url: "mailto:fares.aouani@proton.me",
@@ -95,6 +102,24 @@ export const DATA = {
       },
     },
   },
+  /** Shown in the landing "MCP" node preview — things I've shipped. */
+  tools: [
+    {
+      name: "clrea",
+      command: "brew install ferez22/clrea/clrea",
+      href: "https://github.com/Ferez22/clrea",
+      kind: "oss",
+    },
+    {
+      name: "oui",
+      command: "brew install ferez22/tap/oui",
+      href: "https://github.com/Ferez22/oui",
+      kind: "oss",
+    },
+    { name: "qartmina.com", href: "https://qartmina.com", kind: "own" },
+    { name: "enterprise.docutrad.fr", href: "https://enterprise.docutrad.fr", kind: "client" },
+    { name: "mohamedbettaieb.com", href: "https://mohamedbettaieb.com", kind: "client" },
+  ],
   certifications: [
     {
       name: "OpenAI Select Partner",

@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { NewsletterCard } from "./newsletter-form";
 import { isSubscribed, useSubscribed } from "./subscription";
 
 const DELAY_MS = 30_000;
+/** The landing page has no scroll, so the popup shows early there. */
+const LANDING_DELAY_MS = 3_000;
 const SCROLL_DEPTH = 0.5;
 const AUTO_CLOSE_AFTER_SUCCESS_MS = 12_000;
 
@@ -17,7 +21,8 @@ let shownThisVisit = false;
 
 /**
  * Newsletter popup — non-modal card pinned bottom-right (no overlay, page
- * stays usable). Opens once per visit after 30s or 50% scroll depth, unless
+ * stays usable). Opens once per visit after 30s (3s on the landing page, which
+ * has no scroll) or 50% scroll depth, unless
  * the inline #newsletter section is on screen or the visitor subscribed.
  * Sits above the bottom dock on small screens.
  */
@@ -30,6 +35,8 @@ export function NewsletterPopup({
 }) {
   const [open, setOpen] = useState(false);
   const subscribed = useSubscribed();
+  const pathname = usePathname();
+  const isLanding = pathname === `/${lang}`;
 
   useEffect(() => {
     if (shownThisVisit || isSubscribed()) return;
@@ -53,14 +60,14 @@ export function NewsletterPopup({
       if (max > 0 && window.scrollY / max >= SCROLL_DEPTH) show();
     };
 
-    const timer = window.setTimeout(show, DELAY_MS);
+    const timer = window.setTimeout(show, isLanding ? LANDING_DELAY_MS : DELAY_MS);
     window.addEventListener("scroll", onScroll, { passive: true });
     function cleanup() {
       window.clearTimeout(timer);
       window.removeEventListener("scroll", onScroll);
     }
     return cleanup;
-  }, []);
+  }, [isLanding]);
 
   // Subscribed (here or in the page section) while open → show the
   // onboarded state for a while, then get out of the way.
@@ -83,7 +90,11 @@ export function NewsletterPopup({
     <div
       role="dialog"
       aria-labelledby="newsletter-popup-title"
-      className="fixed inset-x-4 bottom-24 z-40 sm:inset-x-auto sm:right-6 sm:w-[22rem] lg:bottom-6 animate-in fade-in-0 slide-in-from-bottom-4 duration-500"
+      className={cn(
+        "fixed inset-x-4 z-40 sm:inset-x-auto sm:right-6 sm:w-[22rem] lg:bottom-6 animate-in fade-in-0 slide-in-from-bottom-4 duration-500",
+        // The bottom dock is hidden on the landing page.
+        isLanding ? "bottom-4" : "bottom-24",
+      )}
     >
       <NewsletterCard
         lang={lang}

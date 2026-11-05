@@ -22,6 +22,7 @@ import {
 import "../globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { Analytics } from "@vercel/analytics/next";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { NewsletterPopup } from "@/components/newsletter/newsletter-popup";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -187,6 +188,7 @@ export default async function RootLayout({
             <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
               {children}
             </div>
+            <LanguageSwitcher />
             <Navbar />
             <NewsletterPopup lang={lang} dict={getDictionary(lang).newsletter} />
           </TooltipProvider>

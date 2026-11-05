@@ -11,14 +11,12 @@ import {
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { AnimatePresence, motion } from "motion/react";
-import { Languages, MoreHorizontal, X } from "lucide-react";
+import { MoreHorizontal, X } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
-  locales,
   isLocale,
   defaultLocale,
-  localeNames,
   localePath,
   type Locale,
 } from "@/i18n/config";
@@ -76,47 +74,34 @@ function IconLink({
 
 const NAV_LABELS: Record<string, keyof ReturnType<typeof getDictionary>["nav"]> = {
   "/": "home",
+  "/cv": "cv",
   "/blog": "blog",
-  "/#contact": "contact",
+  "/cv#contact": "contact",
 };
 
 export default function Navbar() {
   const [showSocials, setShowSocials] = useState(false);
-  const [showLangs, setShowLangs] = useState(false);
   const pathname = usePathname();
 
-  const toggleSocials = () =>
-    setShowSocials((v) => {
-      if (!v) setShowLangs(false);
-      return !v;
-    });
-  const toggleLangs = () =>
-    setShowLangs((v) => {
-      if (!v) setShowSocials(false);
-      return !v;
-    });
-  const closeAll = () => {
-    setShowSocials(false);
-    setShowLangs(false);
-  };
+  const toggleSocials = () => setShowSocials((v) => !v);
+  const closeAll = () => setShowSocials(false);
 
   const segment = pathname.split("/")[1];
   const lang: Locale = isLocale(segment) ? segment : defaultLocale;
   const dict = getDictionary(lang);
-
-  // Path minus the current locale prefix, used to build language-switch links.
-  const restPath = isLocale(segment)
-    ? pathname.slice(`/${segment}`.length) || "/"
-    : pathname;
+  // The landing page is its own navigation (agent graph) — no dock there.
+  const isLanding = pathname === `/${segment}` && isLocale(segment);
 
   const socials = Object.entries(DATA.contact.social).filter(
     ([, social]) => social.navbar
   );
 
+  if (isLanding) return null;
+
   return (
     <>
       {/* Click-away layer: closes the open secondary dock when tapping outside it */}
-      {(showSocials || showLangs) && (
+      {showSocials && (
         <div
           className="fixed inset-0 z-20"
           onClick={closeAll}
@@ -150,48 +135,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* Secondary dock: language switcher, floats above the main bar */}
-        <AnimatePresence>
-          {showLangs && (
-            <motion.div
-              key="langs-dock"
-              initial={{ opacity: 0, y: 12, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300, damping: 24 }}
-            >
-              <Dock className={DOCK_CLASS}>
-                {locales.map((loc) => (
-                  <Tooltip key={`lang-${loc}`}>
-                    <TooltipTrigger asChild>
-                      <a
-                        href={localePath(loc, restPath)}
-                        aria-label={localeNames[loc]}
-                        onClick={closeAll}
-                      >
-                        <DockIcon
-                          className={cn(
-                            "flex items-center justify-center rounded-3xl cursor-pointer size-full bg-background font-tech text-[0.7rem] font-bold uppercase tracking-wider backdrop-blur-3xl border border-border transition-colors",
-                            loc === lang
-                              ? "text-foreground bg-muted"
-                              : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                          )}
-                        >
-                          {localeNames[loc]}
-                        </DockIcon>
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
-                      <p>{localeNames[loc]}</p>
-                      <TooltipArrow className="fill-primary" />
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </Dock>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Main dock */}
         <Dock className={DOCK_CLASS}>
           {DATA.navbar.map((item) => {
@@ -202,7 +145,7 @@ export default function Navbar() {
                 href={localePath(lang, item.href)}
                 label={labelKey ? dict.nav[labelKey] : item.label}
                 icon={item.icon}
-                highlight={item.href === "/#contact"}
+                highlight={item.href === "/cv#contact"}
               />
             );
           })}
@@ -230,39 +173,6 @@ export default function Navbar() {
             </TooltipTrigger>
             <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
               <p>{showSocials ? dict.tooltip.less : dict.tooltip.socials}</p>
-              <TooltipArrow className="fill-primary" />
-            </TooltipContent>
-          </Tooltip>
-
-          <Separator
-            orientation="vertical"
-            className="h-2/3 m-auto w-px bg-border"
-          />
-
-          {/* Language switcher toggle — opens the languages dock */}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <button
-                type="button"
-                aria-label={dict.tooltip.language}
-                aria-expanded={showLangs}
-                onClick={toggleLangs}
-                className="flex h-10 shrink-0 items-center justify-center gap-1 rounded-3xl cursor-pointer bg-background px-2.5 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors"
-              >
-                {showLangs ? (
-                  <X className="size-5" />
-                ) : (
-                  <>
-                    <Languages className="size-4" />
-                    <span className="font-tech text-[0.6rem] font-bold uppercase tracking-wider">
-                      {localeNames[lang]}
-                    </span>
-                  </>
-                )}
-              </button>
-            </TooltipTrigger>
-            <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
-              <p>{dict.tooltip.language}</p>
               <TooltipArrow className="fill-primary" />
             </TooltipContent>
           </Tooltip>
