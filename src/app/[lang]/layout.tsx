@@ -22,6 +22,8 @@ import {
 import "../globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { Analytics } from "@vercel/analytics/next";
+import { NewsletterPopup } from "@/components/newsletter/newsletter-popup";
+import { getDictionary } from "@/i18n/dictionaries";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -186,6 +188,7 @@ export default async function RootLayout({
               {children}
             </div>
             <Navbar />
+            <NewsletterPopup lang={lang} dict={getDictionary(lang).newsletter} />
           </TooltipProvider>
         </ThemeProvider>
       </body>

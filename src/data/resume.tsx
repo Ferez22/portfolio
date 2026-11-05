@@ -50,6 +50,9 @@ export const DATA = {
     email: "fares.aouani@proton.me",
     tel: "",
     calendlyUrl: "https://calendly.com/fares-aouani-proton/30min",
+    /** Brevo subscription form endpoint (CORS-enabled for faresaouani.com). */
+    newsletterAction:
+      "https://0388cea7.sibforms.com/serve/MUIFAEza4fqsMq6PDQNxwr9YuOatByVOUGfxKmjQ24__t3sej1sFhLP5UKArFLQfceugbLbRq6htBkbFTKiKHb3bGk0WtcN7jKH2R53YLnv70buy6J74nZtcygMzTwX6kyodHS6lqjTVl3AFlo9rfg8gimXA0YXJ7fU8qn9eJ8BNVvv7T-Npfpj8RTt_38RPb2M_OA29qS3KMTng6g==",
     social: {
       LinkedIn: {
         name: "LinkedIn",

@@ -258,3 +258,58 @@
   }
 
 }
+/* Newsletter success — seamless horizontal wave drift (path holds 2 periods) */
+@keyframes wave-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-wave-drift {
+  animation: wave-drift var(--wave-duration, 10s) linear infinite
+    var(--wave-direction, normal);
+}
+
+/* Newsletter background — slow ocean swell (vertical bob per wave layer) */
+@keyframes wave-swell {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px) scaleY(1.12);
+  }
+}
+
+.animate-wave-swell {
+  animation: wave-swell var(--swell-duration, 5s) ease-in-out infinite;
+  transform-origin: 50% 100%;
+  animation-delay: var(--swell-delay, 0s);
+}
+
+/* Newsletter success — boat rocking on the waves */
+@keyframes boat-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(3deg);
+  }
+}
+
+.animate-boat-bob {
+  animation: boat-bob 2.8s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave-drift,
+  .animate-wave-swell,
+  .animate-boat-bob {
+    animation: none;
+  }
+}

@@ -29,6 +29,21 @@ export type Dictionary = {
     socialsHeading: string;
     replyTime: string;
   };
+  newsletter: {
+    heading: string;
+    text: string;
+    label: string;
+    placeholder: string;
+    subscribe: string;
+    subscribing: string;
+    /** Boarding captions shown while subscribing, in order. */
+    steps: [string, string, string];
+    successText: string;
+    /** Shown to returning subscribers (flag already in storage). */
+    alreadyText: string;
+    error: string;
+    close: string;
+  };
   blog: {
     title: string;
     postsSuffix: string;
@@ -89,6 +104,19 @@ const dictionaries: Record<Locale, Dictionary> = {
       copied: "Copied",
       socialsHeading: "Find me elsewhere",
       replyTime: "Usually replies within a day",
+    },
+    newsletter: {
+      heading: "The ship will sail soon…",
+      text: "You don't want to be left behind on the latest developments in tech…",
+      label: "Email address",
+      placeholder: "you@example.com",
+      subscribe: "Subscribe",
+      subscribing: "Subscribing…",
+      steps: ["Checking your ticket…", "Crossing the gangway…", "Stepping aboard…"],
+      successText: "You're saved from sinking in the nonsense! Welcome to the premium experience.",
+      alreadyText: "You're aboard the lifeboat…",
+      error: "That didn't go through. Check your email address and try again.",
+      close: "Close",
     },
     blog: {
       title: "Blog",
@@ -151,6 +179,19 @@ const dictionaries: Record<Locale, Dictionary> = {
       socialsHeading: "Retrouvez-moi ailleurs",
       replyTime: "Répond généralement sous 24 h",
     },
+    newsletter: {
+      heading: "Le navire va bientôt lever l'ancre…",
+      text: "Vous ne voulez pas rester à quai face aux dernières avancées de la tech…",
+      label: "Adresse e-mail",
+      placeholder: "vous@exemple.com",
+      subscribe: "S'abonner",
+      subscribing: "Inscription…",
+      steps: ["Vérification du billet…", "Traversée de la passerelle…", "Montée à bord…"],
+      successText: "Sauvé du naufrage dans le bruit ambiant ! Bienvenue dans l'expérience premium.",
+      alreadyText: "Vous êtes à bord du canot…",
+      error: "L'inscription n'a pas abouti. Vérifiez votre adresse e-mail et réessayez.",
+      close: "Fermer",
+    },
     blog: {
       title: "Blog",
       postsSuffix: "articles",
@@ -211,6 +252,19 @@ const dictionaries: Record<Locale, Dictionary> = {
       copied: "Kopiert",
       socialsHeading: "Finde mich anderswo",
       replyTime: "Antwortet meist innerhalb eines Tages",
+    },
+    newsletter: {
+      heading: "Das Schiff legt bald ab…",
+      text: "Du willst bei den neuesten Entwicklungen in der Tech-Welt nicht zurückbleiben…",
+      label: "E-Mail-Adresse",
+      placeholder: "du@beispiel.de",
+      subscribe: "Anmelden",
+      subscribing: "Wird angemeldet…",
+      steps: ["Ticket wird geprüft…", "Über die Gangway…", "An Bord gehen…"],
+      successText: "Gerettet vor dem Untergang im Unsinn! Willkommen beim Premium-Erlebnis.",
+      alreadyText: "Du bist an Bord des Rettungsboots…",
+      error: "Das hat nicht geklappt. Prüf deine E-Mail-Adresse und versuch es noch einmal.",
+      close: "Schließen",
     },
     blog: {
       title: "Blog",
