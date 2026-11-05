@@ -8,8 +8,11 @@ export function Tab({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-/** MDX tabs: `<Tabs labels={["A","B"]}><Tab>…</Tab><Tab>…</Tab></Tabs>`. Arrow keys move between tabs. */
-export function Tabs({ labels, children }: { labels: string[]; children: React.ReactNode }) {
+/**
+ * MDX tabs: `<Tabs labels={["A","B"]} badges={["Recommended"]}><Tab>…</Tab><Tab>…</Tab></Tabs>`.
+ * `badges[i]` adds a small pill to tab i. Arrow keys move between tabs.
+ */
+export function Tabs({ labels, badges = [], children }: { labels: string[]; badges?: string[]; children: React.ReactNode }) {
   const id = useId();
   const [active, setActive] = useState(0);
   const panels = Children.toArray(children);
@@ -42,6 +45,16 @@ export function Tabs({ labels, children }: { labels: string[]; children: React.R
             )}
           >
             {label}
+            {badges[i] && (
+              <span
+                className={cn(
+                  "ml-1.5 rounded-full px-1.5 py-0.5 align-middle font-mono text-[10px] uppercase tracking-[0.06em]",
+                  active === i ? "bg-white/20 text-white" : "bg-emerald-600/10 text-emerald-700 dark:text-emerald-300",
+                )}
+              >
+                {badges[i]}
+              </span>
+            )}
           </button>
         ))}
       </div>

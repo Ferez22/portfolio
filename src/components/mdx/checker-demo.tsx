@@ -50,9 +50,12 @@ export function CheckerDemo() {
 
   return (
     <figure className="not-prose my-6 flex flex-col gap-3 rounded-2xl bg-l-panel p-4 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:p-5">
-      <label htmlFor={id} className="font-mono text-xs text-l-dim">
-        draft.txt
-      </label>
+      <div className="flex flex-col gap-0.5">
+        <label htmlFor={id} className="font-garamond text-xl font-medium leading-tight text-l-text">
+          Paste something you wrote and see how it does.
+        </label>
+        <p className="m-0 font-mono text-[11px] text-l-dim">Nothing is saved: the check happens in your browser.</p>
+      </div>
       <textarea
         id={id}
         value={text}
@@ -61,10 +64,23 @@ export function CheckerDemo() {
           setFlags(null);
         }}
         rows={4}
+        placeholder="Paste a post, a caption or a paragraph…"
         className="w-full resize-y rounded-xl border border-l-border2 bg-l-node p-3 font-garamond text-[17px] leading-snug text-l-text placeholder:text-l-dim focus-visible:border-l-gold focus-visible:outline-none"
       />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="font-mono text-[11px] text-l-dim">a few of the rules; the full checker runs in the repo</span>
+        <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => {
+            setText("");
+            setFlags(null);
+            document.getElementById(id)?.focus();
+          }}
+          className="cursor-pointer rounded-full border border-l-border2 px-3.5 py-1.5 font-garamond text-base leading-none text-l-muted transition-colors hover:border-l-hover hover:text-l-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l-gold"
+        >
+          Clear
+        </button>
         <button
           type="button"
           onClick={() => setFlags(check(text))}
@@ -72,6 +88,7 @@ export function CheckerDemo() {
         >
           Check
         </button>
+        </div>
       </div>
       <div aria-live="polite">
         {flags && (

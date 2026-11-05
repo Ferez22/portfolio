@@ -7,10 +7,11 @@ image: "/blog/marketing-harness.svg"
 category: "itch"
 ---
 
-<TLDR>
-- Clone a folder, type `start`, and about 15 minutes later Claude writes posts in your voice.
+<TLDR repo="https://github.com/Ferez22/marketing-harness">
+- Clone a folder, type `start`, and Claude starts writing posts in your voice.
 - Every correction you make after that gets logged, and the ones that repeat become rules.
-- It never posts for you. It's the free version of my Marketing & SEO Brain: one brand, posts only, MIT licensed.
+- It never posts for you: you hit the publish button.
+- It's the free version of my Marketing & SEO Brain: one brand, posts only, MIT licensed.
 </TLDR>
 
 <CheckerDemo />
@@ -49,28 +50,19 @@ One correction is an anecdote. Two is a pattern. The harness only changes your v
 
 ## Quickstart
 
-<Tabs labels={["Claude Code", "Claude Cowork"]}>
+<Tabs labels={["Claude Cowork", "Claude Code"]} badges={["Recommended"]}>
 <Tab>
 
-```bash
-git clone https://github.com/Ferez22/marketing-harness.git \
-  && cd marketing-harness && claude
-```
+<Prompt title="Claude Cowork">Install this repo, then let's run it: https://github.com/Ferez22/marketing-harness</Prompt>
 
-Then type `start`. Claude reads `CLAUDE.md`, sees that your voice guide is empty and runs the `setup` interview. About 15 minutes later, it writes your first post.
+Paste it in Cowork with a folder open. One honest note: Cowork reading `CLAUDE.md` from the folder isn't documented yet. That's why the key rules are repeated inside each skill.
 
 </Tab>
 <Tab>
 
-```bash
-bash scripts/package-for-cowork.sh
-```
+<Prompt title="Claude Code">Install this repo, then let's run it: https://github.com/Ferez22/marketing-harness</Prompt>
 
-1. The script creates one ZIP per skill in `dist/`.
-2. In Claude, go to **Customize > Skills > + > Upload a skill** and upload the four ZIPs. Code execution must be on.
-3. Open the folder in Cowork and say `run the setup skill, then follow CLAUDE.md`.
-
-One honest note: Cowork reading `CLAUDE.md` from the folder isn't documented yet. That's why the key rules are repeated inside each skill.
+Then type `start`. Claude reads `CLAUDE.md`, sees that your voice guide is empty and runs the `setup` interview. About 15 minutes later, it writes your first post.
 
 </Tab>
 </Tabs>
@@ -124,7 +116,7 @@ It grows with you. When you keep deleting the same phrase, `learn` adds it to th
 <Accordion type="single" collapsible>
   <AccordionItem value="where">
     <AccordionTrigger>Claude Code or Cowork?</AccordionTrigger>
-    <AccordionContent>Claude Code is the recommended path: it loads `CLAUDE.md` and the skills on its own. Cowork works through skill uploads, with the key rules repeated in each skill.</AccordionContent>
+    <AccordionContent>Claude Cowork is the recommended path: paste the prompt with a folder open, the key rules are repeated in each skill. Claude Code loads `CLAUDE.md` and the skills on its own.</AccordionContent>
   </AccordionItem>
   <AccordionItem value="post">
     <AccordionTrigger>Does it post for me?</AccordionTrigger>

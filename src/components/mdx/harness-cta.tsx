@@ -28,7 +28,7 @@ export function HarnessCta() {
           href={REPO}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex w-fit items-center gap-2 rounded-full bg-l-gold px-5 py-2.5 font-garamond text-[17px] leading-none text-l-bg transition-colors hover:bg-l-gold-hi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l-gold focus-visible:ring-offset-2 focus-visible:ring-offset-l-panel"
+          className="group inline-flex w-fit items-center gap-2 rounded-full bg-l-gold no-underline! px-5 py-2.5 font-garamond text-[17px] leading-none text-l-bg transition-colors hover:bg-l-gold-hi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l-gold focus-visible:ring-offset-2 focus-visible:ring-offset-l-panel"
         >
           <Icons.github className="size-4" />
           Ferez22/marketing-harness
