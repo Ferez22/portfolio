@@ -4,6 +4,8 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ArrowDown, ArrowUpRight, Check, Copy, Minus, Plus } from "lucide-react";
 import { useEffect, useRef, useState, type ComponentPropsWithoutRef } from "react";
 import { Icons } from "@/components/icons";
+import { BookCallButton } from "@/components/contact/contact-actions";
+import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 
 /** Light summary card at the top of a post; optional repo button and a "Live demo" button that scrolls to `#demo`. */
@@ -144,5 +146,23 @@ export function AccordionContent({ className, children, ...props }: ComponentPro
         {children}
       </div>
     </AccordionPrimitive.Content>
+  );
+}
+
+/** Sales card for the paid version, styled like TLDR; "Book a demo" opens Calendly. */
+export function FullVersion({ title, lead, children }: { title: string; lead: string; children: React.ReactNode }) {
+  return (
+    <aside className="not-prose my-8 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-4 text-foreground shadow-[0_12px_32px_-22px_oklch(0.45_0.1_45/0.5)] sm:p-6 dark:border-amber-200/20 dark:bg-amber-100/[0.06]">
+      <p className="m-0 mb-2 font-mono text-[11px] uppercase tracking-[0.12em] text-amber-800 dark:text-amber-300">Full version</p>
+      <p className="m-0 font-garamond text-2xl font-medium leading-tight">{title}</p>
+      <p className="m-0 mt-1 font-sans text-[16px] text-muted-foreground">{lead}</p>
+      <div className="mt-3 font-sans text-[16px] leading-relaxed [&_li]:my-1.5 [&_li]:pl-0.5 [&_p]:m-0 [&_strong]:text-foreground [&_ul]:m-0 [&_ul]:list-disc [&_ul]:pl-5">
+        {children}
+      </div>
+      <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <BookCallButton url={DATA.contact.calendlyUrl} label="Book a demo" className="rounded-full px-5 py-2.5 text-[15px]" />
+        <span className="font-sans text-[14px] text-muted-foreground">30 minutes, free. I show it running on a real brand.</span>
+      </div>
+    </aside>
   );
 }
