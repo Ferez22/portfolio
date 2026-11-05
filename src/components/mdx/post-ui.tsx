@@ -161,7 +161,7 @@ export function FullVersion({ title, lead, children }: { title: string; lead: st
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
         <BookCallButton url={DATA.contact.calendlyUrl} label="Book a demo" className="rounded-full px-5 py-2.5 text-[15px]" />
-        <span className="font-sans text-[14px] text-muted-foreground">30 minutes, free. I show it running on a real brand.</span>
+        <span className="font-sans text-[14px] text-muted-foreground">Book a demo and we create one post for you, for free.</span>
       </div>
     </aside>
   );
