@@ -12,7 +12,7 @@ const REPO = "https://github.com/Ferez22/content-studio-free";
 
 /**
  * Closing CTA of the content-studio-free post: repo (primary), the paid
- * Harness Marketing it is the free version of (Products tab), then the
+ * Content Studio it is the free version of (Products tab), then the
  * newsletter card.
  */
 export function HarnessCta() {
@@ -37,7 +37,7 @@ export function HarnessCta() {
         <div className="flex flex-col gap-2 border-t border-l-border pt-4">
           <p className="m-0 font-mono text-[11px] uppercase tracking-[0.08em] text-l-gold">Want the full version?</p>
           <p className="m-0 font-garamond text-[17px] leading-snug text-l-muted">
-            This is the free version of Harness Marketing: one brand, posts only. The full one runs several brands, SEO
+            This is the free version of Content Studio: one brand, posts only. The full one runs several brands, SEO
             articles shipped as pull requests from Search Console data, motion videos rendered in code, brand assets and a guided
             onboarding, with lifetime updates.
           </p>
@@ -45,7 +45,7 @@ export function HarnessCta() {
             href={localePath(lang, "/#products")}
             className="group inline-flex w-fit items-center gap-1.5 font-garamond text-[17px] text-l-gold underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l-gold"
           >
-            See Harness Marketing
+            See Content Studio
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
           </Link>
         </div>
