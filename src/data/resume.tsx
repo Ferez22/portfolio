@@ -121,7 +121,7 @@ export const DATA = {
       id: "seo-brain",
       group: "product",
       icon: "brain-circuit",
-      title: { en: "Harness Marketing", fr: "Harness Marketing", de: "Harness Marketing" },
+      title: { en: "Content Studio", fr: "Content Studio", de: "Content Studio" },
       description: {
         en: "An AI agent that researches, writes and optimizes your content, and keeps learning from your results.",
         fr: "Un agent IA qui recherche, rédige et optimise vos contenus, et apprend en continu de vos résultats.",
