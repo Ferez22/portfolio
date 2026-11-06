@@ -36,6 +36,16 @@ function pickLocale(req: NextRequest): Locale {
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  // The blog list lives in the landing Blog tab: /{lang}/blog → /{lang}#blog.
+  const blogList = pathname.match(/^\/([a-z]{2})\/blog\/?$/);
+  if (blogList && (locales as readonly string[]).includes(blogList[1])) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/${blogList[1]}`;
+    url.search = "";
+    url.hash = "blog";
+    return NextResponse.redirect(url);
+  }
+
   const hasLocale = locales.some(
     (loc) => pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)
   );

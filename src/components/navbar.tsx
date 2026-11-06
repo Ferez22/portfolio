@@ -75,7 +75,7 @@ function IconLink({
 const NAV_LABELS: Record<string, keyof ReturnType<typeof getDictionary>["nav"]> = {
   "/": "home",
   "/cv": "cv",
-  "/blog": "blog",
+  "/#blog": "blog",
   "/cv#contact": "contact",
 };
 

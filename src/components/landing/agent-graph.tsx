@@ -263,7 +263,7 @@ export function AgentGraph({ ctx }: { ctx: PreviewCtx }) {
                       <motion.path
                         d={r.d}
                         fill="none"
-                        stroke={hi ? COL[r.kind] : "var(--color-l-edge)"}
+                        stroke={hi ? COL[r.kind] : "rgb(236 233 228 / 0.3)" /* l-edge, literal: SVG attrs bypass Tailwind */}
                         strokeOpacity={hi ? 0.8 : 1}
                         strokeWidth={hi ? 1.5 : 1.25}
                         initial={{ pathLength: 0 }}

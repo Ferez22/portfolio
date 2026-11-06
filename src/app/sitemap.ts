@@ -18,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: { path: string; priority: number }[] = [
     { path: "", priority: 1 },
     { path: "/cv", priority: 0.9 },
-    { path: "/blog", priority: 0.8 },
   ];
 
   const staticEntries = staticPaths.flatMap(({ path, priority }) =>

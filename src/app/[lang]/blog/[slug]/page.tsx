@@ -132,7 +132,7 @@ export default async function Blog({
         }}
       />
       <div className="flex justify-start gap-4 items-center">
-        <Link href={localePath(lang, "/blog")} className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label={dict.blog.backToBlog}>
+        <Link href={localePath(lang, "/#blog")} className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label={dict.blog.backToBlog}>
           <ChevronLeft className="size-3 group-hover:-translate-x-px transition-transform" />
           {dict.blog.backToBlog}
         </Link>
