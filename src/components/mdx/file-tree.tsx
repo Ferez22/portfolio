@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 type Node = { name: string; role: string; children?: Node[] };
 
-/** marketing-harness repo tree (from its README), with one-line roles. */
+/** content-studio-free repo tree (from its README), with one-line roles. */
 const TREE: Node[] = [
   { name: "CLAUDE.md", role: "The rules: routing, hard rules and the memory loop. Claude Code loads it on its own." },
   {
@@ -121,7 +121,7 @@ export function FileTree() {
   return (
     <figure className="not-prose my-6 grid gap-3 rounded-2xl bg-l-panel p-3 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:grid-cols-[1.1fr_1fr] sm:p-5">
       <div className="min-w-0">
-        <p className="m-0 mb-1.5 px-1.5 font-mono text-xs text-l-dim">marketing-harness/</p>
+        <p className="m-0 mb-1.5 px-1.5 font-mono text-xs text-l-dim">content-studio-free/</p>
         {render(TREE, "", 0)}
       </div>
       <figcaption aria-live="polite" className="self-start rounded-xl border border-l-border bg-l-node p-3 sm:sticky sm:top-4">

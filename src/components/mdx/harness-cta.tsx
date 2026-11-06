@@ -8,10 +8,10 @@ import { NewsletterCard } from "@/components/newsletter/newsletter-form";
 import { defaultLocale, isLocale, localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-const REPO = "https://github.com/Ferez22/marketing-harness";
+const REPO = "https://github.com/Ferez22/content-studio-free";
 
 /**
- * Closing CTA of the marketing-harness post: repo (primary), the paid
+ * Closing CTA of the content-studio-free post: repo (primary), the paid
  * Harness Marketing it is the free version of (Products tab), then the
  * newsletter card.
  */
@@ -31,7 +31,7 @@ export function HarnessCta() {
           className="group inline-flex w-fit items-center gap-2 rounded-full bg-l-gold no-underline! px-5 py-2.5 font-garamond text-[17px] leading-none text-l-bg transition-colors hover:bg-l-gold-hi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l-gold focus-visible:ring-offset-2 focus-visible:ring-offset-l-panel"
         >
           <Icons.github className="size-4" />
-          Ferez22/marketing-harness
+          Ferez22/content-studio-free
           <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
         </a>
         <div className="flex flex-col gap-2 border-t border-l-border pt-4">

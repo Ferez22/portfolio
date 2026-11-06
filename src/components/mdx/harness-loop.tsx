@@ -162,7 +162,7 @@ export function HarnessLoop() {
     <figure className="not-prose my-6 overflow-hidden rounded-2xl bg-l-panel text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)]">
       <div className="flex items-center justify-between px-4 pt-3 font-mono text-[11px] text-l-dim">
         <span>
-          ~/marketing-harness/<span className="text-l-muted">loop.flow</span>
+          ~/content-studio-free/<span className="text-l-muted">loop.flow</span>
         </span>
         <span className="hidden sm:inline">click a step to see the file behind it</span>
       </div>
