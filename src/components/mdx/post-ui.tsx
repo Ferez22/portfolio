@@ -1,7 +1,7 @@
 "use client";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ArrowDown, ArrowUpRight, Check, Copy, Minus, Plus } from "lucide-react";
+import { ArrowDown, ArrowUpRight, AudioLines, Check, Copy, Hand, Minus, PenLine, Plus, Repeat2, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState, type ComponentPropsWithoutRef } from "react";
 import { Icons } from "@/components/icons";
 import { BookCallButton } from "@/components/contact/contact-actions";
@@ -164,5 +164,33 @@ export function FullVersion({ title, lead, children }: { title: string; lead: st
         <span className="font-sans text-[14px] text-muted-foreground">Book a demo and we create one post for you, for free.</span>
       </div>
     </aside>
+  );
+}
+
+const FEATURE_ICON = {
+  voice: AudioLines,
+  write: PenLine,
+  check: ShieldCheck,
+  memory: Repeat2,
+  publish: Hand,
+} as const;
+
+/** Feature grid: `<Features><Feature icon="voice" title="…">…</Feature>…</Features>`. */
+export function Features({ children }: { children: React.ReactNode }) {
+  return <div className="not-prose my-5 grid gap-3 sm:grid-cols-2 [&>*:last-child:nth-child(odd)]:sm:col-span-2">{children}</div>;
+}
+
+export function Feature({ icon, title, children }: { icon: keyof typeof FEATURE_ICON; title: string; children: React.ReactNode }) {
+  const Icon = FEATURE_ICON[icon];
+  return (
+    <div className="flex gap-3 rounded-2xl border border-border bg-card p-4 shadow-[0_10px_28px_-22px_oklch(0.45_0.1_45/0.5)]">
+      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-300/15 dark:text-amber-300">
+        <Icon className="size-4" aria-hidden />
+      </span>
+      <div className="flex min-w-0 flex-col gap-0.5">
+        <p className="m-0 font-sans text-[16px] font-semibold leading-snug text-foreground">{title}</p>
+        <p className="m-0 font-sans text-[15px] leading-relaxed text-muted-foreground">{children}</p>
+      </div>
+    </div>
   );
 }

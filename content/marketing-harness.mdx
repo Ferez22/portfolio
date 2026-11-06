@@ -8,19 +8,41 @@ category: "itch"
 ---
 
 <TLDR repo="https://github.com/Ferez22/marketing-harness" demo="live-demo">
-- It learns from you: it reads your best posts, then interviews you for 15 minutes.
-- One prompt to install. After that, Claude writes posts in your voice.
+- One prompt to install. 
+- It learns from you: it reads your best posts and interviews you.
 - Every correction you make is logged. The ones that repeat become rules.
-- It never posts for you. Free, MIT licensed.
+- It's free.
 </TLDR>
 
-Your agent is good. It's just not to your taste.
+<b>Your posts feel generic? They sound like an AI wrote them? The voicing is off? Your content doesn't go viral?</b>
 
-This fixes that, and it starts with you, not with a template. The first thing it asks for is your own writing: 3 posts you're proud of and 1 you can't stand. It reads them, tells you what it noticed about your voice, and you correct it. From then on, every post starts from that voice and from what you fixed last time.
+I spent hours writing and rewriting posts with AI. They were always off, or too AI, or just not my voicing... I found myself always asking for the same changes.
 
-Under the hood it's a folder of rules, memory and four skills that Claude follows.
+Then I thought to myself, when I code, I give my agent rules and guidelines to follow. Why don't I do that for my posts? After some research about marketing and AI, I found that people have built countless skills and ways to make AI write in their voice. Still they were all too modular. I wanted something so good that all I needed to do was to write one simple prompt and a whole post, including images/videos/motion-graphics were generated, in my voicing, and ready to publish. 
 
-It's the free version of Harness Marketing: one brand, posts only.
+So I built content-studio, a harness around Claude so it interviews me, creates its own understanding of my brands (qartmina, bcards and my personal brand) by crawling the websites and reading the articles I wrote, so I gave it access to Firecrawl.
+
+It was also important to me that it understands the different types of posts I wanted to write (for example educative, informative, promotional, etc) so I gave it a list of examples and rules to follow.
+
+Regarding the media content, I gave it access to Higgsfield and Remotion. Furthermore, I gave it customizable pre-prompts for motion graphics videos, which it deconstructed and saved for future use. 
+
+Then I thought of one thing, I saw on Twitter that someone created a tool to connect Claude to Google Search Console and I thought jackpot, I will add this too, so that content-studio can literally take care of everything online for me, and take actions without me needing to do anything. 
+
+Of course I gave it access to my repos so it can edit my SEO blogs and push them autonomously.
+
+I ended up with a system that generates/edits posts and SEO articles in my voice, cleans up the AI tells, publishes the articles to my website for Google to index, generates media content that matches my style, and everything is ready to publish.
+
+I also decided to open source a free version of content-studio. The best part is you install it with one command, nothing extra is needed.
+
+## What you get
+
+<Features>
+  <Feature icon="voice" title="Sounds like you from day one">An interview turns your best posts into a written voice guide. Every draft starts from it.</Feature>
+  <Feature icon="write" title="A post ready for every platform">Three hooks to pick from, one draft, and a variant for each platform: LinkedIn, Instagram, X.</Feature>
+  <Feature icon="check" title="Text that sounds like a human">A built-in checker blocks AI tells, em dashes and "translated" French before you ever see a draft.</Feature>
+  <Feature icon="memory" title="Fix it once, it remembers">Every edit you make is logged. The same lesson twice, and it becomes a rule.</Feature>
+  <Feature icon="publish" title="You keep the last word">It never posts for you. You get copy-ready text and you press publish.</Feature>
+</Features>
 
 ## Install
 
@@ -56,7 +78,7 @@ Or clone it yourself, run `claude` inside the folder and type `start`. Claude Co
 
 One correction is an anecdote. Two is a pattern. That's the whole difference with a prompt: before it writes this week, it reads what you fixed last week.
 
-<FullVersion title="Harness Marketing" lead="Your brand, your content style. Posts sound just like you, and get better over time.">
+<FullVersion title="Content Studio" lead="Your brand, your content style. Posts sound just like you, and get better over time.">
 - **Videos and images for your socials.** Your posts lack graphic content? Not anymore. Images, graphs, motion graphics videos and animations, all part of the pack.
 - **SEO that ships.** Good content, the right keywords and solid internal links bring more traffic, so you show up in more Google searches.
 - **Plugged into your tools.** Google Search Console, a scraper that pulls the exact data you need from websites, video generation and more.

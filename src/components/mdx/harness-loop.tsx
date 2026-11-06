@@ -170,7 +170,7 @@ export function HarnessLoop() {
         {scale > 0 && (
           <div className="absolute left-1/2 top-0" style={{ width: W, height: H, transform: `translateX(-50%) scale(${scale})`, transformOrigin: "50% 0" }}>
             <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="pointer-events-none absolute inset-0" aria-hidden>
-              <path d={track.d} fill="none" stroke="var(--color-l-edge)" strokeWidth={1.25} style={{ opacity: active && !near.size ? 0.25 : 1 }} />
+              <path d={track.d} fill="none" className="stroke-l-edge" strokeWidth={1.25} style={{ opacity: active && !near.size ? 0.25 : 1 }} />
               {!reduced &&
                 [0, 1, 2].map((i) => (
                   <path
@@ -273,7 +273,7 @@ export function HarnessLoop() {
                 role="dialog"
                 aria-label={NODES[sel].file}
                 onClick={(e) => e.stopPropagation()}
-                className="absolute z-10 rounded-xl border border-l-border2 bg-l-pop p-3 shadow-[0_20px_50px_-20px_rgba(0,0,0,.8)]"
+                className="absolute z-10 rounded-xl border border-l-border2 bg-l-pop p-3 opacity-100 backdrop-blur-none shadow-[0_20px_50px_-20px_rgba(0,0,0,.8)]"
                 style={{ left: card.left, top: card.top, width: CARD_W }}
               >
                 <div className="flex items-start justify-between gap-2">

@@ -44,7 +44,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/cv", icon: FileText, label: "CV" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/#blog", icon: NotebookIcon, label: "Blog" },
     { href: "/cv#contact", icon: Contact, label: "Contact" },
   ],
   contact: {

@@ -23,10 +23,10 @@ src/app/[lang]/
   layout.tsx            html lang, fonts, Theme/Tooltip providers, LanguageSwitcher, Navbar, NewsletterPopup
   page.tsx              LANDING: <Landing> (fixed inset-0, no scroll); passes github, all posts (title, slug, date, summary; newest first), postCount
   cv/page.tsx           CV: hero, about, #contact(CtaSection 2col), certifications, non-profit, work, skills, projects, #newsletter
-  blog/page.tsx         list, 5/page; blog/[slug]/page.tsx MDX + JSON-LD + prev/next
-  opengraph-image.tsx ×3 (home, blog, post) — shared styles block, keep in sync
+  blog/[slug]/page.tsx  post: MDX + JSON-LD + prev/next. ✗ blog list page: /{lang}/blog → proxy redirect → /{lang}#blog (landing Blog tab); every "Blog"/"Back to blog" link ⇒ localePath(lang, "/#blog")
+  opengraph-image.tsx ×2 (home, post) — shared styles block, keep in sync
   not-found.tsx
-src/app/sitemap.ts      "", /cv, /blog, posts × locales
+src/app/sitemap.ts      "", /cv, posts × locales
 src/components/
   landing/              landing.tsx (shell+tabs), agent-graph.tsx, node-preview.tsx, products-grid.tsx, graph-dialog.tsx, github-heatmap.tsx
   newsletter/           newsletter-form.tsx(NewsletterCard), newsletter-popup.tsx, subscription.ts
@@ -86,13 +86,14 @@ offer cards: `.offer` hover = scale(1.03) from centre (spring) + amber `.offer-f
 offers ⇒ `DATA.offers {id, group: product|hire, icon: OFFER_ICON key, title/description Localized, tags, command, free?: post slug (card shows "Free version →")}`; feeds Products tab + products/qartmina/agent popovers.
 
 ## posts (MDX)
-- interactive components live in `src/components/mdx/` (client) and are registered in `src/mdx-components.tsx`: HarnessLadder, HarnessLoop, FileTree, CheckerDemo, Tabs/Tab, HarnessCta, TLDR + Accordion* (post-ui.tsx: light TL;DR card; accordions = one bordered card, compact rows). workflow diagrams follow the landing graph look (round nodes, rounded orthogonal track via `@/lib/graph-path` rpath, packets, focus dim); ✗ `<code>` inside dark panels (global prose code style forces colours, use span). wrap in `not-prose`; dark device surface (`bg-l-panel`), works light+dark, Esc closes popovers, static under reduced motion.
+- interactive components live in `src/components/mdx/` (client) and are registered in `src/mdx-components.tsx`: HarnessLadder, HarnessLoop, FileTree, CheckerDemo, Tabs/Tab, HarnessCta, TLDR, Features/Feature (icon voice|write|check|memory|publish; 2-col card grid, odd last spans), Prompt + Accordion* (post-ui.tsx: light TL;DR card; accordions = one bordered card, compact rows). workflow diagrams follow the landing graph look (round nodes, rounded orthogonal track via `@/lib/graph-path` rpath, packets, focus dim); ✗ `<code>` inside dark panels (global prose code style forces colours, use span). wrap in `not-prose`; dark device surface (`bg-l-panel`), works light+dark, Esc closes popovers, static under reduced motion.
 - post posters: local 16:9 under `public/blog/` (ink + gold), ✗ Unsplash for new posts.
 - copy rules: ✗ em/en dashes, ✗ slop words, nothing invented (facts from the source repo/README).
 
 ## gotchas
 - next.config.mjs: security headers; `withContentCollections` ⇒ outermost.
 - blog OG fonts `public/fonts/*.ttf` at edge.
+- SVG colours: ✗ `stroke="var(--color-…)"` (theme vars only ship if a utility uses them) ⇒ use a class (`stroke-l-edge`) or a literal.
 - motion sets `transform` → ✗ `fixed` children inside animated nodes (use portal).
 - Tailwind v4 `translate-*` uses CSS `translate` (coexists with motion transform).
 - headless verify: scratch CDP script (Chrome --remote-debugging, wait real ms); `--virtual-time-budget` doesn't advance motion delays; window <500px gets clamped → use Emulation.setDeviceMetricsOverride.

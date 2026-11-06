@@ -225,7 +225,7 @@ export function buildPreview(id: string, ctx: PreviewCtx): PreviewSpec | null {
         title: "Knowledge Base",
         sub: l.kbSub,
         count: `${postCount} ${l.posts}`,
-        open: { href: localePath(lang, "/blog") },
+        open: { href: localePath(lang, "/#blog") },
         items: posts.slice(0, 3).map((p) => ({
           t: p.title,
           s: new Date(p.publishedAt).toLocaleDateString(lang, { year: "numeric", month: "short", day: "numeric" }),

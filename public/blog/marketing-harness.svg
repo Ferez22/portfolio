@@ -1,35 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <!-- The harness loop (same language as the landing workflow): clockwise track,
+       write-post → review → feedback-log → learn → learnings, dashed approve branch via voice.md -->
   <defs>
-    <radialGradient id="glow" cx="78%" cy="45%" r="60%">
-      <stop offset="0" stop-color="#78482c" stop-opacity=".45"/>
+    <radialGradient id="glow" cx="50%" cy="42%" r="60%">
+      <stop offset="0" stop-color="#78482c" stop-opacity=".38"/>
       <stop offset="1" stop-color="#0e0f17" stop-opacity="0"/>
     </radialGradient>
     <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="14" stroke="#f2c46a" stroke-opacity=".05" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#f2c46a" stroke-opacity=".04" stroke-width="2"/>
     </pattern>
+    <g id="node">
+      <circle r="44" fill="#151726" stroke="#ece9e4" stroke-opacity=".22" stroke-width="2"/>
+    </g>
   </defs>
   <rect width="1280" height="720" fill="#0e0f17"/>
   <rect width="1280" height="720" fill="url(#hatch)"/>
   <rect width="1280" height="720" fill="url(#glow)"/>
-  <!-- ladder: each layer wraps the previous one -->
-  <g fill="none" font-family="ui-monospace, Menlo, monospace" font-size="18" letter-spacing="2">
-    <rect x="700" y="130" width="460" height="460" rx="56" stroke="#f2c46a" stroke-width="3" fill="#f2c46a" fill-opacity=".05"/>
-    <text x="736" y="176" fill="#f2c46a">HARNESS</text>
-    <rect x="752" y="200" width="356" height="356" rx="44" stroke="#ece9e4" stroke-opacity=".35" stroke-width="2"/>
-    <text x="786" y="242" fill="#a9a39b">MCP</text>
-    <rect x="804" y="264" width="252" height="260" rx="34" stroke="#ece9e4" stroke-opacity=".28" stroke-width="2"/>
-    <text x="836" y="304" fill="#a9a39b">RAG</text>
-    <rect x="856" y="326" width="148" height="164" rx="26" stroke="#ece9e4" stroke-opacity=".22" stroke-width="2" fill="#151726"/>
-    <text x="876" y="414" fill="#ece9e4" font-size="16">CHATBOT</text>
+
+  <!-- track -->
+  <rect x="330" y="150" width="620" height="300" rx="56" fill="none" stroke="#ece9e4" stroke-opacity=".3" stroke-width="2.5"/>
+  <!-- packets on the track -->
+  <path d="M 520 150 H 640" stroke="#f2c46a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 950 260 V 340" stroke="#f2c46a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 700 450 H 600" stroke="#f2c46a" stroke-width="4" stroke-linecap="round"/>
+  <!-- approve branch: learn → voice.md → write-post -->
+  <path d="M 790 406 V 300 H 684" fill="none" stroke="#f2c46a" stroke-opacity=".7" stroke-width="2.5" stroke-dasharray="10 10"/>
+  <path d="M 596 300 H 480 V 194" fill="none" stroke="#f2c46a" stroke-opacity=".7" stroke-width="2.5" stroke-dasharray="10 10"/>
+
+  <!-- nodes -->
+  <use href="#node" x="480" y="150"/>
+  <use href="#node" x="790" y="150"/>
+  <use href="#node" x="950" y="300"/>
+  <use href="#node" x="790" y="450"/>
+  <use href="#node" x="480" y="450"/>
+  <circle cx="640" cy="300" r="44" fill="#151726" stroke="#f2c46a" stroke-opacity=".55" stroke-width="2"/>
+  <circle cx="790" cy="450" r="58" fill="none" stroke="#f2c46a" stroke-opacity=".25" stroke-width="2"/>
+
+  <!-- glyphs (simple strokes) -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5">
+    <!-- write-post: pen -->
+    <path d="M 466 166 L 494 138 L 502 146 L 474 174 L 462 178 Z" stroke="#f2c46a"/>
+    <!-- you review: person + check -->
+    <circle cx="784" cy="140" r="9" stroke="#ece9e4"/>
+    <path d="M 766 172 C 768 160 800 160 802 172" stroke="#ece9e4"/>
+    <path d="M 804 150 L 810 156 L 822 142" stroke="#ece9e4"/>
+    <!-- feedback-log: lines -->
+    <path d="M 934 286 H 966 M 934 300 H 966 M 934 314 H 956" stroke="#ece9e4"/>
+    <!-- learn: spark -->
+    <path d="M 790 430 V 470 M 770 450 H 810 M 776 436 L 804 464 M 804 436 L 776 464" stroke="#f2c46a"/>
+    <!-- learnings: book + check -->
+    <path d="M 462 432 H 496 V 468 H 462 Z" stroke="#ece9e4"/>
+    <path d="M 470 450 L 477 457 L 489 443" stroke="#ece9e4"/>
+    <!-- voice.md: wave -->
+    <path d="M 618 300 V 300 M 628 288 V 312 M 640 278 V 322 M 652 288 V 312 M 662 300 V 300" stroke="#f2c46a"/>
   </g>
-  <g font-family="ui-monospace, Menlo, monospace">
-    <text x="96" y="168" fill="#6b6a78" font-size="22">~/<tspan fill="#a9a39b">marketing-harness</tspan></text>
-    <text x="96" y="560" fill="#f2c46a" font-size="26">$ start</text>
-    <text x="96" y="604" fill="#6b6a78" font-size="20">free · MIT · Claude Code + Cowork</text>
-  </g>
-  <g font-family="'EB Garamond', Georgia, 'Times New Roman', serif" fill="#ece9e4">
-    <text x="92" y="300" font-size="76" font-weight="500">Claude,</text>
-    <text x="92" y="384" font-size="76" font-weight="500">in your voice.</text>
-    <text x="96" y="446" font-size="30" fill="#a9a39b">A harness that learns from every correction.</text>
+
+  <!-- checks on connected nodes -->
+  <g>
+    <circle cx="518" cy="116" r="13" fill="#0e3b2c" stroke="#121420" stroke-width="4"/>
+    <circle cx="828" cy="116" r="13" fill="#0e3b2c" stroke="#121420" stroke-width="4"/>
+    <circle cx="988" cy="266" r="13" fill="#0e3b2c" stroke="#121420" stroke-width="4"/>
+    <circle cx="518" cy="416" r="13" fill="#0e3b2c" stroke="#121420" stroke-width="4"/>
+    <path d="M 512 116 l 4 4 l 8 -8 M 822 116 l 4 4 l 8 -8 M 982 266 l 4 4 l 8 -8 M 512 416 l 4 4 l 8 -8" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>
