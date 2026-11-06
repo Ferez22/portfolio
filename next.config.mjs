@@ -3,6 +3,13 @@ import { withContentCollections } from "@content-collections/next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    // Post renamed 2026-11-06: marketing-harness -> content-studio-free.
+    return [
+      { source: "/:lang/blog/marketing-harness", destination: "/:lang/blog/content-studio-free", permanent: true },
+      { source: "/blog/marketing-harness", destination: "/en/blog/content-studio-free", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

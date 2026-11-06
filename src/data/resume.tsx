@@ -130,7 +130,7 @@ export const DATA = {
       tags: ["keyword research", "content agents", "analytics"],
       command: "$ qartmina brain --seo",
       /** Free, open-source version (blog post slug). */
-      free: "marketing-harness",
+      free: "content-studio-free",
     },
     {
       id: "ai-engineer",

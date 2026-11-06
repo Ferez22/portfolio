@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 type Rule = { re: RegExp; kind: string; severity: "blocking" | "warning"; fix: string };
 
 /**
- * A few rules ported from marketing-harness .claude/skills/humanize/lexicon/en.json
+ * A few rules ported from content-studio-free .claude/skills/humanize/lexicon/en.json
  * (+ the dash fingerprint). The full checker (check.py, EN + FR) runs in the repo.
  */
 const RULES: Rule[] = [
