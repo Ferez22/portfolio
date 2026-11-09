@@ -1,7 +1,7 @@
 "use client";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ArrowDown, ArrowUpRight, AudioLines, Check, Copy, Hand, Minus, PenLine, Plus, Repeat2, ShieldCheck } from "lucide-react";
+import { ArrowDown, ArrowUpRight, AudioLines, Check, Clapperboard, Copy, Hand, Minus, PenLine, Plus, Repeat2, Search, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState, type ComponentPropsWithoutRef } from "react";
 import { Icons } from "@/components/icons";
 import { BookCallButton } from "@/components/contact/contact-actions";
@@ -173,6 +173,8 @@ const FEATURE_ICON = {
   check: ShieldCheck,
   memory: Repeat2,
   publish: Hand,
+  video: Clapperboard,
+  seo: Search,
 } as const;
 
 /** Feature grid: `<Features><Feature icon="voice" title="…">…</Feature>…</Features>`. */

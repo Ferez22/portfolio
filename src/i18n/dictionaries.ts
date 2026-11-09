@@ -78,7 +78,7 @@ export type Dictionary = {
     overview: string;
     tabProducts: string;
     tabBlog: string;
-    freeVersion: string;
+    openSource: string;
     shelfAbout: string;
     shelfCases: string;
     shelfItch: string;
@@ -217,7 +217,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       email: "Email",
       callLength: "30 min",
       overview: "Overview",
-      tabProducts: "Products", tabBlog: "Blog", freeVersion: "Free version", shelfAbout: "About", shelfCases: "Case studies", shelfItch: "Scratch your own itch", shelfItchSub: "Tools I built for my own problems", comingSoon: "Coming soon", scrollPrev: "Scroll left", scrollNext: "Scroll right",
+      tabProducts: "Products", tabBlog: "Blog", openSource: "Open source", shelfAbout: "About", shelfCases: "Case studies", shelfItch: "Scratch your own itch", shelfItchSub: "Tools I built for my own problems", comingSoon: "Coming soon", scrollPrev: "Scroll left", scrollNext: "Scroll right",
       letsTalk: "Let's talk",
       founder: "Founder",
       productsSub: "Web · SEO · Hire",
@@ -349,7 +349,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       email: "E-mail",
       callLength: "30 min",
       overview: "Aperçu",
-      tabProducts: "Produits", tabBlog: "Blog", freeVersion: "Version gratuite", shelfAbout: "À propos", shelfCases: "Études de cas", shelfItch: "Scratch your own itch", shelfItchSub: "Les outils que j'ai construits pour mes propres problèmes", comingSoon: "Bientôt", scrollPrev: "Défiler à gauche", scrollNext: "Défiler à droite",
+      tabProducts: "Produits", tabBlog: "Blog", openSource: "Open source", shelfAbout: "À propos", shelfCases: "Études de cas", shelfItch: "Scratch your own itch", shelfItchSub: "Les outils que j'ai construits pour mes propres problèmes", comingSoon: "Bientôt", scrollPrev: "Défiler à gauche", scrollNext: "Défiler à droite",
       letsTalk: "Discutons",
       founder: "Fondateur",
       productsSub: "Web · SEO · Freelance",
@@ -481,7 +481,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       email: "E-Mail",
       callLength: "30 Min.",
       overview: "Überblick",
-      tabProducts: "Produkte", tabBlog: "Blog", freeVersion: "Kostenlose Version", shelfAbout: "Über", shelfCases: "Fallstudien", shelfItch: "Scratch your own itch", shelfItchSub: "Tools, die ich für meine eigenen Probleme gebaut habe", comingSoon: "Demnächst", scrollPrev: "Nach links scrollen", scrollNext: "Nach rechts scrollen",
+      tabProducts: "Produkte", tabBlog: "Blog", openSource: "Open Source", shelfAbout: "Über", shelfCases: "Fallstudien", shelfItch: "Scratch your own itch", shelfItchSub: "Tools, die ich für meine eigenen Probleme gebaut habe", comingSoon: "Demnächst", scrollPrev: "Nach links scrollen", scrollNext: "Nach rechts scrollen",
       letsTalk: "Lass uns reden",
       founder: "Gründer",
       productsSub: "Web · SEO · Freelance",

@@ -64,12 +64,12 @@ export function ProductsGrid({ lang, dict, onContact }: { lang: Locale; dict: Di
               <h3 className="m-0 font-garamond text-[clamp(24px,3.4vh,36px)] font-medium leading-[1.05] tracking-[-0.01em] text-l-text">
                 {t(o.title, lang)}
               </h3>
-              {"free" in o && (
+              {"oss" in o && (
                 <Link
-                  href={localePath(lang, `/blog/${o.free}`)}
+                  href={localePath(lang, `/blog/${o.oss}`)}
                   className="w-fit font-mono text-xs text-[#34D399] underline-offset-4 hover:underline"
                 >
-                  {l.freeVersion} → {o.free}
+                  {l.openSource} → {o.oss}
                 </Link>
               )}
               <p className="m-0 line-clamp-2 max-w-[440px] font-garamond text-[clamp(15px,2vh,18px)] leading-[1.35] text-l-muted text-pretty">

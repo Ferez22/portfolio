@@ -14,7 +14,7 @@ type Pt = [number, number];
 const R = 26;
 const CANVAS: Record<Layout, { w: number; h: number }> = { wide: { w: 760, h: 380 }, tall: { w: 360, h: 640 } };
 
-/** Track (clockwise loop) corners per layout, starting at write-post. */
+/** Track (clockwise loop) corners per layout, starting at content-studio. */
 const TRACK: Record<Layout, Pt[]> = {
   wide: [[260, 90], [590, 90], [590, 290], [150, 290], [150, 90], [260, 90]],
   tall: [[180, 90], [300, 90], [300, 540], [60, 540], [60, 90], [180, 90]],
@@ -39,7 +39,7 @@ const POS: Record<Layout, Record<Id, { x: number; y: number; side: Side }>> = {
   },
 };
 
-/** The dashed "you approve" route: learn → voice.md → write-post. */
+/** The dashed "you approve" route: memory loop → voicing.md → content-studio. */
 const APPROVE: Record<Layout, Pt[][]> = {
   wide: [
     [[480, 264], [480, 190], [396, 190]],
@@ -53,10 +53,10 @@ const APPROVE: Record<Layout, Pt[][]> = {
 
 const NODES: Record<Id, { file: string; sub: string; job: string; example: string; gold?: boolean; Icon: typeof PenLine }> = {
   write: {
-    file: "write-post",
-    sub: "drafts in your voice",
-    job: "Drafts in your voice: 3 hooks, 1 draft and a variant per platform, saved in posts/.",
-    example: "posts/YYYY-MM-DD_<slug>.md  Status: draft",
+    file: "content-studio",
+    sub: "plans, then drafts in your voice",
+    job: "Plans each piece with you, then drafts in your voice: 3 hooks, 1 draft and a version per platform, saved in the campaign folder.",
+    example: "brands/<brand>/campagnes/YYYY-MM-DD_<slug>/  Status: draft",
     gold: true,
     Icon: PenLine,
   },
@@ -71,14 +71,14 @@ const NODES: Record<Id, { file: string; sub: string; job: string; example: strin
     file: "feedback-log.md",
     sub: "every correction, dated",
     job: "memory/feedback-log.md: every correction, raw and dated. Never deleted.",
-    example: "YYYY-MM-DD | what the owner changed | why (their words) | rule it suggests",
+    example: "YYYY-MM-DD | scope | what the owner said -> what changed",
     Icon: ScrollText,
   },
   learn: {
-    file: "learn",
+    file: "memory loop",
     sub: "finds what repeats",
     job: "Finds lessons that repeat. One correction is an anecdote, two is a pattern.",
-    example: "weekly review, or after 5 new corrections",
+    example: "seen twice, or proven by your results",
     gold: true,
     Icon: Brain,
   },
@@ -90,10 +90,10 @@ const NODES: Record<Id, { file: string; sub: string; job: string; example: strin
     Icon: BookCheck,
   },
   voice: {
-    file: "voice.md",
+    file: "voicing.md",
     sub: "your voice guide",
-    job: "brand/voice.md: your voice guide. It only changes through proposals you approve.",
-    example: "Status: missing | Version: 0.0 | Validated: -",
+    job: "brands/<brand>/voicing.md: your voice guide, one per brand. It only changes through proposals you approve.",
+    example: "Status: draft | Version: 0.1 | Validated: -",
     Icon: AudioLines,
   },
 };
@@ -162,7 +162,7 @@ export function HarnessLoop() {
     <figure className="not-prose my-6 overflow-hidden rounded-2xl bg-l-panel text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)]">
       <div className="flex items-center justify-between px-4 pt-3 font-mono text-[11px] text-l-dim">
         <span>
-          ~/content-studio-free/<span className="text-l-muted">loop.flow</span>
+          ~/content-studio/<span className="text-l-muted">loop.flow</span>
         </span>
         <span className="hidden sm:inline">click a step to see the file behind it</span>
       </div>
