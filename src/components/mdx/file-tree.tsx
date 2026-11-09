@@ -14,7 +14,7 @@ const TREE: Node[] = [
   { name: "platforms.md", role: "Specs per platform: sizes, lengths, safe zones." },
   {
     name: "brands",
-    role: "One folder per brand, created by onboarding.",
+    role: "One folder per brand, created by onboarding. Local: gitignored, never in a commit.",
     children: [
       {
         name: "<brand>",
@@ -39,10 +39,11 @@ const TREE: Node[] = [
   },
   { name: "prompts", role: "Motion video prompts: launch story, launch hype, explainer, product film, UGC ad, UI moment." },
   { name: "remotion", role: "The video engine. React components rendered to MP4 on your machine, from your brand theme." },
-  { name: "knowledge", role: "Your own frameworks and reference tables. Read when a table fits the brief." },
+  { name: "knowledge", role: "Reference tables (audience desires, buyer types). Add your own: briefs and personas read them." },
+  { name: "scripts", role: "install-skills.sh links the skills into Claude. Onboarding runs it for you." },
   {
-    name: ".claude/skills",
-    role: "The skills Claude runs. Project-local: nothing to install.",
+    name: "skills",
+    role: "The skills Claude runs, linked into Claude by onboarding.",
     children: [
       { name: "onboarding", role: "First run: profile, voice, first brand, step by step. Resumable." },
       { name: "brand-voice", role: "Positioning, personas and the voice guide of each brand." },
@@ -72,7 +73,7 @@ const TREE: Node[] = [
 
 /** Interactive repo tree: folders expand/collapse, any entry shows its role. */
 export function FileTree() {
-  const [open, setOpen] = useState<Set<string>>(() => new Set(["brands", "memory", ".claude/skills"]));
+  const [open, setOpen] = useState<Set<string>>(() => new Set(["brands", "memory", "skills"]));
   const [sel, setSel] = useState<{ path: string; role: string }>({ path: "CLAUDE.md", role: TREE[0].role });
 
   const render = (nodes: Node[], base: string, depth: number): React.ReactNode => (
