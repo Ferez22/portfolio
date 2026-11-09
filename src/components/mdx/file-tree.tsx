@@ -6,48 +6,55 @@ import { cn } from "@/lib/utils";
 
 type Node = { name: string; role: string; children?: Node[] };
 
-/** content-studio-free repo tree (from its README), with one-line roles. */
+/** content-studio repo tree (from its README), with one-line roles. */
 const TREE: Node[] = [
-  { name: "CLAUDE.md", role: "The rules: routing, hard rules and the memory loop. Claude Code loads it on its own." },
+  { name: "CLAUDE.md", role: "The rules: routing, hard rules, gates and the memory loop. Claude Code loads it on its own." },
+  { name: "soul.md", role: "Who the agent is, the quality bar it holds and what it never does." },
+  { name: "content-types.md", role: "Why you publish: 8 content types (news, educational, promotional...) and their formats." },
+  { name: "platforms.md", role: "Specs per platform: sizes, lengths, safe zones." },
   {
-    name: "brand",
-    role: "Who you are and how you write.",
+    name: "brands",
+    role: "One folder per brand, created by onboarding.",
     children: [
-      { name: "brand.md", role: "Facts: offer, audience, proof. Never invented." },
-      { name: "voice.md", role: "How you write. Filled by setup, changed only through proposals you approve." },
-      { name: "ideas.md", role: "Your content backlog." },
+      {
+        name: "<brand>",
+        role: "Everything about one brand.",
+        children: [
+          { name: "brand.md", role: "Facts: offer, audience, proof. Never invented." },
+          { name: "voicing.md", role: "How the brand writes. Changed only through proposals you approve." },
+          { name: "theme.json", role: "Colors, fonts and logos the videos are rendered with." },
+          { name: "ideas.md", role: "Your content backlog." },
+          { name: "campagnes", role: "One folder per campaign: brief, plan, decisions, deliverables, results." },
+        ],
+      },
     ],
   },
   {
-    name: "posts",
-    role: "One file per post: status, copy, variants and results.",
-    children: [{ name: "README.md", role: "The post format: YYYY-MM-DD_<slug>.md with a Status header (draft, ready, posted)." }],
-  },
-  {
     name: "memory",
-    role: "What the harness learned from you.",
+    role: "What the studio learned from you.",
     children: [
       { name: "feedback-log.md", role: "Every correction, raw and dated. Never deleted." },
       { name: "learnings.md", role: "Confirmed rules, read at every session start." },
     ],
   },
-  {
-    name: "knowledge",
-    role: "Your own frameworks and reference tables.",
-    children: [{ name: "README.md", role: "Drop hook formulas, sales tables or audience research here. Every post reads them." }],
-  },
+  { name: "prompts", role: "Motion video prompts: launch story, launch hype, explainer, product film, UGC ad, UI moment." },
+  { name: "remotion", role: "The video engine. React components rendered to MP4 on your machine, from your brand theme." },
+  { name: "knowledge", role: "Your own frameworks and reference tables. Read when a table fits the brief." },
   {
     name: ".claude/skills",
-    role: "The four skills Claude runs.",
+    role: "The skills Claude runs. Project-local: nothing to install.",
     children: [
-      { name: "setup", role: "Onboarding interview.", children: [{ name: "SKILL.md", role: "Interviews you, fills brand.md and voice.md, then asks you to validate them." }] },
-      { name: "write-post", role: "Hooks, draft, platform variants.", children: [{ name: "SKILL.md", role: "Turns an idea, a note or a link into 3 hooks, 1 draft and one variant per platform." }] },
+      { name: "onboarding", role: "First run: profile, voice, first brand, step by step. Resumable." },
+      { name: "brand-voice", role: "Positioning, personas and the voice guide of each brand." },
+      { name: "content-studio", role: "Plan, brief, strategy, production, review: posts, carousels and campaigns." },
+      { name: "motion-video", role: "Picks a prompt, storyboards, renders with Remotion, checks every frame." },
+      { name: "seo-writer", role: "Search Console research, an article in your voice, shipped as a pull request." },
+      { name: "brand-assets", role: "Files your logos, fonts and brand book, extracts colors and rules." },
       {
         name: "humanize",
         role: "The checker and its lexicons.",
         children: [
-          { name: "SKILL.md", role: "Checks every text before you see it and fixes what it flags." },
-          { name: "check.py", role: "The checker itself. Standard library Python, the gate every draft has to pass." },
+          { name: "check.py", role: "The checker itself. Standard library Python, the gate every text has to pass." },
           {
             name: "lexicon",
             role: "Patterns per language.",
@@ -58,19 +65,14 @@ const TREE: Node[] = [
           },
         ],
       },
-      { name: "learn", role: "Turns feedback into rules.", children: [{ name: "SKILL.md", role: "Finds lessons that repeat, promotes them to learnings.md and proposes voice changes." }] },
+      { name: "fr-human", role: "Writing native French, never translated from English." },
     ],
-  },
-  {
-    name: "scripts",
-    role: "Helpers.",
-    children: [{ name: "package-for-cowork.sh", role: "Creates one ZIP per skill in dist/, ready to upload in Claude Cowork." }],
   },
 ];
 
 /** Interactive repo tree: folders expand/collapse, any entry shows its role. */
 export function FileTree() {
-  const [open, setOpen] = useState<Set<string>>(() => new Set(["brand", "memory", ".claude/skills"]));
+  const [open, setOpen] = useState<Set<string>>(() => new Set(["brands", "memory", ".claude/skills"]));
   const [sel, setSel] = useState<{ path: string; role: string }>({ path: "CLAUDE.md", role: TREE[0].role });
 
   const render = (nodes: Node[], base: string, depth: number): React.ReactNode => (
@@ -121,7 +123,7 @@ export function FileTree() {
   return (
     <figure className="not-prose my-6 grid gap-3 rounded-2xl bg-l-panel p-3 text-l-text shadow-[0_24px_60px_-28px_rgba(0,0,0,.7)] sm:grid-cols-[1.1fr_1fr] sm:p-5">
       <div className="min-w-0">
-        <p className="m-0 mb-1.5 px-1.5 font-mono text-xs text-l-dim">content-studio-free/</p>
+        <p className="m-0 mb-1.5 px-1.5 font-mono text-xs text-l-dim">content-studio/</p>
         {render(TREE, "", 0)}
       </div>
       <figcaption aria-live="polite" className="self-start rounded-xl border border-l-border bg-l-node p-3 sm:sticky sm:top-4">

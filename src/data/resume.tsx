@@ -129,8 +129,8 @@ export const DATA = {
       },
       tags: ["keyword research", "content agents", "analytics"],
       command: "$ qartmina brain --seo",
-      /** Free, open-source version (blog post slug). */
-      free: "content-studio-free",
+      /** Open source (MIT): blog post slug. */
+      oss: "content-studio",
     },
     {
       id: "ai-engineer",
@@ -165,6 +165,12 @@ export const DATA = {
       name: "clrea",
       command: "brew install ferez22/clrea/clrea",
       href: "https://github.com/Ferez22/clrea",
+      kind: "oss",
+    },
+    {
+      name: "content-studio",
+      command: "git clone https://github.com/Ferez22/content-studio",
+      href: "https://github.com/Ferez22/content-studio",
       kind: "oss",
     },
     {

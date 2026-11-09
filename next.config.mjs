@@ -4,10 +4,12 @@ import { withContentCollections } from "@content-collections/next";
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
-    // Post renamed 2026-11-06: marketing-harness -> content-studio-free.
+    // Post renamed: marketing-harness -> content-studio-free (2026-11-06) -> content-studio (2026-11-09, open source).
     return [
-      { source: "/:lang/blog/marketing-harness", destination: "/:lang/blog/content-studio-free", permanent: true },
-      { source: "/blog/marketing-harness", destination: "/en/blog/content-studio-free", permanent: true },
+      { source: "/:lang/blog/marketing-harness", destination: "/:lang/blog/content-studio", permanent: true },
+      { source: "/blog/marketing-harness", destination: "/en/blog/content-studio", permanent: true },
+      { source: "/:lang/blog/content-studio-free", destination: "/:lang/blog/content-studio", permanent: true },
+      { source: "/blog/content-studio-free", destination: "/en/blog/content-studio", permanent: true },
     ];
   },
   async headers() {

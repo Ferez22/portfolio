@@ -2,16 +2,17 @@
 title: "I built a harness so Claude writes in my voice (and you can clone it)"
 publishedAt: "2026-11-05"
 author: "Fares Aouani Cherif"
-summary: "A free Claude setup that learns your voice from your own posts, then from every correction you make. One prompt to install."
-image: "/blog/content-studio-free.svg"
+summary: "An open source Claude setup that learns your voice from your own posts, then from every correction you make. Posts, motion videos and SEO articles. One prompt to install."
+image: "/blog/content-studio.svg"
 category: "itch"
 ---
 
-<TLDR repo="https://github.com/Ferez22/content-studio-free" demo="live-demo">
+<TLDR repo="https://github.com/Ferez22/content-studio" demo="live-demo">
 - One prompt to install. 
 - It learns from you: it reads your best posts and interviews you.
 - Every correction you make is logged. The ones that repeat become rules.
-- It's free.
+- Posts, carousels, motion videos and SEO articles, for one brand or several.
+- It's open source (MIT).
 </TLDR>
 
 <b>Your posts feel generic? They sound like an AI wrote them? The voicing is off? Your content doesn't go viral?</b>
@@ -32,13 +33,15 @@ Of course I gave it access to my repos so it can edit my SEO blogs and push them
 
 I ended up with a system that generates/edits posts and SEO articles in my voice, cleans up the AI tells, publishes the articles to my website for Google to index, generates media content that matches my style, and everything is ready to publish.
 
-I also decided to open source a free version of content-studio. The best part is you install it with one command, nothing extra is needed.
+I also decided to open source content-studio, all of it. The best part is you install it with one command, nothing extra is needed.
 
 ## What you get
 
 <Features>
   <Feature icon="voice" title="Sounds like you from day one">An interview turns your best posts into a written voice guide. Every draft starts from it.</Feature>
   <Feature icon="write" title="A post ready for every platform">Three hooks to pick from, one draft, and a variant for each platform: LinkedIn, Instagram, X.</Feature>
+  <Feature icon="video" title="Motion videos in your brand">Launch films, explainers and UI loops, rendered in code with Remotion from your colors and fonts. You approve the storyboard first.</Feature>
+  <Feature icon="seo" title="SEO that ships as a pull request">It reads your Search Console data, writes the article in your voice and opens a pull request on your site. You merge.</Feature>
   <Feature icon="check" title="Text that sounds like a human">A built-in checker blocks AI tells, em dashes and "translated" French before you ever see a draft.</Feature>
   <Feature icon="memory" title="Fix it once, it remembers">Every edit you make is logged. The same lesson twice, and it becomes a rule.</Feature>
   <Feature icon="publish" title="You keep the last word">It never posts for you. You get copy-ready text and you press publish.</Feature>
@@ -46,30 +49,17 @@ I also decided to open source a free version of content-studio. The best part is
 
 ## Install
 
-<Tabs labels={["Claude Cowork", "Claude Code"]} badges={["Recommended"]}>
-<Tab>
+<Prompt title="Claude Code">Install this repo, then let's run it: https://github.com/Ferez22/content-studio</Prompt>
 
-<Prompt title="Claude Cowork">Install this repo, then let's run it: https://github.com/Ferez22/content-studio-free</Prompt>
-
-Open an empty folder in Cowork and paste the prompt. Cowork reading `CLAUDE.md` from a folder isn't documented yet, so the key rules are also written inside each skill.
-
-</Tab>
-<Tab>
-
-<Prompt title="Claude Code">Install this repo, then let's run it: https://github.com/Ferez22/content-studio-free</Prompt>
-
-Or clone it yourself, run `claude` inside the folder and type `start`. Claude Code loads `CLAUDE.md` and the skills on its own.
-
-</Tab>
-</Tabs>
+Or clone it yourself, run `claude` inside the folder and type `onboarding`. Claude Code loads `CLAUDE.md` and the skills on its own, and onboarding walks you through your voice and your first brand.
 
 ## Use it well
 
 1. **Give it your real best.** The voice guide is only as good as the posts you paste. When it shows you what it noticed about your voice, correct every guess that's off: that's where it learns the most.
-2. **Ask for a post.** "Write a post about..." or "What should I post this week?". You get 3 hooks, a draft, and a version per platform.
+2. **Ask for a post, a video or an article.** "Write a post about...", "A launch video for our new feature", "An SEO article about...". Every piece starts as a plan you approve, then you get 3 hooks, a draft and a version per platform.
 3. **Correct it in your own words.** Don't just rewrite the draft: say why ("too salesy", "I never open with a question"). Every reason is logged.
 4. **Post it yourself, then come back with the results.** "This one got 40 comments" is the best feedback it can get.
-5. **Run a weekly review.** Say "weekly review". It turns repeated corrections into rules and proposes changes to your voice guide. Nothing changes without your yes.
+5. **Let it learn.** Corrections that repeat become rules, and your results feed the next plan. It proposes changes to your voice guide; nothing changes without your yes.
 6. **Feed it.** Drop your hook formulas, sales notes or audience research in `knowledge/`. Every post reads them.
 
 ## The loop
@@ -78,34 +68,34 @@ Or clone it yourself, run `claude` inside the folder and type `start`. Claude Co
 
 One correction is an anecdote. Two is a pattern. That's the whole difference with a prompt: before it writes this week, it reads what you fixed last week.
 
-<FullVersion title="Content Studio" lead="Your brand, your content style. Posts sound just like you, and get better over time.">
-- **Videos and images for your socials.** Your posts lack graphic content? Not anymore. Images, graphs, motion graphics videos and animations, all part of the pack.
-- **SEO that ships.** Good content, the right keywords and solid internal links bring more traffic, so you show up in more Google searches.
-- **Plugged into your tools.** Google Search Console, a scraper that pulls the exact data you need from websites, video generation and more.
-- **A loop that learns.** Your adjustments are remembered, your stats are read, trends are analysed, and your agent becomes a magician.
-- **Set up once, get updates for life.**
-</FullVersion>
-
 ## What's inside
 
 <FileTree />
 
 <Accordion type="single" collapsible>
-  <AccordionItem value="setup">
-    <AccordionTrigger>setup</AccordionTrigger>
-    <AccordionContent>**Runs:** on first install, or when you say "setup". **You get:** `brand.md` (facts) and `voice.md` (how you write), validated by you.</AccordionContent>
+  <AccordionItem value="onboarding">
+    <AccordionTrigger>onboarding</AccordionTrigger>
+    <AccordionContent>**Runs:** first run, or "onboarding". **You get:** your profile, your voice and your first brand, step by step. You can stop and resume anytime.</AccordionContent>
   </AccordionItem>
-  <AccordionItem value="write-post">
-    <AccordionTrigger>write-post</AccordionTrigger>
-    <AccordionContent>**Runs:** "write a post about...", "what should I post?". **You get:** 3 hooks, 1 draft, one version per platform, saved in `posts/`.</AccordionContent>
+  <AccordionItem value="brand-voice">
+    <AccordionTrigger>brand-voice</AccordionTrigger>
+    <AccordionContent>**Runs:** "add a brand", positioning, tone. **You get:** `brand.md` (facts), `voicing.md` (how the brand writes) and `strategie.md`, validated by you.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="content-studio">
+    <AccordionTrigger>content-studio</AccordionTrigger>
+    <AccordionContent>**Runs:** "write a post about...", "a campaign for...". **You get:** a plan to approve, then 3 hooks, 1 draft and one version per platform, saved in the campaign folder.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="motion-video">
+    <AccordionTrigger>motion-video</AccordionTrigger>
+    <AccordionContent>**Runs:** "a launch video", "an animated explainer". **You get:** a storyboard to approve, then a rendered MP4 with a contact sheet of its key frames.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="seo-writer">
+    <AccordionTrigger>seo-writer</AccordionTrigger>
+    <AccordionContent>**Runs:** "an article about...", "why is my traffic down?". **You get:** Search Console research, a brief to approve, then a pull request on your site repo.</AccordionContent>
   </AccordionItem>
   <AccordionItem value="humanize">
     <AccordionTrigger>humanize</AccordionTrigger>
     <AccordionContent>**Runs:** before any text reaches you. **You get:** a clean draft, or the list of what to fix.</AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="learn">
-    <AccordionTrigger>learn</AccordionTrigger>
-    <AccordionContent>**Runs:** "weekly review", or after 5 new corrections. **You get:** new rules, and voice changes for you to approve.</AccordionContent>
   </AccordionItem>
 </Accordion>
 
@@ -134,7 +124,7 @@ Try a few of its rules:
   </AccordionItem>
   <AccordionItem value="cost">
     <AccordionTrigger>What does it cost?</AccordionTrigger>
-    <AccordionContent>Nothing. The repo is free and MIT licensed. You need your own Claude plan.</AccordionContent>
+    <AccordionContent>Nothing. The repo is open source, MIT licensed. You need your own Claude plan. Paid connectors (ElevenLabs, Higgsfield, Firecrawl) are optional and always ask before spending.</AccordionContent>
   </AccordionItem>
 </Accordion>
 
